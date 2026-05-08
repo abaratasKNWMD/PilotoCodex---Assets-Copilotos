@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "architecture_decision_audit_v1",
+  "version": "architecture-decision-audit-1.0",
+  "ownerAgent": "factory_agent_05_architecture",
+  "copilotId": "aida_architecture",
+  "mission": "Audits principles, ADRs and technical decision quality.",
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/aida_architecture/shared/architecture_decision_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "maxUnexplainedDrift": 0
+  },
+  "requiredEvidence": [
+    {
+      "id": "principles",
+      "minimumRefs": 1,
+      "description": "Architecture principles or guardrails used to evaluate the decision."
+    },
+    {
+      "id": "adr",
+      "minimumRefs": 1,
+      "description": "ADR, decision log or equivalent record with context and consequences."
+    },
+    {
+      "id": "technical_decision_quality",
+      "minimumRefs": 1,
+      "description": "Trade-off analysis covering maintainability, reliability and release readiness."
+    },
+    {
+      "id": "validation",
+      "minimumRefs": 1,
+      "description": "Deterministic command, route evidence or review checklist proving the audit path."
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "principle_alignment",
+      "passSignal": "Decision cites the relevant principle and states alignment or exception.",
+      "failSignal": "Decision claims architecture quality without a named principle."
+    },
+    {
+      "id": "adr_completeness",
+      "passSignal": "Context, decision, consequences and status are recorded.",
+      "failSignal": "ADR evidence is missing, stale or only describes the preferred option."
+    },
+    {
+      "id": "decision_quality",
+      "passSignal": "Trade-offs, alternatives and risk impact are explicit.",
+      "failSignal": "Decision hides operational or integration consequences."
+    },
+    {
+      "id": "traceability_and_cost",
+      "passSignal": "All runtimes point to the same audit artifact and avoid repeated broad prompt expansion.",
+      "failSignal": "Architecture evidence drifts between runtime adapters."
+    }
+  ],
+  "requiredOutputFields": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks"
+  ],
+  "routingSignals": [
+    "architecture",
+    "arquitectura",
+    "principles",
+    "principios",
+    "adr",
+    "decision",
+    "calidad",
+    "quality",
+    "technical",
+    "tecnica",
+    "tecnico"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/semantic_router.py architecture adr principles",
+    "python tools/semantic_router.py arquitectura adr principios",
+    "python tools/semantic_router.py python ci routing"
+  ]
+}

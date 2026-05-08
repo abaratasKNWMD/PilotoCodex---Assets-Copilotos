@@ -1,0 +1,161 @@
+{
+  "policyVersion": "cost-routing-1.0",
+  "ownerAgent": "factory_agent_20_cost",
+  "room": "Operations",
+  "mission": "Routes cheap deterministic work to Python and expensive judgement to LLMs.",
+  "mode": "python_first_llm_sparse",
+  "frontier": "state-locks",
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "sourceOfTruth": ".codex-loop/factory/cost-routing-contract.json",
+  "cheapDeterministicWork": [
+    {
+      "id": "catalog_generation",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "data/copilots.json",
+        "generated/copilot-index.json"
+      ]
+    },
+    {
+      "id": "semantic_routing",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "tools/semantic_router.py",
+        "generated/validation-report.json#/semanticRouter"
+      ]
+    },
+    {
+      "id": "schema_validation",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "tools/validate_copilot_factory.py",
+        "generated/validation-report.json"
+      ]
+    },
+    {
+      "id": "prompt_quality_budget",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "tools/validate_prompt_quality.py",
+        "generated/prompt-quality-report.json#/costBudget"
+      ]
+    },
+    {
+      "id": "runtime_equivalence_diff",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "tools/validate_runtime_equivalence.py",
+        "generated/runtime-equivalence-report.json"
+      ]
+    },
+    {
+      "id": "documentation_marker_audit",
+      "executor": "python",
+      "costClass": "cheap_deterministic",
+      "evidence": [
+        "generated/documentation-audit-report.json",
+        "generated/validation-report.json#/docsAuditor"
+      ]
+    }
+  ],
+  "expensiveJudgementWork": [
+    {
+      "id": "architecture_tradeoff",
+      "executor": "llm",
+      "costClass": "expensive_judgement",
+      "allowedAfter": [
+        "python_gates_pass",
+        "tradeoff_requires_judgement"
+      ],
+      "traceRequired": true
+    },
+    {
+      "id": "non_trivial_code_change",
+      "executor": "llm",
+      "costClass": "expensive_judgement",
+      "allowedAfter": [
+        "python_gates_pass",
+        "scoped_implementation_plan_exists"
+      ],
+      "traceRequired": true
+    },
+    {
+      "id": "final_operator_synthesis",
+      "executor": "llm",
+      "costClass": "expensive_judgement",
+      "allowedAfter": [
+        "python_gates_pass",
+        "audit_reports_written"
+      ],
+      "traceRequired": true
+    }
+  ],
+  "decisionRules": {
+    "pythonFirstRequired": true,
+    "llmBeforePythonAllowed": false,
+    "scoreBeforeLlmAssist": true,
+    "samePolicyForAdapters": true,
+    "maxUnexplainedRuntimeDrift": 0,
+    "promptGrowthBudgetRef": "generated/prompt-quality-report.json#/costBudget",
+    "routerEvidenceField": "routing_evidence",
+    "placeholderOnlyCredentials": true,
+    "rawLogPromptsAllowed": false
+  },
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sameCostRoutingPolicy": true,
+    "sameTraceFields": true,
+    "adapterSpecificPromptExpansionAllowed": false,
+    "maxUnexplainedDrift": 0
+  },
+  "traceability": {
+    "runtimeInjectionMap": "generated/runtime-injection-map.json",
+    "canonicalSpec": "dist/copilots/<copilot_id>/shared/spec.json",
+    "validationReport": "generated/validation-report.json#/costRoutingAuditor",
+    "semanticRouterReport": "generated/validation-report.json#/semanticRouter",
+    "promptCostReport": "generated/prompt-quality-report.json#/costBudget"
+  },
+  "validation": {
+    "commands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ],
+    "requiredArtifacts": [
+      ".codex-loop/factory/cost-routing-contract.json",
+      ".codex-loop/factory/cost-routing-scorecard.json",
+      ".codex-loop/factory/cost-routing-policy.md"
+    ],
+    "requiredSettings": [
+      "codexLoop.costRoutingContractFile",
+      "codexLoop.costRoutingScorecardFile",
+      "codexLoop.costRoutingPolicyFile",
+      "codexLoop.deterministicPythonFirst",
+      "codexLoop.llmEscalationMode",
+      "codexLoop.maxUnexplainedRuntimeDrift",
+      "codexLoop.rawLogPromptsAllowed"
+    ],
+    "negativeCases": [
+      "missing_python_first",
+      "llm_before_python",
+      "runtime_drift",
+      "cheap_work_to_llm",
+      "ungated_judgement",
+      "traceability_missing"
+    ]
+  }
+}

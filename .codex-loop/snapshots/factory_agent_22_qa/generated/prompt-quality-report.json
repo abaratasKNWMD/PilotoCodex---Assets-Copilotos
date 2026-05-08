@@ -1,0 +1,1614 @@
+{
+  "pass": true,
+  "checkedAt": "2026-05-04T19:29:13.326607+00:00",
+  "copilots": 18,
+  "minimumDepthThresholds": {
+    "markdownChars": 6500,
+    "langchainChars": 4500,
+    "systemPromptChars": 1300,
+    "developerPromptChars": 1500
+  },
+  "thresholds": {
+    "markdownChars": 6500,
+    "langchainChars": 4500,
+    "systemPromptChars": 1300,
+    "developerPromptChars": 1500
+  },
+  "costBudget": {
+    "baseline": "generated/prompt-size-baseline.json",
+    "maxGrowthRatio": 0.1,
+    "metrics": [
+      {
+        "id": "devex",
+        "surface": "systemPrompt",
+        "chars": 1729,
+        "baselineChars": 1729,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "devex",
+        "surface": "developerPrompt",
+        "chars": 2265,
+        "baselineChars": 2265,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "devex",
+        "surface": "codex",
+        "chars": 14694,
+        "baselineChars": 14694,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "devex",
+        "surface": "claude",
+        "chars": 14601,
+        "baselineChars": 14601,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "devex",
+        "surface": "github-copilot",
+        "chars": 14982,
+        "baselineChars": 14982,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "devex",
+        "surface": "langchain",
+        "chars": 17572,
+        "baselineChars": 17572,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "systemPrompt",
+        "chars": 1756,
+        "baselineChars": 1756,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "developerPrompt",
+        "chars": 2262,
+        "baselineChars": 2262,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "codex",
+        "chars": 14804,
+        "baselineChars": 14804,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "claude",
+        "chars": 14711,
+        "baselineChars": 14711,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "github-copilot",
+        "chars": 15144,
+        "baselineChars": 15144,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "aida_architecture",
+        "surface": "langchain",
+        "chars": 18040,
+        "baselineChars": 18040,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "systemPrompt",
+        "chars": 1809,
+        "baselineChars": 1809,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "developerPrompt",
+        "chars": 2092,
+        "baselineChars": 2092,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "codex",
+        "chars": 11288,
+        "baselineChars": 11288,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "claude",
+        "chars": 11195,
+        "baselineChars": 11195,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "github-copilot",
+        "chars": 11576,
+        "baselineChars": 11576,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "as_is_discovery",
+        "surface": "langchain",
+        "chars": 14608,
+        "baselineChars": 14608,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "systemPrompt",
+        "chars": 1706,
+        "baselineChars": 1706,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "developerPrompt",
+        "chars": 2091,
+        "baselineChars": 2091,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "codex",
+        "chars": 11160,
+        "baselineChars": 11160,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "claude",
+        "chars": 11067,
+        "baselineChars": 11067,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "github-copilot",
+        "chars": 11448,
+        "baselineChars": 11448,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "single_registry",
+        "surface": "langchain",
+        "chars": 14479,
+        "baselineChars": 14479,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "systemPrompt",
+        "chars": 2015,
+        "baselineChars": 2015,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "developerPrompt",
+        "chars": 2301,
+        "baselineChars": 2301,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "codex",
+        "chars": 14873,
+        "baselineChars": 14873,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "claude",
+        "chars": 14780,
+        "baselineChars": 14780,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "github-copilot",
+        "chars": 15193,
+        "baselineChars": 15193,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v5",
+        "surface": "langchain",
+        "chars": 17722,
+        "baselineChars": 17722,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "systemPrompt",
+        "chars": 2025,
+        "baselineChars": 2025,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "developerPrompt",
+        "chars": 2306,
+        "baselineChars": 2306,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "codex",
+        "chars": 12080,
+        "baselineChars": 14898,
+        "deltaChars": -2818,
+        "growthRatio": -0.1892,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "claude",
+        "chars": 11987,
+        "baselineChars": 14805,
+        "deltaChars": -2818,
+        "growthRatio": -0.1903,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "github-copilot",
+        "chars": 12400,
+        "baselineChars": 15218,
+        "deltaChars": -2818,
+        "growthRatio": -0.1852,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_v6",
+        "surface": "langchain",
+        "chars": 19346,
+        "baselineChars": 17762,
+        "deltaChars": 1584,
+        "growthRatio": 0.0892,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "systemPrompt",
+        "chars": 1736,
+        "baselineChars": 1736,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "developerPrompt",
+        "chars": 2191,
+        "baselineChars": 2191,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "codex",
+        "chars": 14416,
+        "baselineChars": 14416,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "claude",
+        "chars": 14323,
+        "baselineChars": 14323,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "github-copilot",
+        "chars": 14704,
+        "baselineChars": 14704,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "moonshine",
+        "surface": "langchain",
+        "chars": 17245,
+        "baselineChars": 17245,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "systemPrompt",
+        "chars": 2303,
+        "baselineChars": 2303,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "developerPrompt",
+        "chars": 2179,
+        "baselineChars": 2179,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "codex",
+        "chars": 17549,
+        "baselineChars": 17549,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "claude",
+        "chars": 17456,
+        "baselineChars": 17456,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "github-copilot",
+        "chars": 17837,
+        "baselineChars": 17837,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_generic",
+        "surface": "langchain",
+        "chars": 19967,
+        "baselineChars": 19967,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "systemPrompt",
+        "chars": 2011,
+        "baselineChars": 2011,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "developerPrompt",
+        "chars": 2185,
+        "baselineChars": 2185,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "codex",
+        "chars": 14464,
+        "baselineChars": 14464,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "claude",
+        "chars": 14371,
+        "baselineChars": 14371,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "github-copilot",
+        "chars": 14752,
+        "baselineChars": 14752,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "java_architect",
+        "surface": "langchain",
+        "chars": 17431,
+        "baselineChars": 17431,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "systemPrompt",
+        "chars": 2020,
+        "baselineChars": 2020,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "developerPrompt",
+        "chars": 2190,
+        "baselineChars": 2190,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "codex",
+        "chars": 17281,
+        "baselineChars": 17281,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "claude",
+        "chars": 17188,
+        "baselineChars": 17188,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "github-copilot",
+        "chars": 17569,
+        "baselineChars": 17569,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "angular_18",
+        "surface": "langchain",
+        "chars": 19711,
+        "baselineChars": 19711,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "systemPrompt",
+        "chars": 1965,
+        "baselineChars": 1965,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "developerPrompt",
+        "chars": 2278,
+        "baselineChars": 2278,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "codex",
+        "chars": 17491,
+        "baselineChars": 17491,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "claude",
+        "chars": 17398,
+        "baselineChars": 17398,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "github-copilot",
+        "chars": 17779,
+        "baselineChars": 17779,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "nodejs",
+        "surface": "langchain",
+        "chars": 19963,
+        "baselineChars": 19963,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "systemPrompt",
+        "chars": 1830,
+        "baselineChars": 1830,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "developerPrompt",
+        "chars": 2185,
+        "baselineChars": 2185,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "codex",
+        "chars": 14471,
+        "baselineChars": 14471,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "claude",
+        "chars": 14378,
+        "baselineChars": 14378,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "github-copilot",
+        "chars": 14759,
+        "baselineChars": 14759,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "python",
+        "surface": "langchain",
+        "chars": 17296,
+        "baselineChars": 17296,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "systemPrompt",
+        "chars": 1687,
+        "baselineChars": 1687,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "developerPrompt",
+        "chars": 2077,
+        "baselineChars": 2077,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "codex",
+        "chars": 11063,
+        "baselineChars": 11063,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "claude",
+        "chars": 10970,
+        "baselineChars": 10970,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "github-copilot",
+        "chars": 11351,
+        "baselineChars": 11351,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "qa_general",
+        "surface": "langchain",
+        "chars": 14360,
+        "baselineChars": 14360,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "systemPrompt",
+        "chars": 1740,
+        "baselineChars": 1740,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "developerPrompt",
+        "chars": 2228,
+        "baselineChars": 2228,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "codex",
+        "chars": 11685,
+        "baselineChars": 11685,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "claude",
+        "chars": 11592,
+        "baselineChars": 11592,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "github-copilot",
+        "chars": 12005,
+        "baselineChars": 12005,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "sonarqube_remediation",
+        "surface": "langchain",
+        "chars": 15078,
+        "baselineChars": 15078,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "systemPrompt",
+        "chars": 1754,
+        "baselineChars": 1754,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "developerPrompt",
+        "chars": 2182,
+        "baselineChars": 2182,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "codex",
+        "chars": 11418,
+        "baselineChars": 11418,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "claude",
+        "chars": 11325,
+        "baselineChars": 11325,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "github-copilot",
+        "chars": 11706,
+        "baselineChars": 11706,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "cicd",
+        "surface": "langchain",
+        "chars": 14820,
+        "baselineChars": 14820,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "systemPrompt",
+        "chars": 1801,
+        "baselineChars": 1801,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "developerPrompt",
+        "chars": 2191,
+        "baselineChars": 2191,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "codex",
+        "chars": 11303,
+        "baselineChars": 11303,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "claude",
+        "chars": 11210,
+        "baselineChars": 11210,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "github-copilot",
+        "chars": 11591,
+        "baselineChars": 11591,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "journey_to_cloud",
+        "surface": "langchain",
+        "chars": 16568,
+        "baselineChars": 16568,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "systemPrompt",
+        "chars": 1670,
+        "baselineChars": 1670,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "developerPrompt",
+        "chars": 2074,
+        "baselineChars": 2074,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "codex",
+        "chars": 11059,
+        "baselineChars": 11059,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "claude",
+        "chars": 10966,
+        "baselineChars": 10966,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "github-copilot",
+        "chars": 11347,
+        "baselineChars": 11347,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "copilots_manager",
+        "surface": "langchain",
+        "chars": 14401,
+        "baselineChars": 14401,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "systemPrompt",
+        "chars": 1657,
+        "baselineChars": 1657,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "developerPrompt",
+        "chars": 2102,
+        "baselineChars": 2102,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "codex",
+        "chars": 11156,
+        "baselineChars": 11156,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "claude",
+        "chars": 11063,
+        "baselineChars": 11063,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "github-copilot",
+        "chars": 11444,
+        "baselineChars": 11444,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      },
+      {
+        "id": "firefly_marketplace",
+        "surface": "langchain",
+        "chars": 14488,
+        "baselineChars": 14488,
+        "deltaChars": 0,
+        "growthRatio": 0.0,
+        "maxAllowedGrowthRatio": 0.1,
+        "status": "pass"
+      }
+    ]
+  },
+  "metrics": [
+    {
+      "id": "devex",
+      "runtime": "codex",
+      "chars": 14694
+    },
+    {
+      "id": "devex",
+      "runtime": "claude",
+      "chars": 14601
+    },
+    {
+      "id": "devex",
+      "runtime": "github-copilot",
+      "chars": 14982
+    },
+    {
+      "id": "devex",
+      "runtime": "langchain",
+      "chars": 17572
+    },
+    {
+      "id": "aida_architecture",
+      "runtime": "codex",
+      "chars": 14804
+    },
+    {
+      "id": "aida_architecture",
+      "runtime": "claude",
+      "chars": 14711
+    },
+    {
+      "id": "aida_architecture",
+      "runtime": "github-copilot",
+      "chars": 15144
+    },
+    {
+      "id": "aida_architecture",
+      "runtime": "langchain",
+      "chars": 18040
+    },
+    {
+      "id": "as_is_discovery",
+      "runtime": "codex",
+      "chars": 11288
+    },
+    {
+      "id": "as_is_discovery",
+      "runtime": "claude",
+      "chars": 11195
+    },
+    {
+      "id": "as_is_discovery",
+      "runtime": "github-copilot",
+      "chars": 11576
+    },
+    {
+      "id": "as_is_discovery",
+      "runtime": "langchain",
+      "chars": 14608
+    },
+    {
+      "id": "single_registry",
+      "runtime": "codex",
+      "chars": 11160
+    },
+    {
+      "id": "single_registry",
+      "runtime": "claude",
+      "chars": 11067
+    },
+    {
+      "id": "single_registry",
+      "runtime": "github-copilot",
+      "chars": 11448
+    },
+    {
+      "id": "single_registry",
+      "runtime": "langchain",
+      "chars": 14479
+    },
+    {
+      "id": "firefly_v5",
+      "runtime": "codex",
+      "chars": 14873
+    },
+    {
+      "id": "firefly_v5",
+      "runtime": "claude",
+      "chars": 14780
+    },
+    {
+      "id": "firefly_v5",
+      "runtime": "github-copilot",
+      "chars": 15193
+    },
+    {
+      "id": "firefly_v5",
+      "runtime": "langchain",
+      "chars": 17722
+    },
+    {
+      "id": "firefly_v6",
+      "runtime": "codex",
+      "chars": 12080
+    },
+    {
+      "id": "firefly_v6",
+      "runtime": "claude",
+      "chars": 11987
+    },
+    {
+      "id": "firefly_v6",
+      "runtime": "github-copilot",
+      "chars": 12400
+    },
+    {
+      "id": "firefly_v6",
+      "runtime": "langchain",
+      "chars": 19346
+    },
+    {
+      "id": "moonshine",
+      "runtime": "codex",
+      "chars": 14416
+    },
+    {
+      "id": "moonshine",
+      "runtime": "claude",
+      "chars": 14323
+    },
+    {
+      "id": "moonshine",
+      "runtime": "github-copilot",
+      "chars": 14704
+    },
+    {
+      "id": "moonshine",
+      "runtime": "langchain",
+      "chars": 17245
+    },
+    {
+      "id": "java_generic",
+      "runtime": "codex",
+      "chars": 17549
+    },
+    {
+      "id": "java_generic",
+      "runtime": "claude",
+      "chars": 17456
+    },
+    {
+      "id": "java_generic",
+      "runtime": "github-copilot",
+      "chars": 17837
+    },
+    {
+      "id": "java_generic",
+      "runtime": "langchain",
+      "chars": 19967
+    },
+    {
+      "id": "java_architect",
+      "runtime": "codex",
+      "chars": 14464
+    },
+    {
+      "id": "java_architect",
+      "runtime": "claude",
+      "chars": 14371
+    },
+    {
+      "id": "java_architect",
+      "runtime": "github-copilot",
+      "chars": 14752
+    },
+    {
+      "id": "java_architect",
+      "runtime": "langchain",
+      "chars": 17431
+    },
+    {
+      "id": "angular_18",
+      "runtime": "codex",
+      "chars": 17281
+    },
+    {
+      "id": "angular_18",
+      "runtime": "claude",
+      "chars": 17188
+    },
+    {
+      "id": "angular_18",
+      "runtime": "github-copilot",
+      "chars": 17569
+    },
+    {
+      "id": "angular_18",
+      "runtime": "langchain",
+      "chars": 19711
+    },
+    {
+      "id": "nodejs",
+      "runtime": "codex",
+      "chars": 17491
+    },
+    {
+      "id": "nodejs",
+      "runtime": "claude",
+      "chars": 17398
+    },
+    {
+      "id": "nodejs",
+      "runtime": "github-copilot",
+      "chars": 17779
+    },
+    {
+      "id": "nodejs",
+      "runtime": "langchain",
+      "chars": 19963
+    },
+    {
+      "id": "python",
+      "runtime": "codex",
+      "chars": 14471
+    },
+    {
+      "id": "python",
+      "runtime": "claude",
+      "chars": 14378
+    },
+    {
+      "id": "python",
+      "runtime": "github-copilot",
+      "chars": 14759
+    },
+    {
+      "id": "python",
+      "runtime": "langchain",
+      "chars": 17296
+    },
+    {
+      "id": "qa_general",
+      "runtime": "codex",
+      "chars": 11063
+    },
+    {
+      "id": "qa_general",
+      "runtime": "claude",
+      "chars": 10970
+    },
+    {
+      "id": "qa_general",
+      "runtime": "github-copilot",
+      "chars": 11351
+    },
+    {
+      "id": "qa_general",
+      "runtime": "langchain",
+      "chars": 14360
+    },
+    {
+      "id": "sonarqube_remediation",
+      "runtime": "codex",
+      "chars": 11685
+    },
+    {
+      "id": "sonarqube_remediation",
+      "runtime": "claude",
+      "chars": 11592
+    },
+    {
+      "id": "sonarqube_remediation",
+      "runtime": "github-copilot",
+      "chars": 12005
+    },
+    {
+      "id": "sonarqube_remediation",
+      "runtime": "langchain",
+      "chars": 15078
+    },
+    {
+      "id": "cicd",
+      "runtime": "codex",
+      "chars": 11418
+    },
+    {
+      "id": "cicd",
+      "runtime": "claude",
+      "chars": 11325
+    },
+    {
+      "id": "cicd",
+      "runtime": "github-copilot",
+      "chars": 11706
+    },
+    {
+      "id": "cicd",
+      "runtime": "langchain",
+      "chars": 14820
+    },
+    {
+      "id": "journey_to_cloud",
+      "runtime": "codex",
+      "chars": 11303
+    },
+    {
+      "id": "journey_to_cloud",
+      "runtime": "claude",
+      "chars": 11210
+    },
+    {
+      "id": "journey_to_cloud",
+      "runtime": "github-copilot",
+      "chars": 11591
+    },
+    {
+      "id": "journey_to_cloud",
+      "runtime": "langchain",
+      "chars": 16568
+    },
+    {
+      "id": "copilots_manager",
+      "runtime": "codex",
+      "chars": 11059
+    },
+    {
+      "id": "copilots_manager",
+      "runtime": "claude",
+      "chars": 10966
+    },
+    {
+      "id": "copilots_manager",
+      "runtime": "github-copilot",
+      "chars": 11347
+    },
+    {
+      "id": "copilots_manager",
+      "runtime": "langchain",
+      "chars": 14401
+    },
+    {
+      "id": "firefly_marketplace",
+      "runtime": "codex",
+      "chars": 11156
+    },
+    {
+      "id": "firefly_marketplace",
+      "runtime": "claude",
+      "chars": 11063
+    },
+    {
+      "id": "firefly_marketplace",
+      "runtime": "github-copilot",
+      "chars": 11444
+    },
+    {
+      "id": "firefly_marketplace",
+      "runtime": "langchain",
+      "chars": 14488
+    }
+  ],
+  "testStrategyAudit": {
+    "mission": "Audits test strategy, pairwise cases and negative cases.",
+    "targetCopilot": "qa_general",
+    "pairwiseCases": [
+      {
+        "id": "codex__claude",
+        "runtimes": [
+          "codex",
+          "claude"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      },
+      {
+        "id": "codex__github-copilot",
+        "runtimes": [
+          "codex",
+          "github-copilot"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      },
+      {
+        "id": "codex__langchain",
+        "runtimes": [
+          "codex",
+          "langchain"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      },
+      {
+        "id": "claude__github-copilot",
+        "runtimes": [
+          "claude",
+          "github-copilot"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      },
+      {
+        "id": "claude__langchain",
+        "runtimes": [
+          "claude",
+          "langchain"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      },
+      {
+        "id": "github-copilot__langchain",
+        "runtimes": [
+          "github-copilot",
+          "langchain"
+        ],
+        "assertions": [
+          "prompt_depth",
+          "shared_schema_reference",
+          "cost_budget",
+          "traceability"
+        ]
+      }
+    ],
+    "pairwiseCaseCount": 6,
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": []
+      },
+      {
+        "id": "secret_pattern",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "secret_pattern"
+        ]
+      },
+      {
+        "id": "local_path",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "local_path"
+        ]
+      },
+      {
+        "id": "cost_growth",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "cost_budget"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "qaRuntimeMetricsPresent": [
+      "claude",
+      "codex",
+      "github-copilot",
+      "langchain"
+    ],
+    "qaCostStatuses": {
+      "systemPrompt": "pass",
+      "developerPrompt": "pass",
+      "codex": "pass",
+      "claude": "pass",
+      "github-copilot": "pass",
+      "langchain": "pass"
+    },
+    "runtimeMarkersChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "pass": true,
+    "issues": []
+  },
+  "issues": []
+}

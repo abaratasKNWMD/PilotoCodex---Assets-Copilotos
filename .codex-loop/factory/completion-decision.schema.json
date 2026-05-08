@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["status", "reason", "evidence", "newTaskCount", "confidence"],
+  "properties": {
+    "status": { "enum": ["done", "continue", "blocked"] },
+    "reason": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "newTaskCount": { "type": "number" },
+    "confidence": { "enum": ["low", "medium", "high"] }
+  }
+}

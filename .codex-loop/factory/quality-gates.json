@@ -1,0 +1,13 @@
+{
+  "workspaceType": "copilot-factory",
+  "qualityFloor": 0.9,
+  "verifyAfterEachTask": true,
+  "pauseOnFailedVerification": true,
+  "retryOnCritiqueBelowFloor": true,
+  "requiredArtifacts": [
+    "generated/validation-report.json",
+    "generated/prompt-quality-report.json",
+    "generated/runtime-equivalence-report.json",
+    "generated/runtime-injection-map.json"
+  ]
+}

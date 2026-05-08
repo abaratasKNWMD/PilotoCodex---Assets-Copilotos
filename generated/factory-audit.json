@@ -1,0 +1,1079 @@
+{
+  "version": "copilot-factory-0.2.0",
+  "generatedAt": "2026-05-04T18:14:12.23892+02:00",
+  "copilots": 18,
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "runtimeArtifacts": 72,
+  "factoryAgents": 50,
+  "sdlcPhases": [
+    "discovery",
+    "as_is",
+    "architecture",
+    "design",
+    "build",
+    "test",
+    "security",
+    "devops",
+    "cloud",
+    "release",
+    "operate"
+  ],
+  "buildImplementationAudit": {
+    "pass": true,
+    "policyVersion": "implementation-plan-stack-rules-audit-1.0",
+    "ownerAgent": "factory_agent_07_build",
+    "targetCopilots": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "requiredEvidence": [
+      "implementation_plan",
+      "stack_rules",
+      "affected_files",
+      "validation"
+    ],
+    "qualityGates": [
+      "scoped_implementation_plan",
+      "stack_rule_alignment",
+      "test_and_rollback_readiness",
+      "traceability_and_cost"
+    ],
+    "requiredOutputFields": [
+      "copilot_id",
+      "decision",
+      "evidence",
+      "actions",
+      "validation",
+      "risks",
+      "implementation"
+    ],
+    "requiredImplementationFields": [
+      "target_stack",
+      "affected_files",
+      "plan_steps",
+      "stack_rules_checked",
+      "validation_commands",
+      "rollback_plan",
+      "out_of_scope",
+      "evidence_pack"
+    ],
+    "evidenceField": "implementation_plan_audit",
+    "sampleRequest": "build implementation stack rules affected files rollback",
+    "sampleExpectedTopRoutes": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "routeEvidenceFields": [
+      "runtime_trace",
+      "implementation_plan_audit",
+      "routing_evidence"
+    ],
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/semantic_router.py build implementation stack rules affected files rollback",
+      "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+      "python tools/semantic_router.py python ci routing"
+    ]
+  },
+  "pass": true,
+  "devopsAudit": {
+    "pass": true,
+    "policyVersion": "devops-ci-logs-reproducibility-rollback-audit-1.0",
+    "ownerAgent": "factory_agent_10_devops",
+    "mission": "Audits CI/CD, logs, reproducibility and rollback paths.",
+    "targetCopilot": "cicd",
+    "targetCopilotSourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+    "requiredEvidence": [
+      "ci_cd_entrypoint",
+      "log_evidence",
+      "reproducibility",
+      "rollback_paths"
+    ],
+    "qualityGates": [
+      "serial_command_order",
+      "bounded_runtime_toolchain",
+      "report_and_log_traceability",
+      "rollback_snapshot_ready",
+      "traceability_and_cost"
+    ],
+    "runSequence": [
+      "generate_copilot_factory.py",
+      "validate_copilot_factory.py",
+      "validate_prompt_quality.py",
+      "validate_runtime_equivalence.py"
+    ],
+    "scriptTimeoutSeconds": 900,
+    "ciCdEntrypoint": "tools/run_factory.py",
+    "rawLogSource": "agent.log",
+    "logPrivacy": {
+      "rawLogLocalOnly": true,
+      "sanitizedEvidenceOnly": true
+    },
+    "logEvidence": [
+      "generated/devops-log-evidence.json",
+      "generated/validation-report.json",
+      "generated/prompt-quality-report.json",
+      "generated/runtime-equivalence-report.json"
+    ],
+    "reproducibility": {
+      "pythonExecutable": "sys.executable",
+      "workingDirectory": "workspace_root",
+      "deterministicOrder": true,
+      "subprocessCheck": true,
+      "noBytecodeArtifacts": true,
+      "networkRequired": false,
+      "credentialsRequired": false
+    },
+    "rollbackPaths": [
+      ".codex-loop/rollback",
+      ".codex-loop/backups"
+    ],
+    "runtimeEquivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+      "traceSource": "generated/runtime-injection-map.json#/copilots/cicd",
+      "maxUnexplainedDrift": 0
+    },
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "not_required_for_ci_log_reproducibility_audit"
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "checkedAt": "2026-05-04T18:14:12.466294+02:00"
+  },
+  "cloudAudit": {
+    "pass": true,
+    "policyVersion": "cloud-migration-target-modernization-audit-1.0",
+    "ownerAgent": "factory_agent_11_cloud",
+    "mission": "Audits migration, target platform and modernization increments.",
+    "targetCopilot": "journey_to_cloud",
+    "targetCopilotSourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+    "auditArtifact": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+    "frontier": "cost-time",
+    "requiredEvidence": [
+      "migration_inventory",
+      "target_platform",
+      "modernization_increments",
+      "validation"
+    ],
+    "qualityGates": [
+      "incremental_migration_plan",
+      "platform_fit_and_constraints",
+      "modernization_traceability",
+      "cost_time_guard"
+    ],
+    "requiredOutputFields": [
+      "copilot_id",
+      "decision",
+      "evidence",
+      "actions",
+      "validation",
+      "risks",
+      "cloud_migration"
+    ],
+    "requiredCloudMigrationFields": [
+      "current_state_refs",
+      "target_platform",
+      "migration_increments",
+      "modernization_actions",
+      "data_network_security_impacts",
+      "rollback_and_parallel_run",
+      "validation_commands",
+      "evidence_pack",
+      "out_of_scope"
+    ],
+    "targetPlatform": {
+      "selectionRequired": true,
+      "decisionInputs": [
+        "runtime",
+        "data",
+        "identity",
+        "network",
+        "observability",
+        "operating_model",
+        "rollback"
+      ],
+      "unsupportedAssumptionsMustBeGaps": true
+    },
+    "modernizationIncrements": [
+      {
+        "id": "migration_inventory",
+        "evidence": "Inventory of current state, coupling, data flows and owners before target design.",
+        "validation": "cloud_migration.current_state_refs contains at least one local evidence reference."
+      },
+      {
+        "id": "platform_target",
+        "evidence": "Target platform decision names capabilities, constraints and explicit out-of-scope items.",
+        "validation": "cloud_migration.target_platform records platform, rationale and constraints."
+      },
+      {
+        "id": "incremental_modernization",
+        "evidence": "Modernization actions are batched into reversible increments with validation commands.",
+        "validation": "cloud_migration.migration_increments and rollback_and_parallel_run are populated."
+      }
+    ],
+    "runtimeEquivalence": {
+      "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/cloudMigrationAudit",
+      "maxUnexplainedDrift": 0
+    },
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "allowed_after_platform_tradeoff_only",
+      "maxPromptGrowthRatio": 0.1
+    },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+    "checkedAt": "2026-05-05T14:51:42+02:00"
+  },
+  "releaseAudit": {
+    "pass": true,
+    "policyVersion": "release-readiness-scorecard-exit-criteria-audit-1.0",
+    "ownerAgent": "factory_agent_12_release",
+    "mission": "Audits package readiness, scorecards and exit criteria.",
+    "frontier": "output-topology",
+    "targetCopilots": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "requiredEvidence": [
+      "package_readiness",
+      "scorecards",
+      "exit_criteria",
+      "validation"
+    ],
+    "qualityGates": [
+      "output_topology",
+      "artifact_manifest",
+      "scorecard_completeness",
+      "exit_criteria_evidence",
+      "traceability_and_cost"
+    ],
+    "artifactTargets": [
+      "web-app",
+      "desktop-tauri-windows-exe",
+      "docs-and-seo"
+    ],
+    "requiredScorecardFields": [
+      "copilotId",
+      "sourceOfTruth",
+      "runtimeAdapters",
+      "declaredOutputs",
+      "score",
+      "scoreType",
+      "scoreScope",
+      "exitCriteriaStatus",
+      "releaseClaimStatus",
+      "claimPolicyRef",
+      "residualRiskRefs",
+      "evidenceRefs"
+    ],
+    "packageReadiness": {
+      "productRoot": "products",
+      "portfolioRegistry": ".codex-loop/factory/project-registry.json",
+      "claimPolicy": "no_product_artifact_claim_without_build_render_or_package_evidence",
+      "topologyEvidence": [
+        "factory.config.json#/controlRoom/scopeDrift/productRoot",
+        "generated/runtime-injection-map.json#/copilots",
+        ".codex-loop/factory/frontier-governance-report.md#output-topology"
+      ],
+      "artifactTargets": [
+        {
+          "id": "web-app",
+          "status": "not_claimed_without_build_and_browser_render_evidence",
+          "requiredEvidenceBeforeClaim": [
+            "build command output",
+            "browser navigation/render smoke"
+          ]
+        },
+        {
+          "id": "desktop-tauri-windows-exe",
+          "status": "not_claimed_without_tauri_executable_path",
+          "requiredEvidenceBeforeClaim": [
+            "tauri config",
+            "windows executable path"
+          ]
+        },
+        {
+          "id": "docs-and-seo",
+          "status": "not_claimed_without_docs_seo_artifact_evidence",
+          "requiredEvidenceBeforeClaim": [
+            "docs route or artifact",
+            "SEO metadata verification"
+          ]
+        }
+      ]
+    },
+    "distributionManifest": {
+      "policyVersion": "packager-distribution-manifest-file-index-1.0",
+      "ownerAgent": "factory_agent_23_packager",
+      "room": "Operations",
+      "mission": "Builds distribution manifests and file indexes.",
+      "frontier": "output-topology",
+      "status": "manifest_and_file_index_built_metadata_only",
+      "releaseClaimStatus": "not_a_product_release_claim",
+      "manifestRef": "generated/factory-audit.json#/releaseAudit/distributionManifest",
+      "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex",
+      "productRoot": "products",
+      "distributionRoot": "dist/copilots",
+      "portfolioRegistry": ".codex-loop/factory/project-registry.json",
+      "runtimeEquivalence": {
+        "sourceOfTruth": "generated/runtime-injection-map.json#/distributionFileIndex",
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "maxUnexplainedDrift": 0
+      },
+      "artifactTargets": [
+        "web-app",
+        "desktop-tauri-windows-exe",
+        "docs-and-seo"
+      ],
+      "packageSets": [
+        {
+          "copilotId": "devex",
+          "distributionSlug": "devex",
+          "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+          "outputSchema": "dist/copilots/devex/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/devex/codex/AGENT.md",
+            "claude": "dist/copilots/devex/claude/AGENT.md",
+            "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/devex/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/devex",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/devex"
+        },
+        {
+          "copilotId": "aida_architecture",
+          "distributionSlug": "aida-architecture",
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+          "outputSchema": "dist/copilots/aida_architecture/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+            "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+            "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/aida_architecture",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/aida_architecture"
+        },
+        {
+          "copilotId": "java_architect",
+          "distributionSlug": "java-architect",
+          "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+          "outputSchema": "dist/copilots/java_architect/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/java_architect/codex/AGENT.md",
+            "claude": "dist/copilots/java_architect/claude/AGENT.md",
+            "github-copilot": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/java_architect/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/java_architect",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/java_architect"
+        },
+        {
+          "copilotId": "qa_general",
+          "distributionSlug": "qa-general",
+          "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+          "outputSchema": "dist/copilots/qa_general/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/qa_general/codex/AGENT.md",
+            "claude": "dist/copilots/qa_general/claude/AGENT.md",
+            "github-copilot": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/qa_general/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/qa_general",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/qa_general"
+        },
+        {
+          "copilotId": "sonarqube_remediation",
+          "distributionSlug": "sonarqube-remediation",
+          "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "outputSchema": "dist/copilots/sonarqube_remediation/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+            "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+            "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/sonarqube_remediation",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/sonarqube_remediation"
+        },
+        {
+          "copilotId": "cicd",
+          "distributionSlug": "cicd",
+          "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+          "outputSchema": "dist/copilots/cicd/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/cicd/codex/AGENT.md",
+            "claude": "dist/copilots/cicd/claude/AGENT.md",
+            "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/cicd/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/cicd",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/cicd"
+        },
+        {
+          "copilotId": "journey_to_cloud",
+          "distributionSlug": "journey-to-cloud",
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+          "outputSchema": "dist/copilots/journey_to_cloud/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+            "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+            "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/journey_to_cloud",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/journey_to_cloud"
+        },
+        {
+          "copilotId": "firefly_marketplace",
+          "distributionSlug": "firefly-marketplace",
+          "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+          "outputSchema": "dist/copilots/firefly_marketplace/shared/output_schema.json",
+          "runtimeFiles": {
+            "codex": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_marketplace/langchain/agent.py"
+          },
+          "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/firefly_marketplace",
+          "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex/packages/firefly_marketplace"
+        }
+      ],
+      "internalReview": {
+        "owner": "pass_manifest_targets_and_refs_are_explicit",
+        "qa": "pass_index_refs_resolve_to_runtime_files",
+        "safeCodingPrivacy": "pass_placeholders_only_no_customer_or_billing_data",
+        "release": "pass_no_binary_or_product_release_claim_without_build_evidence"
+      },
+      "validationCommands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/validate_runtime_equivalence.py"
+      ]
+    },
+    "scorecards": [
+      {
+        "copilotId": "devex",
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "devex_scorecard",
+          "standards_patch_plan"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/devex/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/devex"
+        ]
+      },
+      {
+        "copilotId": "aida_architecture",
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "adr_review",
+          "architecture_principles_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/aida_architecture/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/aida_architecture"
+        ]
+      },
+      {
+        "copilotId": "java_architect",
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "java_adr",
+          "architecture_fitness_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/java_architect/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/java_architect"
+        ]
+      },
+      {
+        "copilotId": "qa_general",
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "qa_strategy",
+          "test_matrix"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/qa_general/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/qa_general"
+        ]
+      },
+      {
+        "copilotId": "sonarqube_remediation",
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "sonar_report",
+          "remediation_backlog"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/sonarqube_remediation"
+        ]
+      },
+      {
+        "copilotId": "cicd",
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "pipeline_triage",
+          "workflow_patch_plan"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/cicd/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/cicd"
+        ]
+      },
+      {
+        "copilotId": "journey_to_cloud",
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "migration_plan",
+          "cloud_readiness_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "explicit_residual_risk",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/journey_to_cloud/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/journey_to_cloud"
+        ]
+      },
+      {
+        "copilotId": "firefly_marketplace",
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "marketplace_manifest",
+          "distribution_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "explicit_residual_risk",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/firefly_marketplace/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/firefly_marketplace"
+        ]
+      }
+    ],
+    "exitCriteria": [
+      {
+        "id": "product-market-fit",
+        "status": "not_applicable_with_residual_risk",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "This task audits factory release metadata only; product market evidence must be attached by the product workspace before external launch.",
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ]
+      },
+      {
+        "id": "implementation",
+        "status": "pass",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "factory.config.json#/controlRoom/releaseTruthGate/releaseReadinessAudit",
+          "generated/runtime-injection-map.json#/copilots/firefly_marketplace/releaseReadinessAudit"
+        ]
+      },
+      {
+        "id": "test-coverage",
+        "status": "not_applicable_with_residual_risk",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "Factory validators are required; product coverage remains product-specific evidence.",
+          "python tools/validate_copilot_factory.py",
+          "python tools/validate_prompt_quality.py",
+          "python tools/validate_runtime_equivalence.py"
+        ]
+      },
+      {
+        "id": "browser-navigation-render",
+        "status": "not_applicable_with_residual_risk",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "No frontend product is released by this metadata task; browser render evidence is required before a web-app claim.",
+          ".codex-loop/factory/frontier-governance-report.md"
+        ]
+      },
+      {
+        "id": "safe-coding-privacy",
+        "status": "pass",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "config/.env.example uses placeholders only.",
+          "Validation scans release artifacts for credential-shaped values and local absolute paths."
+        ]
+      },
+      {
+        "id": "seo-content",
+        "status": "not_applicable_with_residual_risk",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "No docs-and-seo product artifact is claimed by this task; SEO proof must be attached per product package.",
+          "factory.config.json#/controlRoom/scopeDrift/productRoot"
+        ]
+      },
+      {
+        "id": "packaging-artifact",
+        "status": "not_applicable_with_residual_risk",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "No desktop executable or web build is claimed without a concrete path produced by the relevant build tool.",
+          "generated/factory-audit.json#/releaseAudit/packageReadiness/artifactTargets"
+        ]
+      },
+      {
+        "id": "release-handoff",
+        "status": "pass",
+        "owner": "factory_agent_12_release",
+        "evidence": [
+          "generated/factory-audit.json#/releaseAudit/scorecards",
+          "generated/factory-audit.json#/releaseAudit/exitCriteria",
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ]
+      }
+    ],
+    "runtimeEquivalence": {
+      "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+      "maxUnexplainedDrift": 0
+    },
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "not_required_for_release_metadata_audit",
+      "maxPromptGrowthRatio": 0.1
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "residualRisks": [
+      "This release audit verifies factory package metadata, runtime traces and handoff criteria; it does not claim a product build, browser render, SEO artifact or desktop executable.",
+      "A product-specific release remains blocked until build/test/render/package evidence is attached under products/<slug>/ and the registry is updated."
+    ],
+    "checkedAt": "2026-05-04T18:47:03.025221+02:00",
+    "scorecardIndex": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot",
+    "scorecardsByCopilot": {
+      "devex": {
+        "copilotId": "devex",
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "devex_scorecard",
+          "standards_patch_plan"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/devex/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/devex"
+        ]
+      },
+      "aida_architecture": {
+        "copilotId": "aida_architecture",
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "adr_review",
+          "architecture_principles_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/aida_architecture/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/aida_architecture"
+        ]
+      },
+      "java_architect": {
+        "copilotId": "java_architect",
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "java_adr",
+          "architecture_fitness_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/java_architect/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/java_architect"
+        ]
+      },
+      "qa_general": {
+        "copilotId": "qa_general",
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "qa_strategy",
+          "test_matrix"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/qa_general/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/qa_general"
+        ]
+      },
+      "sonarqube_remediation": {
+        "copilotId": "sonarqube_remediation",
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "sonar_report",
+          "remediation_backlog"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/sonarqube_remediation"
+        ]
+      },
+      "cicd": {
+        "copilotId": "cicd",
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "pipeline_triage",
+          "workflow_patch_plan"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "pass",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/cicd/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/cicd"
+        ]
+      },
+      "journey_to_cloud": {
+        "copilotId": "journey_to_cloud",
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "migration_plan",
+          "cloud_readiness_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "explicit_residual_risk",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/journey_to_cloud/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/journey_to_cloud"
+        ]
+      },
+      "firefly_marketplace": {
+        "copilotId": "firefly_marketplace",
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "runtimeAdapters": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "declaredOutputs": [
+          "marketplace_manifest",
+          "distribution_report"
+        ],
+        "score": 100,
+        "scoreType": "metadata_evidence_completeness",
+        "scoreScope": "metadata_evidence_completeness_only",
+        "exitCriteriaStatus": "explicit_residual_risk",
+        "releaseClaimStatus": "not_a_product_release_claim",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRefs": [
+          "generated/factory-audit.json#/releaseAudit/residualRisks"
+        ],
+        "evidenceRefs": [
+          "dist/copilots/firefly_marketplace/shared/spec.json",
+          "generated/runtime-injection-map.json",
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/firefly_marketplace"
+        ]
+      }
+    },
+    "scoreScopePolicy": "score_is_metadata_only_and_does_not_override_residual_risks_or_claim_policy",
+    "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+    "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks"
+  }
+}

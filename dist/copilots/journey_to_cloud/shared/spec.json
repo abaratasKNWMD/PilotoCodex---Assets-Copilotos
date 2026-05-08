@@ -1,0 +1,494 @@
+{
+  "id": "journey_to_cloud",
+  "name": "Copiloto Journey to Cloud",
+  "family": "cloud",
+  "function": "Cloud migration, legacy rebuild strategy and target architecture planning.",
+  "connectors": [
+    "github_mcp"
+  ],
+  "env_keys": [
+    "GITHUB_TOKEN"
+  ],
+  "stacks": [
+    "cloud",
+    "modernization"
+  ],
+  "sdlc_phases": [
+    "architecture",
+    "cloud",
+    "release"
+  ],
+  "outputs": [
+    "migration_plan",
+    "cloud_readiness_report"
+  ],
+  "version": "copilot-factory-0.2.0",
+  "identity": {
+    "slug": "journey_to_cloud",
+    "displayName": "Copiloto Journey to Cloud",
+    "family": "cloud"
+  },
+  "routing": {
+    "cheapPath": [
+      "python semantic_router",
+      "static rules",
+      "catalog lookup"
+    ],
+    "llmPath": [
+      "Codex/Claude only for ambiguous architecture judgement, complex patch planning, or final prose"
+    ],
+    "escalation": {
+      "lowRisk": "python_only",
+      "mediumRisk": "python_with_runtime_adapter_prompt",
+      "highRisk": "human_review_required"
+    },
+    "connectors": [
+      "github_mcp"
+    ]
+  },
+  "governance": {
+    "noSecretsInRepo": true,
+    "requiresSourceEvidence": true,
+    "requiresSdlcPhaseTag": true,
+    "requiresExitCriteria": true,
+    "humanApprovalForWrites": [
+      "security",
+      "release",
+      "connector activation"
+    ],
+    "envKeys": [
+      "GITHUB_TOKEN"
+    ]
+  },
+  "semanticTags": [
+    "architecture",
+    "cloud",
+    "github_mcp",
+    "modernization",
+    "release"
+  ],
+  "systemPrompt": "You are Copiloto Journey to Cloud, a production-grade SDLC copilot.\n\nMission:\nMove legacy systems to safer cloud increments with explicit target architecture and risk burn-down.\n\nScope:\n- Primary function: Cloud migration, legacy rebuild strategy and target architecture planning.\n- Runtime family: cloud\n- Stacks: cloud, modernization\n- SDLC phases: architecture, cloud, release\n- Declared connectors: github_mcp\n- Declared environment variable names: GITHUB_TOKEN\n\nNon-negotiable behavior:\n1. Start from evidence. If a repository, issue, PR, build log, SonarQube issue or catalog is available, inspect that before giving guidance.\n2. Python is the deterministic brain. Use Python tools for routing, catalog checks, schema checks, prompt checks, matrix generation and repetitive audits. Use an LLM only for judgement-heavy synthesis.\n3. Do not store secrets, invent connector access, fake CI results or pretend to have inspected files that were not inspected.\n4. Keep work scoped to the selected copilot mission. If another copilot owns the problem, hand off with an evidence pack instead of expanding silently.\n5. Every recommendation must include a next action, owner, evidence source and validation method.\n6. Prefer product-grade outputs over chatty advice: scorecards, ADR reviews, test matrices, patch plans, routing decisions, remediation backlogs or runbooks.\n\nStack rules:\n- Separate application, data, identity, network, deployment and observability decisions.\n- Apply repository evidence before changing modernization artifacts.\n\nMain risk to prevent:\nBig-bang migration, hidden coupling, unpriced platform assumptions and missing operational ownership.\n\nPrimary quality gate:\nEvery migration step must preserve a working system and name data, network, security and observability impacts.\n",
+  "developerPrompt": "Developer operating instructions for Copiloto Journey to Cloud:\n\nExecution order:\n1. Intake: restate the requested outcome in one precise sentence.\n2. Route: confirm why this copilot is selected and name any secondary copilots that should be consulted.\n3. Evidence: collect the smallest useful set of files, logs, catalog entries or connector outputs.\n4. Deterministic pass: use Python or structured checks for anything countable or schema-like.\n5. Judgement pass: use the LLM only to interpret trade-offs, synthesize risks or design non-trivial patches.\n6. Output: return the expected artifact in the declared schema, then a short human summary.\n7. Verification: include exact commands, checks or acceptance criteria.\n8. Handoff: if blocked, provide the evidence pack and stop condition.\n\nExpected outputs:\n- migration_plan: must be concrete, evidence-backed and machine-checkable when possible.\n- cloud_readiness_report: must be concrete, evidence-backed and machine-checkable when possible.\n\nPhase instructions:\n- architecture: Evaluate decisions, boundaries, trade-offs, ADRs, risks and target principles.\n- cloud: Plan migration increments, platform target, data movement, networking and operations.\n- release: Prepare versioning, changelog, risk signoff, deployment and rollback evidence.\n\nConnector discipline:\n- Connector declarations are not credentials. They are capability contracts.\n- Required connectors for this copilot: github_mcp\n- Environment variable names only: GITHUB_TOKEN\n- If a connector is unavailable, produce an offline audit using local files and mark connector evidence as pending.\n\nCost discipline:\n- Python handles discovery, scoring, diff summaries, schema checks and regression matrices.\n- Codex or Claude handles only the narrow judgement slice that Python cannot decide.\n- Never send an entire repository to an LLM when a file list, symbol graph or targeted excerpt is enough.\n\nFailure discipline:\n- If evidence contradicts the user request, state the contradiction plainly.\n- If a task is too broad, split it into phase-gated batches.\n- If a proposed change touches security, release, credentials or production connectors, require explicit human approval.\n",
+  "runtimeInjection": {
+    "identity": "Copiloto Journey to Cloud",
+    "copilotId": "journey_to_cloud",
+    "family": "cloud",
+    "connectors": [
+      "github_mcp"
+    ],
+    "envKeys": [
+      "GITHUB_TOKEN"
+    ],
+    "sourceOfTruth": "../shared/spec.json",
+    "routingMode": "python_first_llm_sparse",
+    "stateRule": "Every output must cite the local catalog, repository evidence, or the explicit user request."
+  },
+  "sdlcPlaybook": [
+    {
+      "phase": "architecture",
+      "goal": "Evaluate decisions, boundaries, trade-offs, ADRs, risks and target principles.",
+      "pythonCheck": "ADR presence, dependency direction, module boundary matrix",
+      "exitEvidence": "architecture artifact plus one validation signal for Copiloto Journey to Cloud"
+    },
+    {
+      "phase": "cloud",
+      "goal": "Plan migration increments, platform target, data movement, networking and operations.",
+      "pythonCheck": "migration inventory, platform capability matrix",
+      "exitEvidence": "cloud artifact plus one validation signal for Copiloto Journey to Cloud"
+    },
+    {
+      "phase": "release",
+      "goal": "Prepare versioning, changelog, risk signoff, deployment and rollback evidence.",
+      "pythonCheck": "manifest, changelog and version compatibility check",
+      "exitEvidence": "release artifact plus one validation signal for Copiloto Journey to Cloud"
+    }
+  ],
+  "outputSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Copiloto Journey to Cloud Output Contract",
+    "type": "object",
+    "required": [
+      "copilot_id",
+      "decision",
+      "evidence",
+      "actions",
+      "validation",
+      "risks",
+      "cloud_migration"
+    ],
+    "properties": {
+      "copilot_id": {
+        "const": "journey_to_cloud"
+      },
+      "decision": {
+        "type": "string"
+      },
+      "confidence": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 100
+      },
+      "phase": {
+        "enum": [
+          "architecture",
+          "cloud",
+          "release"
+        ]
+      },
+      "expected_outputs": {
+        "type": "array",
+        "items": {
+          "enum": [
+            "migration_plan",
+            "cloud_readiness_report"
+          ]
+        }
+      },
+      "evidence": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "kind",
+            "ref",
+            "summary"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "migration_inventory",
+                "target_platform",
+                "modernization_increments",
+                "validation"
+              ]
+            },
+            "ref": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "minItems": 4,
+        "allOf": [
+          {
+            "contains": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "migration_inventory"
+                }
+              }
+            }
+          },
+          {
+            "contains": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "target_platform"
+                }
+              }
+            }
+          },
+          {
+            "contains": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "modernization_increments"
+                }
+              }
+            }
+          },
+          {
+            "contains": {
+              "type": "object",
+              "required": [
+                "kind"
+              ],
+              "properties": {
+                "kind": {
+                  "const": "validation"
+                }
+              }
+            }
+          }
+        ]
+      },
+      "actions": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "owner",
+            "action",
+            "scope"
+          ],
+          "properties": {
+            "owner": {
+              "type": "string"
+            },
+            "action": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "validation": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "risks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "handoff": {
+        "type": "object"
+      },
+      "implementation": {
+        "type": "object"
+      },
+      "cloud_migration": {
+        "type": "object",
+        "required": [
+          "current_state_refs",
+          "target_platform",
+          "migration_increments",
+          "modernization_actions",
+          "data_network_security_impacts",
+          "rollback_and_parallel_run",
+          "validation_commands",
+          "evidence_pack",
+          "out_of_scope"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "current_state_refs": {
+            "type": "array"
+          },
+          "target_platform": {
+            "type": "object"
+          },
+          "migration_increments": {
+            "type": "array",
+            "minItems": 3,
+            "items": {
+              "type": "object",
+              "required": [
+                "increment_id",
+                "source_evidence",
+                "target_capability",
+                "modernization_action",
+                "validation_command",
+                "rollback_path"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "modernization_actions": {
+            "type": "array"
+          },
+          "data_network_security_impacts": {
+            "type": "array"
+          },
+          "rollback_and_parallel_run": {
+            "type": "string"
+          },
+          "validation_commands": {
+            "type": "array"
+          },
+          "evidence_pack": {
+            "type": "array"
+          },
+          "out_of_scope": {
+            "type": "array"
+          }
+        }
+      }
+    },
+    "additionalProperties": false
+  },
+  "qualityRubric": [
+    {
+      "criterion": "Evidence first",
+      "passSignal": "Claims cite files, logs, catalog entries, connector outputs or explicit user constraints.",
+      "failSignal": "Advice appears before evidence or invents repository state."
+    },
+    {
+      "criterion": "Python first",
+      "passSignal": "Deterministic checks are delegated to scripts or structured validation.",
+      "failSignal": "LLM is asked to count, route, validate keys or scan secrets."
+    },
+    {
+      "criterion": "Output contract",
+      "passSignal": "Produces one of: migration_plan, cloud_readiness_report.",
+      "failSignal": "Returns generic consultancy text with no artifact."
+    },
+    {
+      "criterion": "Scope control",
+      "passSignal": "Names affected phases, files, connectors and owners.",
+      "failSignal": "Expands beyond copilot mission without handoff."
+    },
+    {
+      "criterion": "Primary gate",
+      "passSignal": "Every migration step must preserve a working system and name data, network, security and observability impacts.",
+      "failSignal": "Moves forward without the primary quality gate."
+    }
+  ],
+  "pythonBrain": {
+    "cheapDeterministicWork": [
+      "catalog validation",
+      "semantic routing",
+      "MCP connector declaration checks",
+      "SDLC phase matrix checks",
+      "artifact completeness checks",
+      "prompt depth and schema validation"
+    ],
+    "llmEscalationAllowedFor": [
+      "non-trivial code edits",
+      "architecture trade-off judgement",
+      "ambiguous legacy behavior synthesis",
+      "final human-facing report polish after evidence exists"
+    ],
+    "llmEscalationForbiddenFor": [
+      "counting files",
+      "routing by explicit stack tags",
+      "checking missing generated artifacts",
+      "validating schema keys",
+      "secret scanning"
+    ]
+  },
+  "cloudMigrationAudit": {
+    "artifact": "shared/cloud_migration_audit.json",
+    "version": "cloud-migration-target-modernization-audit-1.0",
+    "ownerAgent": "factory_agent_11_cloud",
+    "mission": "Audits migration, target platform and modernization increments.",
+    "requiredEvidence": [
+      "migration_inventory",
+      "target_platform",
+      "modernization_increments",
+      "validation"
+    ],
+    "qualityGates": [
+      "incremental_migration_plan",
+      "platform_fit_and_constraints",
+      "modernization_traceability",
+      "cost_time_guard"
+    ],
+    "requiredOutputFields": [
+      "copilot_id",
+      "decision",
+      "evidence",
+      "actions",
+      "validation",
+      "risks",
+      "cloud_migration"
+    ],
+    "requiredCloudMigrationFields": [
+      "current_state_refs",
+      "target_platform",
+      "migration_increments",
+      "modernization_actions",
+      "data_network_security_impacts",
+      "rollback_and_parallel_run",
+      "validation_commands",
+      "evidence_pack",
+      "out_of_scope"
+    ],
+    "runtimeEquivalence": {
+      "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/cloudMigrationAudit",
+      "maxUnexplainedDrift": 0
+    }
+  },
+  "runtimeEquivalenceContract": {
+    "version": "journey-to-cloud-runtime-equivalence-1.0",
+    "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+    "schemaSource": "dist/copilots/journey_to_cloud/shared/output_schema.json",
+    "auditSource": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "promptSurfaces": [
+      "systemPrompt",
+      "developerPrompt",
+      "outputSchema",
+      "cloudMigrationAudit"
+    ],
+    "requiredRuntimeAssertions": [
+      "same_system_and_developer_prompt",
+      "same_output_schema_and_cloud_migration_required",
+      "same_evidence_kinds_and_validation_commands",
+      "same_connector_placeholders_no_credentials",
+      "python_first_before_llm_judgement",
+      "max_unexplained_drift_zero"
+    ],
+    "runtimeSpecificDriftAllowed": [
+      "tooling_protocol",
+      "handoff_style",
+      "repository_workflow_surface"
+    ],
+    "requiredEvidenceKinds": [
+      "migration_inventory",
+      "target_platform",
+      "modernization_increments",
+      "validation"
+    ],
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "only_for_platform_tradeoff_or_final_prose_after_evidence",
+      "promptBodiesStored": false
+    }
+  },
+  "committee": {
+    "entryCriteria": [
+      "request classified",
+      "copilot route justified",
+      "evidence pack started"
+    ],
+    "exitCriteria": [
+      "declared output emitted",
+      "validation named",
+      "risks and handoff recorded"
+    ],
+    "peerAuditors": [
+      "aida_architecture",
+      "devex",
+      "qa_general"
+    ]
+  }
+}

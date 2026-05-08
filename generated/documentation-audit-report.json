@@ -1,0 +1,939 @@
+{
+  "pass": true,
+  "agentPresent": true,
+  "mission": "Audits generated READMEs and operator docs.",
+  "policyVersion": "generated-readme-operator-docs-audit-1.0",
+  "requiredEvidence": [
+    "generated_readmes",
+    "operator_docs",
+    "runtime_adapter_traceability",
+    "validation"
+  ],
+  "qualityGates": [
+    "all_copilot_readmes_have_runtime_map",
+    "operator_docs_resolve",
+    "runtime_equivalence_refs_present",
+    "privacy_safe_placeholders",
+    "traceability_and_cost"
+  ],
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sourceOfTruth": "dist/copilots/<copilot_id>/shared/spec.json",
+    "traceEvidence": "generated/documentation-audit-report.json#/readmeChecks",
+    "sameReadmeContractForAdapters": true,
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "llmEscalation": "disabled_for_marker_and_reference_audit",
+    "rawLogPromptsAllowed": false,
+    "readmeGrowthPolicy": "operator_sections_only"
+  },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py"
+  ],
+  "reportArtifact": "generated/documentation-audit-report.json",
+  "reportMarkdown": "generated/documentation-audit-report.md",
+  "reportWritten": true,
+  "copilotReadmesExpected": 18,
+  "copilotReadmesChecked": [
+    "devex",
+    "aida_architecture",
+    "as_is_discovery",
+    "single_registry",
+    "firefly_v5",
+    "firefly_v6",
+    "moonshine",
+    "java_generic",
+    "java_architect",
+    "angular_18",
+    "nodejs",
+    "python",
+    "qa_general",
+    "sonarqube_remediation",
+    "cicd",
+    "journey_to_cloud",
+    "copilots_manager",
+    "firefly_marketplace"
+  ],
+  "operatorDocsChecked": [
+    "README.md",
+    "OPERATING_SYSTEM.md",
+    "factory-prompt.md",
+    ".codex-loop/factory/operate-observability-runbook.md",
+    ".codex-loop/factory/incident-runbook.md",
+    ".codex-loop/factory/cost-routing-policy.md"
+  ],
+  "readmeChecks": [
+    {
+      "copilotId": "devex",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/devex/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "aida_architecture",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/aida_architecture/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "as_is_discovery",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/as_is_discovery/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "single_registry",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/single_registry/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "firefly_v5",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/firefly_v5/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "firefly_v6",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/firefly_v6/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "moonshine",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/moonshine/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "java_generic",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/java_generic/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "java_architect",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/java_architect/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "angular_18",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/angular_18/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "nodejs",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/nodejs/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "python",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/python/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "qa_general",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/qa_general/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "sonarqube_remediation",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/sonarqube_remediation/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "cicd",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/cicd/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "journey_to_cloud",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/journey_to_cloud/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "copilots_manager",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/copilots_manager/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    },
+    {
+      "copilotId": "firefly_marketplace",
+      "copilotIdValid": true,
+      "readmePath": "dist/copilots/firefly_marketplace/README.md",
+      "exists": true,
+      "sectionsPresent": [
+        "Purpose",
+        "Runtime Files",
+        "Python Brain",
+        "Peer Auditors",
+        "Operator Runbook",
+        "Documentation Audit"
+      ],
+      "missingSections": [],
+      "runtimeMarkersPresent": [
+        "Codex: `codex/AGENT.md`",
+        "Claude: `claude/AGENT.md`",
+        "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+        "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+        "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+        "LangChain/Python: `langchain/agent.py`",
+        "Shared spec: `shared/spec.json`",
+        "Output schema: `shared/output_schema.json`"
+      ],
+      "missingRuntimeMarkers": [],
+      "operatorMarkersPresent": [
+        "## Operator Runbook",
+        "Use `shared/spec.json` as the source of truth.",
+        "Run `python tools/validate_copilot_factory.py`",
+        "Run `python tools/validate_prompt_quality.py`",
+        "Do not paste raw logs, tokens or customer data",
+        "## Documentation Audit",
+        "`generated/documentation-audit-report.json`",
+        "`generated/validation-report.json#/docsAuditor`"
+      ],
+      "missingOperatorMarkers": [],
+      "purposeChecked": true,
+      "sourceOfTruthChecked": true,
+      "pass": true
+    }
+  ],
+  "operatorDocChecks": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "markersPresent": [
+        "Documentation Auditor Evidence",
+        "generated/documentation-audit-report.json",
+        "generated/validation-report.json#/docsAuditor"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    },
+    {
+      "path": "OPERATING_SYSTEM.md",
+      "exists": true,
+      "markersPresent": [
+        "## Quality Policy",
+        "python tools/validate_prompt_quality.py",
+        "python tools/validate_runtime_equivalence.py"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    },
+    {
+      "path": "factory-prompt.md",
+      "exists": true,
+      "markersPresent": [
+        "Mantener 18 copilotos equivalentes",
+        "generated/runtime-injection-map.json",
+        "python tools/validate_copilot_factory.py"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    },
+    {
+      "path": ".codex-loop/factory/operate-observability-runbook.md",
+      "exists": true,
+      "markersPresent": [
+        "# Operate Observability Runbook",
+        "## Signal Contract",
+        "## Review Gate"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    },
+    {
+      "path": ".codex-loop/factory/incident-runbook.md",
+      "exists": true,
+      "markersPresent": [
+        "# Incident Runbook",
+        "provider-policy-friction",
+        "codex-cli-contract-drift"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    },
+    {
+      "path": ".codex-loop/factory/cost-routing-policy.md",
+      "exists": true,
+      "markersPresent": [
+        "# Cost Routing Policy",
+        "## Decision Contract",
+        "## Runtime Equivalence",
+        "## Verification"
+      ],
+      "missingMarkers": [],
+      "pass": true
+    }
+  ],
+  "negativeCases": [
+    {
+      "id": "valid_control",
+      "expectedFailure": false,
+      "failureDetected": false,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": []
+    },
+    {
+      "id": "missing_required_evidence",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing required evidence"
+      ]
+    },
+    {
+      "id": "missing_runtime_markers",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "runtime marker drift"
+      ]
+    },
+    {
+      "id": "missing_operator_docs",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "operator doc drift"
+      ]
+    },
+    {
+      "id": "runtime_drift",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "runtime equivalence drift"
+      ]
+    },
+    {
+      "id": "missing_cost_control",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing deterministic cost control",
+        "raw log prompt allowance"
+      ]
+    },
+    {
+      "id": "raw_log_prompt_allowed",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing deterministic cost control",
+        "raw log prompt allowance"
+      ]
+    }
+  ],
+  "negativeCasesDetected": true,
+  "issues": [],
+  "checkedAt": "2026-05-05T19:47:48.580061+00:00"
+}

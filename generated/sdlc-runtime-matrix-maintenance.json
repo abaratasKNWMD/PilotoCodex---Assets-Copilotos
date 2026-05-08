@@ -1,0 +1,111 @@
+{
+  "version": "sdlc-runtime-matrix-maintenance-1.0",
+  "generatedAt": "2026-05-05T19:47:49.265853+00:00",
+  "ownerAgent": "factory_agent_24_matrix",
+  "mission": "Maintains the SDLC x Copilot x Runtime matrix.",
+  "maintenanceAction": "generate_matrix_and_cross_validate_artifacts",
+  "matrixPolicyVersion": "sdlc-copilot-runtime-matrix-1.0",
+  "dimensions": [
+    "sdlc_phase",
+    "copilot_id",
+    "runtime"
+  ],
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "artifacts": {
+    "matrixJson": "generated/sdlc-runtime-matrix.json",
+    "matrixMarkdown": "generated/sdlc-runtime-matrix.md",
+    "maintenanceJson": "generated/sdlc-runtime-matrix-maintenance.json",
+    "maintenanceMarkdown": "generated/sdlc-runtime-matrix-maintenance.md"
+  },
+  "sourceArtifacts": {
+    "catalog": "data/copilots.json",
+    "catalogIndex": "generated/copilot-index.json",
+    "runtimeMap": "generated/runtime-injection-map.json",
+    "factoryValidation": "generated/validation-report.json#/sdlcRuntimeMatrix",
+    "promptQuality": "generated/prompt-quality-report.json#/sdlcRuntimeMatrixAudit",
+    "runtimeEquivalence": "generated/runtime-equivalence-report.json#/sdlcRuntimeMatrixAudit"
+  },
+  "counts": {
+    "copilots": 18,
+    "phases": 11,
+    "runtimes": 4,
+    "matrixCells": 204,
+    "expectedMatrixCells": 204,
+    "traceLedgerEntries": 51,
+    "expectedTraceLedgerEntries": 51
+  },
+  "digests": {
+    "cellDigest": "c63673d10c0cc75b36d49706067ec3ad7d8d2f14fe913f8b135a7dc11dfa52da",
+    "coverageDigest": "5fa24ed046c369e45d56fe2c21aa102cf692d12e8662a34e1356e6e4bd5a41e5",
+    "traceLedgerDigest": "58f56c6ff3b6cec65f1a00bc8c75630e9caa02e76cee19ec4b3a8a62902decbf",
+    "cellEquivalenceContractDigest": "f32011150cbdd9d6dc9007d3706f0994d0ca78cb1725acde9608076c56053eff",
+    "receiptDigest": "7add596cc36f18051609b3551cdc6affe2f213cec2ca94d454eef147ab00e300"
+  },
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "promptContentStored": false,
+    "storedPromptEvidence": "paths_and_sha256_digests_only",
+    "maxUnexplainedDrift": 0
+  },
+  "promptBudget": {
+    "promptBodiesStored": false,
+    "evidenceMode": "paths_and_sha256_digests_only",
+    "rawPromptKeysAllowed": false
+  },
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "runtimeCount": 4,
+    "pairwiseCasesPerCopilotPhase": 6,
+    "missingRuntimeFiles": 0,
+    "maxUnexplainedDrift": 0
+  },
+  "cellEquivalenceContract": {
+    "version": "runtime-cell-equivalence-1.0",
+    "requiredAssertions": [
+      "sourceOfTruthMatchesRuntimeMap",
+      "runtimeFileMatchesCanonical",
+      "runtimeTraceRefMatchesRuntimeMap",
+      "sharedSpecDigestPresent",
+      "outputSchemaDigestPresent",
+      "runtimeFileDigestPresent",
+      "promptBodiesStoredFalse",
+      "maxUnexplainedDriftZero"
+    ],
+    "evidenceMode": "per_cell_boolean_assertions_plus_sha256_digests",
+    "cellsChecked": 204,
+    "passingCells": 204,
+    "failingCells": [],
+    "pass": true,
+    "contractDigest": "f32011150cbdd9d6dc9007d3706f0994d0ca78cb1725acde9608076c56053eff"
+  },
+  "traceability": {
+    "runtimeMap": "generated/runtime-injection-map.json",
+    "factoryReport": "generated/validation-report.json#/sdlcRuntimeMatrix",
+    "promptQualityReport": "generated/prompt-quality-report.json#/sdlcRuntimeMatrixAudit",
+    "runtimeEquivalenceReport": "generated/runtime-equivalence-report.json#/sdlcRuntimeMatrixAudit",
+    "traceLedgerDigest": "58f56c6ff3b6cec65f1a00bc8c75630e9caa02e76cee19ec4b3a8a62902decbf"
+  },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "acceptanceGates": {
+    "coverageComplete": true,
+    "traceLedgerComplete": true,
+    "runtimeEquivalence": true,
+    "promptBudget": true,
+    "traceability": true,
+    "cellEquivalence": true
+  }
+}

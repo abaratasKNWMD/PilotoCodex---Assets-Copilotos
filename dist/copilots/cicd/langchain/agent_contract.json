@@ -1,0 +1,109 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "cicd",
+  "runtime": "langchain",
+  "displayName": "Copiloto CI/CD",
+  "family": "devops",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "declaredOutputs": [
+    "pipeline_triage",
+    "workflow_patch_plan"
+  ],
+  "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+  "outputSchema": "dist/copilots/cicd/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/cicd/langchain/agent.py",
+  "profileArtifact": "dist/copilots/cicd/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/cicd/langchain/agent.py",
+    "profileArtifact": "dist/copilots/cicd/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/cicd/shared/output_schema.json",
+    "outputSchemaSha256": "620082f8816022e06de36960cc5271da092f591fdbc16bb958405c206a856c0a",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/cicd/shared/output_schema.json"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/cicd/codex/AGENT.md",
+      "claude": "dist/copilots/cicd/claude/AGENT.md",
+      "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/cicd/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  }
+}

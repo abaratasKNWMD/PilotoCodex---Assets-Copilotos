@@ -1,0 +1,112 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "sonarqube_remediation",
+  "runtime": "langchain",
+  "displayName": "Copiloto SonarQube Remediacion",
+  "family": "quality",
+  "connectors": [
+    "github_mcp",
+    "sonarqube_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN",
+    "SONARQUBE_TOKEN"
+  ],
+  "declaredOutputs": [
+    "sonar_report",
+    "remediation_backlog"
+  ],
+  "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+  "outputSchema": "dist/copilots/sonarqube_remediation/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/sonarqube_remediation/langchain/agent.py",
+  "profileArtifact": "dist/copilots/sonarqube_remediation/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/sonarqube_remediation/langchain/agent.py",
+    "profileArtifact": "dist/copilots/sonarqube_remediation/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/sonarqube_remediation/shared/output_schema.json",
+    "outputSchemaSha256": "ba56c6a689e7cbe50f46b5ffcc9bfcbebba3b5075db29089a8e92a6b3596428f",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/sonarqube_remediation/shared/output_schema.json",
+    "runtimeParityContract": "dist/copilots/sonarqube_remediation/shared/spec.json#/runtimeParityContract"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+      "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+      "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  }
+}

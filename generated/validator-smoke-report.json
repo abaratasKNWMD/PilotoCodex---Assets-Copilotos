@@ -1,0 +1,181 @@
+{
+  "version": "generated-validator-smoke-1.0",
+  "checkedAt": "2026-05-05T19:48:49.900940+00:00",
+  "ownerAgent": "factory_agent_25_smoke",
+  "mission": "Runs generated validators and reports blockers.",
+  "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+  "pass": true,
+  "validationMode": "receipts_from_actual_validator_processes_no_recursive_subprocess",
+  "requiredValidators": [
+    {
+      "id": "copilot_factory",
+      "command": "python tools/validate_copilot_factory.py",
+      "report": "generated/validation-report.json",
+      "receipt": "generated/validator-smoke/copilot-factory.json"
+    },
+    {
+      "id": "prompt_quality",
+      "command": "python tools/validate_prompt_quality.py",
+      "report": "generated/prompt-quality-report.json",
+      "receipt": "generated/validator-smoke/prompt-quality.json"
+    },
+    {
+      "id": "runtime_equivalence",
+      "command": "python tools/validate_runtime_equivalence.py",
+      "report": "generated/runtime-equivalence-report.json",
+      "receipt": "generated/validator-smoke/runtime-equivalence.json"
+    }
+  ],
+  "completedValidators": 3,
+  "expectedValidators": 3,
+  "blockerCount": 0,
+  "blockerSources": [
+    {
+      "version": "generated-validator-smoke-1.0",
+      "ownerAgent": "factory_agent_25_smoke",
+      "mission": "Runs generated validators and reports blockers.",
+      "validatorId": "copilot_factory",
+      "command": "python tools/validate_copilot_factory.py",
+      "reportArtifact": "generated/validation-report.json",
+      "reportPass": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "status": "pass",
+      "evidenceMode": "report_path_digest_and_blocker_summary",
+      "promptBodiesStored": false,
+      "runtimeEquivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+        "maxUnexplainedDrift": 0,
+        "promptBodiesStored": false,
+        "equivalenceAssertions": {
+          "sameValidatorCommands": true,
+          "sameBlockerTaxonomy": true,
+          "reportDigestTracePresent": true,
+          "promptBodiesStoredFalse": true,
+          "maxUnexplainedDriftZero": true
+        }
+      },
+      "checkedAt": "2026-05-05T19:48:09.040494+00:00",
+      "reportPresent": true,
+      "reportCheckedAt": "2026-05-05T19:48:08.910498+00:00",
+      "reportDigest": "e273df297edeef541ca0625cd461001575acf02a833e06f17b9a362f5fd23fcd",
+      "receiptArtifact": "generated/validator-smoke/copilot-factory.json",
+      "receiptPresent": true,
+      "receiptDigest": "3a3f89a6087040202233a2134eef20d0700eaf7ddc26f83ab60142b8ea8c6a39",
+      "shapePass": true,
+      "shapeIssues": []
+    },
+    {
+      "version": "generated-validator-smoke-1.0",
+      "ownerAgent": "factory_agent_25_smoke",
+      "mission": "Runs generated validators and reports blockers.",
+      "validatorId": "prompt_quality",
+      "command": "python tools/validate_prompt_quality.py",
+      "reportArtifact": "generated/prompt-quality-report.json",
+      "reportPass": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "status": "pass",
+      "evidenceMode": "report_path_digest_and_blocker_summary",
+      "promptBodiesStored": false,
+      "runtimeEquivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+        "maxUnexplainedDrift": 0,
+        "promptBodiesStored": false,
+        "equivalenceAssertions": {
+          "sameValidatorCommands": true,
+          "sameBlockerTaxonomy": true,
+          "reportDigestTracePresent": true,
+          "promptBodiesStoredFalse": true,
+          "maxUnexplainedDriftZero": true
+        }
+      },
+      "checkedAt": "2026-05-05T19:48:36.166552+00:00",
+      "reportPresent": true,
+      "reportCheckedAt": "2026-05-05T19:48:36.159767+00:00",
+      "reportDigest": "35058f74bdc358b560476462f263d93843952619acfc8c29ef74a618adba005b",
+      "receiptArtifact": "generated/validator-smoke/prompt-quality.json",
+      "receiptPresent": true,
+      "receiptDigest": "fd3b9a5080f5d8073434c0a049d4037a5408be061580513c8facd6f17f916f21",
+      "shapePass": true,
+      "shapeIssues": []
+    },
+    {
+      "version": "generated-validator-smoke-1.0",
+      "ownerAgent": "factory_agent_25_smoke",
+      "mission": "Runs generated validators and reports blockers.",
+      "validatorId": "runtime_equivalence",
+      "command": "python tools/validate_runtime_equivalence.py",
+      "reportArtifact": "generated/runtime-equivalence-report.json",
+      "reportPass": true,
+      "blockerCount": 0,
+      "blockers": [],
+      "status": "pass",
+      "evidenceMode": "report_path_digest_and_blocker_summary",
+      "promptBodiesStored": false,
+      "runtimeEquivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+        "maxUnexplainedDrift": 0,
+        "promptBodiesStored": false,
+        "equivalenceAssertions": {
+          "sameValidatorCommands": true,
+          "sameBlockerTaxonomy": true,
+          "reportDigestTracePresent": true,
+          "promptBodiesStoredFalse": true,
+          "maxUnexplainedDriftZero": true
+        }
+      },
+      "checkedAt": "2026-05-05T19:48:49.889794+00:00",
+      "reportPresent": true,
+      "reportCheckedAt": "2026-05-05T19:48:49.851425+00:00",
+      "reportDigest": "53be1613e7ca94d603ebceec0a1f59cb4986c5985a7a2e6a42acb1f155a60371",
+      "receiptArtifact": "generated/validator-smoke/runtime-equivalence.json",
+      "receiptPresent": true,
+      "receiptDigest": "1b379fcf388eb5e722a7f34ddc1ed9575e841cece801bb453d866b94dc77d6a4",
+      "shapePass": true,
+      "shapeIssues": []
+    }
+  ],
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "recursiveValidatorExecution": false,
+    "promptBodiesStored": false,
+    "evidenceMode": "relative_paths_sha256_digests_and_blocker_summaries"
+  },
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+    "maxUnexplainedDrift": 0,
+    "promptBodiesStored": false,
+    "equivalenceAssertions": {
+      "sameValidatorCommands": true,
+      "sameBlockerTaxonomy": true,
+      "reportDigestTracePresent": true,
+      "promptBodiesStoredFalse": true,
+      "maxUnexplainedDriftZero": true
+    }
+  }
+}

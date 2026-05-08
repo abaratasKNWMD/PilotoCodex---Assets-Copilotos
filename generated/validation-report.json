@@ -1,0 +1,2963 @@
+{
+  "pass": true,
+  "checkedAt": "2026-05-05T19:48:08.910498+00:00",
+  "copilots": 18,
+  "factoryAgents": 50,
+  "tasks": 50,
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "controlRoom": {
+    "present": true,
+    "ownerAgent": "factory_agent_01_director",
+    "mission": "Owns the whole run, keeps gates honest and prevents scope drift.",
+    "concurrency": "serial",
+    "lockFile": ".codex-loop/run.lock.json",
+    "lockFilePresent": true,
+    "lockFileValid": true,
+    "lockFieldsPresent": [
+      "id",
+      "pid",
+      "workspace",
+      "startedAt",
+      "heartbeatAt",
+      "mode"
+    ],
+    "lockMissingFields": [],
+    "lockWorkspaceMatches": true,
+    "lockHeartbeatAgeSeconds": 47,
+    "snapshotEvidenceRequired": true,
+    "snapshotEvidencePresent": true,
+    "requiredCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "requiredReports": [
+      "generated/validation-report.json",
+      "generated/prompt-quality-report.json",
+      "generated/runtime-equivalence-report.json"
+    ],
+    "firstTaskHasDirectorGate": true
+  },
+  "semanticRouter": {
+    "agentPresent": true,
+    "policyPresent": true,
+    "auditPresent": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "python",
+    "deterministicPythonFirst": true,
+    "llmAssistUsed": false
+  },
+  "discoveryAuditor": {
+    "agentPresent": true,
+    "policyPresent": true,
+    "auditPresent": true,
+    "catalogProfilePresent": true,
+    "lookupProfilePresent": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "as_is_discovery",
+    "runtimeTraceReturned": true,
+    "pass": true
+  },
+  "architectureAuditor": {
+    "agentPresent": true,
+    "auditArtifactPresent": true,
+    "specContractPresent": true,
+    "profileContractPresent": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "runtime-contract",
+      "readme"
+    ],
+    "langchainBehaviorChecked": true,
+    "langchainMissingEvidenceBlocks": true,
+    "langchainCompleteEvidencePasses": true,
+    "langchainLlmEscalationGuarded": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "aida_architecture",
+    "routeAuditEvidence": true,
+    "localizedRouteChecked": true,
+    "localizedRouteCheapPath": true,
+    "localizedRouteAuditEvidence": true,
+    "langchainInputValidationChecked": true,
+    "langchainPromptRedactionChecked": true,
+    "pass": true
+  },
+  "designAuditor": {
+    "agentPresent": true,
+    "agentOutputsPresent": true,
+    "policyPresent": true,
+    "targetCopilots": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "artifactsChecked": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "runtimeRefsChecked": {
+      "aida_architecture": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "java_generic": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "java_architect": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "angular_18": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "nodejs": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ]
+    },
+    "schemasRequireHandoff": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "runtimeMapChecked": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "factoryAuditChecked": false,
+    "matrixEvidencePresent": true,
+    "langchainInputValidationChecked": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "langchainEvidenceGateChecked": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "langchainLlmEscalationGuarded": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "langchainPromptRedactionChecked": [
+      "aida_architecture",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs"
+    ],
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "java_architect",
+    "localizedRouteChecked": true,
+    "localizedTopRoute": "aida_architecture",
+    "localizedRouteCheapPath": true,
+    "pass": true
+  },
+  "buildAuditor": {
+    "agentPresent": true,
+    "agentOutputsPresent": true,
+    "policyPresent": true,
+    "targetCopilots": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "artifactsChecked": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "runtimeRefsChecked": {
+      "devex": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "firefly_v5": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "firefly_v6": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "moonshine": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "java_generic": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "angular_18": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "nodejs": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ],
+      "python": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain",
+        "runtime-contract"
+      ]
+    },
+    "schemasRequireImplementation": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "runtimeMapChecked": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "matrixEvidencePresent": true,
+    "langchainInputValidationChecked": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "langchainEvidenceGateChecked": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "langchainLlmEscalationGuarded": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "langchainPromptRedactionChecked": [
+      "devex",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "angular_18",
+      "nodejs",
+      "python"
+    ],
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "devex",
+    "localizedRouteChecked": true,
+    "localizedTopRoute": "devex",
+    "localizedRouteCheapPath": true,
+    "factoryAuditChecked": true,
+    "pass": true
+  },
+  "testStrategyAudit": {
+    "agentPresent": true,
+    "qaCopilotPresent": true,
+    "qaSpecPlaybookChecked": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "pairwiseCaseCount": 6,
+    "pairwiseCases": [
+      {
+        "id": "codex__claude",
+        "runtimes": [
+          "codex",
+          "claude"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "codex__github-copilot",
+        "runtimes": [
+          "codex",
+          "github-copilot"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "codex__langchain",
+        "runtimes": [
+          "codex",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "claude__github-copilot",
+        "runtimes": [
+          "claude",
+          "github-copilot"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "claude__langchain",
+        "runtimes": [
+          "claude",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "github-copilot__langchain",
+        "runtimes": [
+          "github-copilot",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      }
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_strategy",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing test_strategy"
+        ]
+      },
+      {
+        "id": "missing_pairwise_cases",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing pairwise_cases"
+        ]
+      },
+      {
+        "id": "missing_negative_cases",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing negative_cases"
+        ]
+      },
+      {
+        "id": "missing_traceability",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing traceability"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "qa_general",
+    "sampleRouteCheapPath": true,
+    "runtimeTraceReturned": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py",
+      "python tools/semantic_router.py test strategy pairwise negative cases"
+    ],
+    "requiredEvidence": [
+      "test_strategy",
+      "pairwise_cases",
+      "negative_cases",
+      "validation"
+    ],
+    "qualityGates": [
+      "risk_based_strategy",
+      "pairwise_runtime_coverage",
+      "negative_case_coverage",
+      "traceability_and_cost"
+    ],
+    "issues": [],
+    "pass": true
+  },
+  "securityAuditor": {
+    "agentPresent": true,
+    "agentCatalogMission": "Audits sensitive credentials policy, threat model and safe MCP usage.",
+    "mission": "Audits sensitive credentials policy, threat model and safe MCP usage.",
+    "policyVersion": "sensitive-credentials-mcp-audit-1.0",
+    "envExampleChecked": true,
+    "mcpConfigChecked": true,
+    "sensitiveCredentialsPolicyChecked": true,
+    "threatModelChecked": true,
+    "safeUsageChecked": true,
+    "runtimeEquivalenceChecked": true,
+    "connectorsChecked": [
+      "github_mcp",
+      "sonarqube_mcp",
+      "confluence_mcp_optional"
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_placeholder_policy",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "issues": []
+      },
+      {
+        "id": "live_env_value",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "sensitive env value",
+          "credential-shaped value",
+          "connector env value"
+        ]
+      },
+      {
+        "id": "enabled_by_default",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "connector enabled by default"
+        ]
+      },
+      {
+        "id": "missing_denied_operations",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing denied operations"
+        ]
+      },
+      {
+        "id": "missing_connector_env_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing connector env placeholder"
+        ]
+      },
+      {
+        "id": "missing_rotation_owner",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing rotation_owner"
+        ]
+      },
+      {
+        "id": "runtime_allowlist_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "runtime allowlist drift"
+        ]
+      },
+      {
+        "id": "overbroad_least_privilege_scope",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "overbroad least privilege scope"
+        ]
+      },
+      {
+        "id": "missing_write_approval",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing write approval",
+          "write operation without approval"
+        ]
+      },
+      {
+        "id": "risky_allowed_operation",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "risky allowed operation"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ],
+    "issues": [],
+    "pass": true
+  },
+  "mcpConnectorAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "agentCatalogMission": "Audits connector declarations and env placeholders.",
+    "mission": "Audits connector declarations and env placeholders.",
+    "policyVersion": "mcp-connector-placeholder-audit-1.0",
+    "envExampleChecked": true,
+    "mcpConfigChecked": true,
+    "auditContractChecked": true,
+    "declarationRequirementsChecked": true,
+    "envPlaceholderRequirementsChecked": true,
+    "runtimeEquivalenceChecked": true,
+    "qualityGatesChecked": true,
+    "connectorsChecked": [
+      "confluence_mcp_optional",
+      "github_mcp",
+      "sonarqube_mcp"
+    ],
+    "connectorEnvPlaceholdersChecked": [
+      "CONFLUENCE_TOKEN_OPTIONAL",
+      "GITHUB_TOKEN",
+      "SONARQUBE_TOKEN"
+    ],
+    "orphanSensitivePlaceholders": [],
+    "negativeCases": [
+      {
+        "id": "valid_connector_placeholder_matrix",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "issues": []
+      },
+      {
+        "id": "missing_env_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing connector env placeholder"
+        ]
+      },
+      {
+        "id": "non_empty_env_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "non-empty env placeholder"
+        ]
+      },
+      {
+        "id": "credential_shaped_env_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "non-empty env placeholder",
+          "credential-shaped env value"
+        ]
+      },
+      {
+        "id": "duplicate_connector_env_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "duplicate connector env placeholder"
+        ]
+      },
+      {
+        "id": "orphan_sensitive_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "orphan sensitive placeholder"
+        ]
+      },
+      {
+        "id": "missing_traceability_refs",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "missing required declaration fields",
+          "policy traceability drift",
+          "env traceability drift",
+          "validation traceability drift"
+        ]
+      },
+      {
+        "id": "runtime_allowlist_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "runtime allowlist drift"
+        ]
+      },
+      {
+        "id": "enabled_by_default",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "connector enabled by default"
+        ]
+      },
+      {
+        "id": "allowed_denied_operation_conflict",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "allowed denied operation conflict"
+        ]
+      },
+      {
+        "id": "risky_allowed_operation",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "issues": [
+          "risky allowed operation"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ],
+    "issues": []
+  },
+  "devopsAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Audits CI/CD, logs, reproducibility and rollback paths.",
+    "policyVersion": "devops-ci-logs-reproducibility-rollback-audit-1.0",
+    "targetCopilot": "cicd",
+    "targetCopilotPresent": true,
+    "runFactoryChecked": true,
+    "factoryAuditPresent": true,
+    "factoryAuditChecked": true,
+    "runtimeTraceChecked": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "schemasRequireCloudMigration": false,
+    "cloudMigrationSchemaChecked": false,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "cicd",
+    "sampleRouteCheapPath": true,
+    "requiredEvidence": [
+      "ci_cd_entrypoint",
+      "log_evidence",
+      "reproducibility",
+      "rollback_paths"
+    ],
+    "qualityGates": [
+      "serial_command_order",
+      "bounded_runtime_toolchain",
+      "report_and_log_traceability",
+      "rollback_snapshot_ready",
+      "traceability_and_cost"
+    ],
+    "runSequence": [
+      "generate_copilot_factory.py",
+      "validate_copilot_factory.py",
+      "validate_prompt_quality.py",
+      "validate_runtime_equivalence.py"
+    ],
+    "logEvidenceReport": "generated/devops-log-evidence.json",
+    "requiredReports": [
+      "generated/validation-report.json",
+      "generated/prompt-quality-report.json",
+      "generated/runtime-equivalence-report.json"
+    ],
+    "rollbackPaths": [
+      ".codex-loop/rollback",
+      ".codex-loop/backups"
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_entrypoint",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing ci/cd entrypoint"
+        ]
+      },
+      {
+        "id": "missing_log_report",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing report evidence"
+        ]
+      },
+      {
+        "id": "raw_log_evidence",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing log evidence",
+          "raw log evidence leak"
+        ]
+      },
+      {
+        "id": "unsafe_log_path",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "unsafe log evidence path"
+        ]
+      },
+      {
+        "id": "unordered_run_sequence",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "non-reproducible run sequence"
+        ]
+      },
+      {
+        "id": "missing_rollback_path",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing rollback path"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "issues": []
+  },
+  "cloudAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Audits migration, target platform and modernization increments.",
+    "policyVersion": "cloud-migration-target-modernization-audit-1.0",
+    "targetCopilot": "journey_to_cloud",
+    "targetCopilotPresent": true,
+    "auditArtifact": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+    "auditArtifactChecked": true,
+    "factoryAuditPresent": true,
+    "factoryAuditChecked": true,
+    "runtimeTraceChecked": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "journey_to_cloud",
+    "sampleRouteCheapPath": true,
+    "requiredEvidence": [
+      "migration_inventory",
+      "target_platform",
+      "modernization_increments",
+      "validation"
+    ],
+    "qualityGates": [
+      "incremental_migration_plan",
+      "platform_fit_and_constraints",
+      "modernization_traceability",
+      "cost_time_guard"
+    ],
+    "requiredOutputFields": [
+      "copilot_id",
+      "decision",
+      "evidence",
+      "actions",
+      "validation",
+      "risks",
+      "cloud_migration"
+    ],
+    "requiredCloudMigrationFields": [
+      "current_state_refs",
+      "target_platform",
+      "migration_increments",
+      "modernization_actions",
+      "data_network_security_impacts",
+      "rollback_and_parallel_run",
+      "validation_commands",
+      "evidence_pack",
+      "out_of_scope"
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_required_evidence",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing required evidence"
+        ]
+      },
+      {
+        "id": "missing_target_platform",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing target platform decision"
+        ]
+      },
+      {
+        "id": "insufficient_increments",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "insufficient modernization increments"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "schemasRequireCloudMigration": true,
+    "cloudMigrationSchemaChecked": true,
+    "issues": []
+  },
+  "releaseAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Audits package readiness, scorecards and exit criteria.",
+    "policyVersion": "release-readiness-scorecard-exit-criteria-audit-1.0",
+    "targetCopilots": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "targetCopilotsChecked": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "configGateChecked": true,
+    "factoryAuditPresent": true,
+    "factoryAuditChecked": true,
+    "runtimeTraceChecked": true,
+    "runtimeRefsChecked": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "scorecardsChecked": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "exitCriteriaChecked": [
+      "product-market-fit",
+      "implementation",
+      "test-coverage",
+      "browser-navigation-render",
+      "safe-coding-privacy",
+      "seo-content",
+      "packaging-artifact",
+      "release-handoff"
+    ],
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "firefly_marketplace",
+    "sampleRouteCheapPath": true,
+    "requiredEvidence": [
+      "package_readiness",
+      "scorecards",
+      "exit_criteria",
+      "validation"
+    ],
+    "qualityGates": [
+      "output_topology",
+      "artifact_manifest",
+      "scorecard_completeness",
+      "exit_criteria_evidence",
+      "traceability_and_cost"
+    ],
+    "artifactTargets": [
+      "web-app",
+      "desktop-tauri-windows-exe",
+      "docs-and-seo"
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_scorecards",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing scorecards"
+        ]
+      },
+      {
+        "id": "low_scorecard",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "low scorecard",
+          "missing scorecard release caveat",
+          "scorecard index drift"
+        ]
+      },
+      {
+        "id": "missing_scorecard_release_caveat",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing scorecard release caveat",
+          "scorecard index drift"
+        ]
+      },
+      {
+        "id": "missing_scorecard_index",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing scorecard index"
+        ]
+      },
+      {
+        "id": "missing_exit_criteria",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing exit criteria"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "artifact_target_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "artifact target drift"
+        ]
+      },
+      {
+        "id": "missing_score_scope_policy",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing score scope policy"
+        ]
+      },
+      {
+        "id": "missing_release_risk_refs",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing release risk refs"
+        ]
+      },
+      {
+        "id": "missing_residual_risk",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing residual risk"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "issues": []
+  },
+  "packagerDistribution": {
+    "configChecked": true,
+    "manifestChecked": true,
+    "fileIndexChecked": true,
+    "packagesChecked": [
+      "devex",
+      "aida_architecture",
+      "java_architect",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "firefly_marketplace"
+    ],
+    "indexedFilesChecked": 48,
+    "runtimeEquivalenceChecked": true
+  },
+  "operateAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Audits observability, incident playbooks and runbooks.",
+    "policyVersion": "operate-observability-incident-runbook-audit-1.0",
+    "targetCopilots": [
+      "single_registry",
+      "moonshine",
+      "nodejs",
+      "python",
+      "cicd",
+      "copilots_manager",
+      "firefly_marketplace"
+    ],
+    "targetCopilotsChecked": [
+      "single_registry",
+      "moonshine",
+      "nodejs",
+      "python",
+      "cicd",
+      "copilots_manager",
+      "firefly_marketplace"
+    ],
+    "contractArtifact": ".codex-loop/factory/operate-observability-contract.json",
+    "contractChecked": true,
+    "scorecardArtifact": ".codex-loop/factory/operate-observability-scorecard.json",
+    "scorecardChecked": true,
+    "runbookChecked": true,
+    "incidentRunbookChecked": true,
+    "settingsChecked": true,
+    "documentationChecked": true,
+    "telemetrySignalsChecked": [
+      "state_lock_heartbeat",
+      "validation_gate_reports",
+      "prompt_quality_gate",
+      "runtime_equivalence_gate",
+      "runtime_incident_summary"
+    ],
+    "incidentPlaybooksChecked": [
+      "state-lock-stale",
+      "validation-report-regression",
+      "runtime-equivalence-drift",
+      "observability-signal-gap",
+      "privacy-log-exposure"
+    ],
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "nodejs",
+    "sampleRouteCheapPath": true,
+    "requiredEvidence": [
+      "observability_contract",
+      "incident_playbooks",
+      "runbook_ownership",
+      "validation"
+    ],
+    "qualityGates": [
+      "signal_coverage",
+      "incident_response_playbook",
+      "runbook_freshness",
+      "privacy_safe_observability",
+      "traceability_and_cost"
+    ],
+    "runtimeEquivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "sourceOfTruth": ".codex-loop/factory/operate-observability-contract.json",
+      "traceEvidence": "generated/validation-report.json#/operateAuditor",
+      "sameContractForAdapters": true,
+      "maxUnexplainedDrift": 0
+    },
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_required_evidence",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing required evidence"
+        ]
+      },
+      {
+        "id": "missing_telemetry_signals",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing telemetry signals"
+        ]
+      },
+      {
+        "id": "missing_incident_playbooks",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing incident playbooks"
+        ]
+      },
+      {
+        "id": "weak_incident_response",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "weak incident response"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "runbook_ref_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runbook ref drift"
+        ]
+      },
+      {
+        "id": "missing_state_lock_guard",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing serial state-lock guard"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control",
+          "raw log prompt allowance",
+          "unsanitized evidence allowance"
+        ]
+      },
+      {
+        "id": "raw_log_prompt_allowed",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control",
+          "raw log prompt allowance"
+        ]
+      },
+      {
+        "id": "unsanitized_evidence_allowed",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control",
+          "unsanitized evidence allowance"
+        ]
+      },
+      {
+        "id": "raw_log_privacy_text",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "raw log privacy allowance",
+          "raw log privacy allowance",
+          "raw log privacy allowance",
+          "raw log privacy allowance",
+          "raw log privacy allowance"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ],
+    "issues": []
+  },
+  "costRoutingAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Routes cheap deterministic work to Python and expensive judgement to LLMs.",
+    "policyVersion": "cost-routing-1.0",
+    "contractChecked": true,
+    "scorecardChecked": true,
+    "policyDocChecked": true,
+    "settingsChecked": true,
+    "cheapDeterministicWorkChecked": [
+      "catalog_generation",
+      "semantic_routing",
+      "schema_validation",
+      "prompt_quality_budget",
+      "runtime_equivalence_diff",
+      "documentation_marker_audit"
+    ],
+    "judgementWorkChecked": [
+      "architecture_tradeoff",
+      "non_trivial_code_change",
+      "final_operator_synthesis"
+    ],
+    "runtimeEquivalenceChecked": true,
+    "traceabilityChecked": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "python",
+    "sampleRouteCheapPath": true,
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_python_first",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "decision rule drift"
+        ]
+      },
+      {
+        "id": "llm_before_python",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "decision rule drift"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "cheap_work_to_llm",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "cheap work not routed to python"
+        ]
+      },
+      {
+        "id": "ungated_judgement",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "judgement without python gate"
+        ]
+      },
+      {
+        "id": "traceability_missing",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "traceability drift"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "issues": []
+  },
+  "kbAuditor": {
+    "agentPresent": true,
+    "auditArtifactPresent": true,
+    "specContractPresent": true,
+    "profileContractPresent": true,
+    "schemasRequireKbPartition": true,
+    "kbOutputSchemaChecked": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain",
+      "runtime-contract",
+      "readme"
+    ],
+    "langchainBehaviorChecked": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "firefly_v6",
+    "sampleRouteCheapPath": true,
+    "routeAuditEvidence": true
+  },
+  "docsAuditor": {
+    "pass": true,
+    "agentPresent": true,
+    "mission": "Audits generated READMEs and operator docs.",
+    "policyVersion": "generated-readme-operator-docs-audit-1.0",
+    "requiredEvidence": [
+      "generated_readmes",
+      "operator_docs",
+      "runtime_adapter_traceability",
+      "validation"
+    ],
+    "qualityGates": [
+      "all_copilot_readmes_have_runtime_map",
+      "operator_docs_resolve",
+      "runtime_equivalence_refs_present",
+      "privacy_safe_placeholders",
+      "traceability_and_cost"
+    ],
+    "runtimeEquivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "sourceOfTruth": "dist/copilots/<copilot_id>/shared/spec.json",
+      "traceEvidence": "generated/documentation-audit-report.json#/readmeChecks",
+      "sameReadmeContractForAdapters": true,
+      "maxUnexplainedDrift": 0
+    },
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "disabled_for_marker_and_reference_audit",
+      "rawLogPromptsAllowed": false,
+      "readmeGrowthPolicy": "operator_sections_only"
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ],
+    "reportArtifact": "generated/documentation-audit-report.json",
+    "reportMarkdown": "generated/documentation-audit-report.md",
+    "reportWritten": true,
+    "copilotReadmesExpected": 18,
+    "copilotReadmesChecked": [
+      "devex",
+      "aida_architecture",
+      "as_is_discovery",
+      "single_registry",
+      "firefly_v5",
+      "firefly_v6",
+      "moonshine",
+      "java_generic",
+      "java_architect",
+      "angular_18",
+      "nodejs",
+      "python",
+      "qa_general",
+      "sonarqube_remediation",
+      "cicd",
+      "journey_to_cloud",
+      "copilots_manager",
+      "firefly_marketplace"
+    ],
+    "operatorDocsChecked": [
+      "README.md",
+      "OPERATING_SYSTEM.md",
+      "factory-prompt.md",
+      ".codex-loop/factory/operate-observability-runbook.md",
+      ".codex-loop/factory/incident-runbook.md",
+      ".codex-loop/factory/cost-routing-policy.md"
+    ],
+    "readmeChecks": [
+      {
+        "copilotId": "devex",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/devex/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "aida_architecture",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/aida_architecture/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "as_is_discovery",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/as_is_discovery/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "single_registry",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/single_registry/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "firefly_v5",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/firefly_v5/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "firefly_v6",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/firefly_v6/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "moonshine",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/moonshine/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "java_generic",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/java_generic/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "java_architect",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/java_architect/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "angular_18",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/angular_18/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "nodejs",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/nodejs/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "python",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/python/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "qa_general",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/qa_general/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "sonarqube_remediation",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/sonarqube_remediation/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "cicd",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/cicd/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "journey_to_cloud",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/journey_to_cloud/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "copilots_manager",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/copilots_manager/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      },
+      {
+        "copilotId": "firefly_marketplace",
+        "copilotIdValid": true,
+        "readmePath": "dist/copilots/firefly_marketplace/README.md",
+        "exists": true,
+        "sectionsPresent": [
+          "Purpose",
+          "Runtime Files",
+          "Python Brain",
+          "Peer Auditors",
+          "Operator Runbook",
+          "Documentation Audit"
+        ],
+        "missingSections": [],
+        "runtimeMarkersPresent": [
+          "Codex: `codex/AGENT.md`",
+          "Claude: `claude/AGENT.md`",
+          "GitHub Copilot Agents: `github-copilot/copilot-agent.md`",
+          "GitHub Copilot profile: `github-copilot/copilot-profile.json`",
+          "GitHub MCP placeholders: `github-copilot/mcp-placeholders.json`",
+          "LangChain/Python: `langchain/agent.py`",
+          "Shared spec: `shared/spec.json`",
+          "Output schema: `shared/output_schema.json`"
+        ],
+        "missingRuntimeMarkers": [],
+        "operatorMarkersPresent": [
+          "## Operator Runbook",
+          "Use `shared/spec.json` as the source of truth.",
+          "Run `python tools/validate_copilot_factory.py`",
+          "Run `python tools/validate_prompt_quality.py`",
+          "Do not paste raw logs, tokens or customer data",
+          "## Documentation Audit",
+          "`generated/documentation-audit-report.json`",
+          "`generated/validation-report.json#/docsAuditor`"
+        ],
+        "missingOperatorMarkers": [],
+        "purposeChecked": true,
+        "sourceOfTruthChecked": true,
+        "pass": true
+      }
+    ],
+    "operatorDocChecks": [
+      {
+        "path": "README.md",
+        "exists": true,
+        "markersPresent": [
+          "Documentation Auditor Evidence",
+          "generated/documentation-audit-report.json",
+          "generated/validation-report.json#/docsAuditor"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      },
+      {
+        "path": "OPERATING_SYSTEM.md",
+        "exists": true,
+        "markersPresent": [
+          "## Quality Policy",
+          "python tools/validate_prompt_quality.py",
+          "python tools/validate_runtime_equivalence.py"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      },
+      {
+        "path": "factory-prompt.md",
+        "exists": true,
+        "markersPresent": [
+          "Mantener 18 copilotos equivalentes",
+          "generated/runtime-injection-map.json",
+          "python tools/validate_copilot_factory.py"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      },
+      {
+        "path": ".codex-loop/factory/operate-observability-runbook.md",
+        "exists": true,
+        "markersPresent": [
+          "# Operate Observability Runbook",
+          "## Signal Contract",
+          "## Review Gate"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      },
+      {
+        "path": ".codex-loop/factory/incident-runbook.md",
+        "exists": true,
+        "markersPresent": [
+          "# Incident Runbook",
+          "provider-policy-friction",
+          "codex-cli-contract-drift"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      },
+      {
+        "path": ".codex-loop/factory/cost-routing-policy.md",
+        "exists": true,
+        "markersPresent": [
+          "# Cost Routing Policy",
+          "## Decision Contract",
+          "## Runtime Equivalence",
+          "## Verification"
+        ],
+        "missingMarkers": [],
+        "pass": true
+      }
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_required_evidence",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing required evidence"
+        ]
+      },
+      {
+        "id": "missing_runtime_markers",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime marker drift"
+        ]
+      },
+      {
+        "id": "missing_operator_docs",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "operator doc drift"
+        ]
+      },
+      {
+        "id": "runtime_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtime equivalence drift"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control",
+          "raw log prompt allowance"
+        ]
+      },
+      {
+        "id": "raw_log_prompt_allowed",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control",
+          "raw log prompt allowance"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "issues": []
+  },
+  "sdlcRuntimeMatrix": {
+    "pass": true,
+    "ownerAgent": "factory_agent_24_matrix",
+    "mission": "Maintains the SDLC x Copilot x Runtime matrix.",
+    "policyVersion": "sdlc-copilot-runtime-matrix-1.0",
+    "agentPresent": true,
+    "agentMode": "python_only",
+    "matrixArtifact": "generated/sdlc-runtime-matrix.json",
+    "markdownArtifact": "generated/sdlc-runtime-matrix.md",
+    "maintenanceArtifact": "generated/sdlc-runtime-matrix-maintenance.json",
+    "maintenanceMarkdownArtifact": "generated/sdlc-runtime-matrix-maintenance.md",
+    "dimensions": [
+      "sdlc_phase",
+      "copilot_id",
+      "runtime"
+    ],
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "catalogCopilots": 18,
+    "matrixCellCount": 204,
+    "phaseCount": 11,
+    "traceLedgerEntries": 51,
+    "traceLedgerDigest": "58f56c6ff3b6cec65f1a00bc8c75630e9caa02e76cee19ec4b3a8a62902decbf",
+    "traceLedgerChecked": true,
+    "runtimeTraceChecked": true,
+    "promptContentStored": false,
+    "costControlChecked": true,
+    "traceabilityChecked": true,
+    "maintenanceReceiptChecked": true,
+    "maintenanceReceiptDigest": "7add596cc36f18051609b3551cdc6affe2f213cec2ca94d454eef147ab00e300",
+    "maintenanceReceipt": {
+      "pass": true,
+      "artifact": "generated/sdlc-runtime-matrix-maintenance.json",
+      "markdownArtifact": "generated/sdlc-runtime-matrix-maintenance.md",
+      "policyVersion": "sdlc-runtime-matrix-maintenance-1.0",
+      "cellDigestMatches": true,
+      "traceLedgerDigestMatches": true,
+      "cellEquivalenceContractDigestMatches": true,
+      "allAcceptanceGatesPass": true,
+      "issues": []
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "issues": [],
+    "cellEquivalenceChecked": true
+  },
+  "runtimeSafety": {
+    "pass": true,
+    "helperPresent": true,
+    "evidenceLimitsChecked": true,
+    "promptRedactionChecked": true,
+    "negativeCasesDetected": true
+  },
+  "generator": {
+    "present": true,
+    "semanticRouterTemplateChecked": true,
+    "generatedIndexChecked": true,
+    "generatedAgentChecked": true,
+    "generatedPythonProfileChecked": true,
+    "generatedDiscoveryPolicyChecked": true,
+    "generatedDiscoveryAgentChecked": true,
+    "generatedDiscoveryProfileChecked": true,
+    "generatedDesignPolicyChecked": true,
+    "generatedDesignAgentChecked": true,
+    "generatedDesignProfilesChecked": true,
+    "generatedBuildPolicyChecked": true,
+    "generatedBuildAgentChecked": true,
+    "generatedBuildProfilesChecked": true,
+    "generatedRunFactoryChecked": true,
+    "generatedSecurityPolicyChecked": true,
+    "generatedSecurityEnvChecked": true
+  },
+  "phaseVerdictReport": {
+    "version": "phase-verdict-report-1.0",
+    "checkedAt": "2026-05-05T19:47:50.362585+00:00",
+    "ownerAgent": "factory_agent_22_qa",
+    "mission": "Consolidates all phase verdicts into a pass/fail report.",
+    "contract": "dist/copilots/qa_general/shared/phase_verdict_report_contract.json",
+    "requiredPhases": [
+      "discovery",
+      "as_is",
+      "architecture",
+      "design",
+      "build",
+      "test",
+      "security",
+      "devops",
+      "cloud",
+      "release",
+      "operate"
+    ],
+    "phaseVerdicts": [
+      {
+        "phase": "discovery",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_04_discovery",
+        "source": "generated/validation-report.json#/discoveryAuditor",
+        "evidence": [
+          "generated/copilot-index.json#/discoveryAudit",
+          "dist/copilots/as_is_discovery/shared/spec.json"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "as_is",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_04_discovery",
+        "source": "generated/validation-report.json#/discoveryAuditor",
+        "evidence": [
+          "data/copilots.json#/as_is_discovery",
+          "dist/copilots/as_is_discovery/shared/spec.json"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "architecture",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_05_architecture",
+        "source": "generated/validation-report.json#/architectureAuditor",
+        "evidence": [
+          "dist/copilots/aida_architecture/shared/architecture_decision_audit.json",
+          "generated/validation-report.json#/architectureAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "design",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_06_design",
+        "source": "generated/validation-report.json#/designAuditor",
+        "evidence": [
+          "generated/sdlc-audit-matrix.md#design-boundary-contract-evidence",
+          "generated/validation-report.json#/designAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "build",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_07_build",
+        "source": "generated/validation-report.json#/buildAuditor",
+        "evidence": [
+          "generated/factory-audit.json#/buildImplementationAudit",
+          "generated/validation-report.json#/buildAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "test",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_08_test",
+        "source": "generated/validation-report.json#/testStrategyAudit",
+        "evidence": [
+          "generated/test-strategy-audit-report.json",
+          "generated/validation-report.json#/testStrategyAudit"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "security",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_09_security",
+        "source": "generated/validation-report.json#/securityAuditor",
+        "evidence": [
+          "config/.env.example",
+          "config/mcp-connectors.example.json",
+          "generated/validation-report.json#/securityAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "devops",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_10_devops",
+        "source": "generated/validation-report.json#/devopsAuditor",
+        "evidence": [
+          "generated/devops-log-evidence.json",
+          "generated/factory-audit.json#/devopsAudit",
+          "generated/validation-report.json#/devopsAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "cloud",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_11_cloud",
+        "source": "generated/validation-report.json#/cloudAuditor",
+        "evidence": [
+          "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+          "generated/validation-report.json#/cloudAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "release",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_12_release",
+        "source": "generated/validation-report.json#/releaseAuditor",
+        "evidence": [
+          "generated/factory-audit.json#/releaseAudit",
+          "generated/validation-report.json#/releaseAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      },
+      {
+        "phase": "operate",
+        "verdict": "pass",
+        "pass": true,
+        "ownerAgent": "factory_agent_13_operate",
+        "source": "generated/validation-report.json#/operateAuditor",
+        "evidence": [
+          ".codex-loop/factory/operate-observability-contract.json",
+          "generated/validation-report.json#/operateAuditor"
+        ],
+        "summaryPass": true,
+        "passInferred": false
+      }
+    ],
+    "overallPass": true,
+    "overallVerdict": "pass",
+    "failedPhases": [],
+    "failedGates": [],
+    "runtimeEquivalenceGate": {
+      "source": "generated/runtime-equivalence-report.json",
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "maxUnexplainedDrift": 0,
+      "requiresReportPass": true,
+      "maxIssues": 0,
+      "reportPass": true,
+      "issuesCount": 0,
+      "copilotsChecked": 18,
+      "checkedAt": "2026-05-05T19:47:39.470398+00:00",
+      "negativeCasesDetected": true,
+      "adapters": [
+        "Codex",
+        "Claude",
+        "GitHub Copilot",
+        "LangChain"
+      ]
+    },
+    "costControl": {
+      "deterministicPythonFirst": true,
+      "llmEscalation": "only_for_final_operator_summary_after_report_exists",
+      "rawLogPromptsAllowed": false
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_phase",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing phase verdict(s): operate",
+          "overallPass does not match phase verdict aggregation",
+          "overallVerdict does not match phase verdict aggregation"
+        ]
+      },
+      {
+        "id": "invalid_verdict",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "discovery verdict must be pass or fail",
+          "overallPass does not match phase verdict aggregation",
+          "overallVerdict does not match phase verdict aggregation"
+        ]
+      },
+      {
+        "id": "inconsistent_overall",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "overallPass does not match phase verdict aggregation"
+        ]
+      },
+      {
+        "id": "inconsistent_phase_pass",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "discovery pass boolean does not match verdict",
+          "discovery summaryPass does not match pass boolean"
+        ]
+      },
+      {
+        "id": "inconsistent_failed_phases",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "failedPhases does not match phase verdicts"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      },
+      {
+        "id": "inferred_phase_pass",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "discovery pass must be explicit, not inferred"
+        ]
+      },
+      {
+        "id": "runtime_gate_failed",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "runtimeEquivalenceGate reportPass must be true",
+          "runtimeEquivalenceGate issuesCount must be 0",
+          "failedGates does not match runtime gate aggregation",
+          "overallPass does not match phase verdict aggregation",
+          "overallVerdict does not match phase verdict aggregation"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "issues": [],
+    "pass": true
+  },
+  "validatorSmoke": {
+    "version": "generated-validator-smoke-1.0",
+    "ownerAgent": "factory_agent_25_smoke",
+    "mission": "Runs generated validators and reports blockers.",
+    "validatorId": "copilot_factory",
+    "command": "python tools/validate_copilot_factory.py",
+    "reportArtifact": "generated/validation-report.json",
+    "reportPass": true,
+    "blockerCount": 0,
+    "blockers": [],
+    "status": "pass",
+    "evidenceMode": "report_path_digest_and_blocker_summary",
+    "promptBodiesStored": false,
+    "runtimeEquivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+      "maxUnexplainedDrift": 0,
+      "promptBodiesStored": false,
+      "equivalenceAssertions": {
+        "sameValidatorCommands": true,
+        "sameBlockerTaxonomy": true,
+        "reportDigestTracePresent": true,
+        "promptBodiesStoredFalse": true,
+        "maxUnexplainedDriftZero": true
+      }
+    }
+  },
+  "issues": []
+}

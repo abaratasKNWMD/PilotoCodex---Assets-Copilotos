@@ -1,0 +1,236 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copiloto DevEx Output Contract",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "implementation"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "devex"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "phase": {
+      "enum": [
+        "discovery",
+        "build",
+        "test",
+        "release"
+      ]
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "devex_scorecard",
+          "standards_patch_plan"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "implementation_plan",
+              "stack_rules",
+              "affected_files",
+              "validation"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 4,
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "implementation_plan"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "stack_rules"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "affected_files"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "validation"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "owner",
+          "action",
+          "scope"
+        ],
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object",
+      "required": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "target_stack": {
+          "type": "string",
+          "minLength": 1
+        },
+        "affected_files": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "plan_steps": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "stack_rules_checked": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "validation_commands": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "rollback_plan": {
+          "type": "string",
+          "minLength": 1
+        },
+        "out_of_scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_pack": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "policyVersion": "operate-observability-incident-runbook-audit-1.0",
+  "ownerAgent": "factory_agent_13_operate",
+  "mission": "Audits observability, incident playbooks and runbooks.",
+  "pass": true,
+  "checks": [
+    {
+      "id": "observability_contract",
+      "status": "pass",
+      "evidence": [
+        ".codex-loop/factory/operate-observability-contract.json",
+        ".codex-loop/run.lock.json"
+      ]
+    },
+    {
+      "id": "incident_playbooks",
+      "status": "pass",
+      "evidence": [
+        ".codex-loop/factory/operate-observability-runbook.md",
+        ".codex-loop/factory/incident-runbook.md"
+      ]
+    },
+    {
+      "id": "runbook_ownership",
+      "status": "pass",
+      "evidence": [
+        "data/agent_roster.json#factory_agent_13_operate",
+        ".vscode/settings.json#codexLoop.operabilityAuditEnabled"
+      ]
+    },
+    {
+      "id": "validation",
+      "status": "pass",
+      "evidence": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py"
+      ]
+    }
+  ],
+  "review": {
+    "owner": "pass",
+    "qa": "pass",
+    "safeCodingPrivacy": "pass",
+    "release": "pass"
+  },
+  "residualRisks": [
+    {
+      "id": "no_live_telemetry_backend",
+      "status": "accepted",
+      "reason": "This workspace is a local copilot factory; observability evidence is deterministic reports, state locks and sanitized incident summaries rather than a live telemetry vendor."
+    }
+  ]
+}

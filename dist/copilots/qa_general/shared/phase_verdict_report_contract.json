@@ -1,0 +1,71 @@
+{
+  "version": "phase-verdict-report-1.0",
+  "ownerAgent": "factory_agent_22_qa",
+  "mission": "Consolidates all phase verdicts into a pass/fail report.",
+  "sourceOfTruth": "generated/validation-report.json#/phaseVerdictReport",
+  "reportArtifacts": [
+    "generated/phase-verdict-report.json",
+    "generated/phase-verdict-report.md",
+    "generated/phase-verdict-evidence-map.json",
+    "generated/phase-verdict-evidence-map.md"
+  ],
+  "requiredPhases": [
+    "discovery",
+    "as_is",
+    "architecture",
+    "design",
+    "build",
+    "test",
+    "security",
+    "devops",
+    "cloud",
+    "release",
+    "operate"
+  ],
+  "verdictValues": [
+    "pass",
+    "fail"
+  ],
+  "explicitPassRequired": true,
+  "aggregationRule": "overallPass is true only when every required phase verdict is pass and runtime equivalence has maxUnexplainedDrift 0.",
+  "coherenceRules": [
+    "Each phase pass boolean must be explicit and match its pass/fail verdict.",
+    "summaryPass must match the phase pass boolean.",
+    "failedPhases must exactly match phases whose verdict is fail.",
+    "failedGates must exactly match runtime gate failures."
+  ],
+  "inputReports": [
+    "generated/validation-report.json#/discoveryAuditor",
+    "generated/validation-report.json#/architectureAuditor",
+    "generated/validation-report.json#/designAuditor",
+    "generated/validation-report.json#/buildAuditor",
+    "generated/validation-report.json#/testStrategyAudit",
+    "generated/validation-report.json#/securityAuditor",
+    "generated/validation-report.json#/devopsAuditor",
+    "generated/validation-report.json#/cloudAuditor",
+    "generated/validation-report.json#/releaseAuditor",
+    "generated/validation-report.json#/operateAuditor"
+  ],
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "source": "generated/runtime-equivalence-report.json",
+    "maxUnexplainedDrift": 0,
+    "requiresReportPass": true,
+    "maxIssues": 0
+  },
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_for_final_operator_summary_after_report_exists",
+    "rawLogPromptsAllowed": false
+  },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ]
+}

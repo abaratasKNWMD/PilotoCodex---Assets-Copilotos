@@ -1,0 +1,119 @@
+# Runtime Failure Frontier Report
+
+Generated: 2026-05-05T19:37:33.728Z
+Workspace: c:\Users\abaratas\Desktop\CARPETA PROYECTOS\TEST CODEX\NuevoProyecto
+Autonomous ready: yes
+Score: 901/1000 (A)
+
+## Gaps
+
+- provider-policy-friction: watch
+  Mitigation: policySafeModeEnabled hardens prompts into local defensive safe-coding language before Codex exec.
+- unresolved-red-suite: controlled
+  Mitigation: pauseOnFailedVerification stops the factory after unresolved failed verification.
+- single-repair-depth: controlled
+  Mitigation: maxRepairAttempts defaults to 2 so transient red tests get another repair pass.
+- missing-ripgrep-tool: controlled
+  Mitigation: Codex child processes now receive .codex-loop/tool-shims on PATH; the bundled rg shim handles rg --files and common search calls on Windows.
+- double-run-collision: blocked
+  Mitigation: run.lock plus recent unfinished Codex run detection blocks overlapping starts.
+
+## Policy Friction Scan
+
+Score: 0/10
+- bypass wording: 19 (medium)
+- secrets wording: 283 (low)
+- credential-shaped wording: 25 (low)
+
+## Raw JSON
+
+```json
+{
+  "generatedAt": "2026-05-05T19:37:33.728Z",
+  "workspace": "c:\\Users\\abaratas\\Desktop\\CARPETA PROYECTOS\\TEST CODEX\\NuevoProyecto",
+  "autonomousReady": true,
+  "summary": {
+    "totalScore": 901,
+    "maxScore": 1000,
+    "grade": "A",
+    "criticalFailures": 0,
+    "majorFailures": 1,
+    "warnings": 18
+  },
+  "runtimeGaps": [
+    {
+      "id": "provider-policy-friction",
+      "status": "watch",
+      "mitigation": "policySafeModeEnabled hardens prompts into local defensive safe-coding language before Codex exec."
+    },
+    {
+      "id": "unresolved-red-suite",
+      "status": "controlled",
+      "mitigation": "pauseOnFailedVerification stops the factory after unresolved failed verification."
+    },
+    {
+      "id": "single-repair-depth",
+      "status": "controlled",
+      "mitigation": "maxRepairAttempts defaults to 2 so transient red tests get another repair pass."
+    },
+    {
+      "id": "missing-ripgrep-tool",
+      "status": "controlled",
+      "mitigation": "Codex child processes now receive .codex-loop/tool-shims on PATH; the bundled rg shim handles rg --files and common search calls on Windows."
+    },
+    {
+      "id": "double-run-collision",
+      "status": "blocked",
+      "mitigation": "run.lock plus recent unfinished Codex run detection blocks overlapping starts."
+    }
+  ],
+  "policyRisk": {
+    "score": 0,
+    "maxScore": 10,
+    "hits": [
+      {
+        "term": "bypass wording",
+        "count": 19,
+        "severity": "medium"
+      },
+      {
+        "term": "secrets wording",
+        "count": 283,
+        "severity": "low"
+      },
+      {
+        "term": "credential-shaped wording",
+        "count": 25,
+        "severity": "low"
+      }
+    ],
+    "sampleFiles": [
+      "agent-state.json",
+      "agent.log",
+      "README.md",
+      ".codex-loop/factory/preflight-report.md",
+      ".codex-loop/factory/runtime-risk-report.md",
+      ".codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/shared/spec.json",
+      ".codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+      ".codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/codex/AGENT.md",
+      ".codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/claude/AGENT.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/shared/spec.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/shared/runtime_contract.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/langchain/agent_profile.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/codex/AGENT.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/claude/AGENT.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/shared/spec.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/shared/runtime_contract.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/langchain/agent_profile.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/github-copilot/copilot-agent.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/codex/AGENT.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/claude/AGENT.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/shared/spec.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/shared/runtime_contract.md",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/langchain/agent_profile.json",
+      ".codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/github-copilot/copilot-agent.md"
+    ]
+  }
+}
+```

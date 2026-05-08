@@ -1,0 +1,79 @@
+{
+  "policyVersion": "codex-local-tool-protocol-1.0",
+  "ownerAgent": "factory_agent_14_codex",
+  "mission": "Builds Codex-facing task prompts and local tool protocol.",
+  "copilotId": "devex",
+  "runtime": "codex",
+  "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+  "taskPrompt": {
+    "artifact": "dist/copilots/devex/codex/AGENT.md",
+    "schemaRef": "dist/copilots/devex/shared/output_schema.json",
+    "outputSchemaSha256": "87cf51b8be6c12bbdd407ba78368c5a6e4a606c8e1a527cd08b3a7a7e2d9d5c7",
+    "requiredSections": [
+      "Runtime Injection",
+      "System Prompt",
+      "Developer Prompt",
+      "Execution Protocol",
+      "Python Brain Contract",
+      "Evidence Gates",
+      "Outputs"
+    ],
+    "promptSourceRefs": [
+      "dist/copilots/devex/shared/spec.json#/systemPrompt",
+      "dist/copilots/devex/shared/spec.json#/developerPrompt",
+      "dist/copilots/devex/shared/output_schema.json"
+    ]
+  },
+  "localToolProtocol": {
+    "workspaceBoundary": "current_workspace_only",
+    "editPrecondition": "git_metadata_or_codex_loop_snapshot",
+    "deterministicFirst": true,
+    "missingToolFallback": "non_fatal_report_blocker",
+    "secretHandling": "placeholders_only",
+    "validationRequired": true,
+    "toolingOrder": [
+      "inspect_files",
+      "deterministic_python_check",
+      "scoped_patch",
+      "validation_commands"
+    ]
+  },
+  "requiredEvidence": [
+    "codex_task_prompt",
+    "local_tool_protocol",
+    "validation_commands",
+    "runtime_equivalence"
+  ],
+  "qualityGates": [
+    "codex_prompt_embeds_shared_spec",
+    "local_tool_protocol_declared",
+    "tool_fallbacks_are_non_fatal",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/devex/codex/AGENT.md",
+      "claude": "dist/copilots/devex/claude/AGENT.md",
+      "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/devex/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "reference_only_no_schema_duplication",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_local_tool_protocol_cannot_decide"
+  }
+}

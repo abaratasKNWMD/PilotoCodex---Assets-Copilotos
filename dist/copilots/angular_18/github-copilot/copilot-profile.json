@@ -1,0 +1,102 @@
+{
+  "policyVersion": "github-copilot-profile-mcp-placeholders-1.0",
+  "ownerAgent": "factory_agent_16_github",
+  "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+  "copilotId": "angular_18",
+  "runtime": "github-copilot",
+  "displayName": "Copiloto Angular 18",
+  "family": "development",
+  "function": "Angular 18 frontend development, components, state, routing and tests.",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "sdlcPhases": [
+    "design",
+    "build",
+    "test"
+  ],
+  "declaredOutputs": [
+    "frontend_patch_plan",
+    "component_test_plan"
+  ],
+  "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+  "outputSchema": "dist/copilots/angular_18/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+  "profileDoc": {
+    "artifact": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+    "profileArtifact": "dist/copilots/angular_18/github-copilot/copilot-profile.json",
+    "schemaRef": "dist/copilots/angular_18/shared/output_schema.json",
+    "outputSchemaSha256": "2cd4debb9bde57200b3581acdd4dd36a62d07be64d00e98e99c45c6ae707bc6d",
+    "requiredSections": [
+      "Runtime Injection",
+      "System Prompt",
+      "Developer Prompt",
+      "Execution Protocol",
+      "Python Brain Contract",
+      "Evidence Gates",
+      "Outputs",
+      "Runtime Specific Protocol",
+      "GitHub Copilot Profile",
+      "MCP Placeholder Contract"
+    ],
+    "promptSourceRefs": [
+      "dist/copilots/angular_18/shared/spec.json#/systemPrompt",
+      "dist/copilots/angular_18/shared/spec.json#/developerPrompt",
+      "dist/copilots/angular_18/shared/output_schema.json"
+    ]
+  },
+  "mcpPlaceholderRef": "dist/copilots/angular_18/github-copilot/mcp-placeholders.json",
+  "repositoryWorkflow": {
+    "evidenceOrder": [
+      "issue_or_pr_context",
+      "branch_and_review_policy",
+      "workflow_or_check_status",
+      "source_file_refs",
+      "validation_commands"
+    ],
+    "branchPolicyRespected": true,
+    "reviewCommentsActionable": true,
+    "offlineFallback": "use_local_files_and_mark_connector_evidence_pending"
+  },
+  "requiredEvidence": [
+    "github_copilot_profile_doc",
+    "mcp_placeholders",
+    "runtime_equivalence",
+    "safe_connector_policy"
+  ],
+  "qualityGates": [
+    "github_profile_embeds_shared_spec",
+    "mcp_placeholders_are_disabled",
+    "connector_env_names_only",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/angular_18/codex/AGENT.md",
+      "claude": "dist/copilots/angular_18/claude/AGENT.md",
+      "github-copilot": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/angular_18/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "profile_json_references_shared_spec_and_schema",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_github_evidence_or_local_file_checks_are_insufficient"
+  }
+}

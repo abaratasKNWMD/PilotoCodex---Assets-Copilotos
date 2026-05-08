@@ -1,0 +1,168 @@
+{
+  "version": "copilot-factory-0.2.0",
+  "generatedAt": "2026-05-04T17:50:36.279947+00:00",
+  "stats": [
+    {
+      "id": "devex",
+      "codexChars": 14694,
+      "claudeChars": 14601,
+      "githubChars": 14982,
+      "langchainChars": 17572,
+      "systemPromptChars": 1729,
+      "developerPromptChars": 2265
+    },
+    {
+      "id": "aida_architecture",
+      "codexChars": 14804,
+      "claudeChars": 14711,
+      "githubChars": 15144,
+      "langchainChars": 18040,
+      "systemPromptChars": 1756,
+      "developerPromptChars": 2262
+    },
+    {
+      "id": "as_is_discovery",
+      "codexChars": 11288,
+      "claudeChars": 11195,
+      "githubChars": 11576,
+      "langchainChars": 14608,
+      "systemPromptChars": 1809,
+      "developerPromptChars": 2092
+    },
+    {
+      "id": "single_registry",
+      "codexChars": 11160,
+      "claudeChars": 11067,
+      "githubChars": 11448,
+      "langchainChars": 14479,
+      "systemPromptChars": 1706,
+      "developerPromptChars": 2091
+    },
+    {
+      "id": "firefly_v5",
+      "codexChars": 14873,
+      "claudeChars": 14780,
+      "githubChars": 15193,
+      "langchainChars": 17722,
+      "systemPromptChars": 2015,
+      "developerPromptChars": 2301
+    },
+    {
+      "id": "firefly_v6",
+      "codexChars": 14898,
+      "claudeChars": 14805,
+      "githubChars": 15218,
+      "langchainChars": 17762,
+      "systemPromptChars": 2025,
+      "developerPromptChars": 2306
+    },
+    {
+      "id": "moonshine",
+      "codexChars": 14416,
+      "claudeChars": 14323,
+      "githubChars": 14704,
+      "langchainChars": 17245,
+      "systemPromptChars": 1736,
+      "developerPromptChars": 2191
+    },
+    {
+      "id": "java_generic",
+      "codexChars": 17549,
+      "claudeChars": 17456,
+      "githubChars": 17837,
+      "langchainChars": 19967,
+      "systemPromptChars": 2303,
+      "developerPromptChars": 2179
+    },
+    {
+      "id": "java_architect",
+      "codexChars": 14464,
+      "claudeChars": 14371,
+      "githubChars": 14752,
+      "langchainChars": 17431,
+      "systemPromptChars": 2011,
+      "developerPromptChars": 2185
+    },
+    {
+      "id": "angular_18",
+      "codexChars": 17281,
+      "claudeChars": 17188,
+      "githubChars": 17569,
+      "langchainChars": 19711,
+      "systemPromptChars": 2020,
+      "developerPromptChars": 2190
+    },
+    {
+      "id": "nodejs",
+      "codexChars": 17491,
+      "claudeChars": 17398,
+      "githubChars": 17779,
+      "langchainChars": 19963,
+      "systemPromptChars": 1965,
+      "developerPromptChars": 2278
+    },
+    {
+      "id": "python",
+      "codexChars": 14471,
+      "claudeChars": 14378,
+      "githubChars": 14759,
+      "langchainChars": 17296,
+      "systemPromptChars": 1830,
+      "developerPromptChars": 2185
+    },
+    {
+      "id": "qa_general",
+      "codexChars": 11063,
+      "claudeChars": 10970,
+      "githubChars": 11351,
+      "langchainChars": 14360,
+      "systemPromptChars": 1687,
+      "developerPromptChars": 2077
+    },
+    {
+      "id": "sonarqube_remediation",
+      "codexChars": 11685,
+      "claudeChars": 11592,
+      "githubChars": 12005,
+      "langchainChars": 15078,
+      "systemPromptChars": 1740,
+      "developerPromptChars": 2228
+    },
+    {
+      "id": "cicd",
+      "codexChars": 11418,
+      "claudeChars": 11325,
+      "githubChars": 11706,
+      "langchainChars": 14820,
+      "systemPromptChars": 1754,
+      "developerPromptChars": 2182
+    },
+    {
+      "id": "journey_to_cloud",
+      "codexChars": 11303,
+      "claudeChars": 11210,
+      "githubChars": 11591,
+      "langchainChars": 16568,
+      "systemPromptChars": 1801,
+      "developerPromptChars": 2191
+    },
+    {
+      "id": "copilots_manager",
+      "codexChars": 11059,
+      "claudeChars": 10966,
+      "githubChars": 11347,
+      "langchainChars": 14401,
+      "systemPromptChars": 1670,
+      "developerPromptChars": 2074
+    },
+    {
+      "id": "firefly_marketplace",
+      "codexChars": 11156,
+      "claudeChars": 11063,
+      "githubChars": 11444,
+      "langchainChars": 14488,
+      "systemPromptChars": 1657,
+      "developerPromptChars": 2102
+    }
+  ]
+}

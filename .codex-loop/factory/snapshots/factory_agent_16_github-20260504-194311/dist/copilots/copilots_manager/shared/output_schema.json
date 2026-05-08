@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copilots Manager Output Contract",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "copilots_manager"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "phase": {
+      "enum": [
+        "discovery",
+        "operate"
+      ]
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "copilot_registry",
+          "routing_plan"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "owner",
+          "action",
+          "scope"
+        ],
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object"
+    }
+  }
+}

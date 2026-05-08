@@ -1,0 +1,109 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "journey_to_cloud",
+  "runtime": "langchain",
+  "displayName": "Copiloto Journey to Cloud",
+  "family": "cloud",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "declaredOutputs": [
+    "migration_plan",
+    "cloud_readiness_report"
+  ],
+  "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+  "outputSchema": "dist/copilots/journey_to_cloud/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/journey_to_cloud/langchain/agent.py",
+  "profileArtifact": "dist/copilots/journey_to_cloud/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/journey_to_cloud/langchain/agent.py",
+    "profileArtifact": "dist/copilots/journey_to_cloud/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/journey_to_cloud/shared/output_schema.json",
+    "outputSchemaSha256": "e3559ee86de34f91dd55439220f53ea8b2f7494a59ee9288cff780bd85a3a482",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/journey_to_cloud/shared/output_schema.json"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+      "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+      "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  }
+}

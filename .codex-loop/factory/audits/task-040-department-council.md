@@ -1,0 +1,25 @@
+# Task 040 Department Council
+
+| Departamento | PASS-FAIL | Evidencia | Cambios | Riesgos |
+|---|---|---|---|---|
+| Product | PASS | `dist/copilots/cicd/shared/spec.json` mantiene el alcance de CI/CD: `github_actions`, `ci_cd`, fases `devops`, `release`, `operate`, con outputs `pipeline_triage` y `workflow_patch_plan`. No se amplio a operaciones de producto fuera del copilot. | Sin parche de producto. | Riesgo residual bajo: la evidencia real de GitHub MCP queda pendiente cuando el conector no esta activado. |
+| Engineering | FAIL->PASS | Defecto concreto encontrado en `dist/copilots/cicd/langchain/agent.py`: `AuditResult` usaba `@dataclass`; una carga dinamica via `importlib.util.spec_from_file_location` sin registrar el modulo fallaba antes de construir el agente, debilitando el contrato `plain_python_class` / `agent_executor_adapter`. Smoke posterior: `dynamic_import=pass`, schema requerido intacto. | Parcheado `dist/copilots/cicd/langchain/agent.py`: eliminado `dataclass` y reemplazado por `AuditResult.__init__` explicito. Se limpiaron los `__pycache__` generados por el smoke. | Riesgo residual: el workspace no es repositorio Git; la trazabilidad de cambios queda en archivos locales, reportes generados y este council. |
+| Web/UI/Design | PASS | No hay UI, navegacion, render, responsive ni accesibilidad visual en los artefactos auditados; el alcance es contrato runtime, prompts, schema y adaptador Python. | Sin cambios UI. | No aplica para `runtime-contracts`. |
+| Creative Studio | PASS | No hay imagenes, mockups, motion, pitch deck, scroll storytelling ni assets sociales en el incremento CI/CD. | Sin cambios creativos. | No aplica. |
+| QA | FAIL->PASS | `.codex-loop/factory/audits/task-040-qa.md` documenta un P2 ya corregido: el contrato LangChain usaba claves abreviadas frente al contrato compartido. Verificacion final: `python tools/validate_copilot_factory.py`, `python tools/validate_prompt_quality.py` y `python tools/validate_runtime_equivalence.py` pasan. | Se conserva el parche previo en `dist/copilots/cicd/langchain/agent.py` para `RUNTIME_EQUIVALENCE_CONTRACT`; council anade smoke de carga dinamica y vuelve a ejecutar validadores. | Riesgo residual: conviene endurecer el validador para detectar deriva semantica de nombres de contrato en otros copilotos, no solo en CI/CD. |
+| Safe-coding/Privacy | FAIL->PASS | `.codex-loop/factory/audits/task-040-safe-coding.md` documenta refuerzo de validacion de `candidate_output`. Smoke adicional de `render_prompt` confirma `secret_leak=False` y `path_leak=False`; `mcp-placeholders.json` mantiene `credentialValue=""`, `credentialValuesStored=false`, `customerDataAllowed=false` y `billingDataAllowed=false`. | Se conserva el parche previo de validacion estructural en `dist/copilots/cicd/langchain/agent.py`; no se introdujeron credenciales ni datos de cliente. | Riesgo residual: activacion real de `github_mcp` requiere operador, entorno externo y aprobacion para escrituras. |
+| Growth/SEO/Content | PASS | No hay landing, SEO, blog, metadata publica ni copy comercial en los archivos de la tarea. | Sin cambios de contenido. | No aplica. |
+| Legal/Risk | PASS | Los prompts prohiben inventar acceso, fingir inspeccion y almacenar secretos; el contrato exige evidencia, owner, validacion y approval para seguridad/release/conectores. No se introducen claims comerciales, scraping ni licencias nuevas. | Sin cambios legales. | Riesgo residual: el uso con repositorios reales debe respetar permisos, politicas internas y licencias del origen. |
+| Packaging/Release | FAIL->PASS | Al ejecutar el smoke dinamico se generaron caches Python y `validate_copilot_factory.py` los bloqueo como artefactos de release. Despues de limpiar los caches, `Get-ChildItem -Recurse -Directory -Filter '__pycache__' -LiteralPath 'dist'` no devuelve resultados y los tres validadores pasan. | Eliminados solo los `.pyc` generados y sus directorios `__pycache__` vacios dentro de `dist/copilots`. Creado este informe council. | Riesgo residual bajo: futuras pruebas Python pueden recrear bytecode; repetir higiene antes de empaquetar. |
+| Commercial/Finance | PASS | `runtimeEquivalenceContract.costPolicy` mantiene `python_first_llm_sparse_no_repo_dump`; los prompts limitan LLM a sintesis de juicio y usan Python para checks deterministas, sin inflar costes por repo dump. | Sin cambios de pricing, demo o ventas. | Riesgo residual: futuras ampliaciones de prompt deben seguir el presupuesto de `validate_prompt_quality.py`. |
+
+## Validacion
+
+- `python tools/validate_copilot_factory.py` -> PASS: 18 copilots, 50 agents, 50 tasks.
+- `python tools/validate_prompt_quality.py` -> PASS: 18 copilots, 72 runtime prompts.
+- `python tools/validate_runtime_equivalence.py` -> PASS: 18 copilots checked.
+- Smoke LangChain con bytecode desactivado -> PASS: carga dinamica, schema requerido, redaccion de token placeholder y ruta local.
+
+## Decision
+
+Council deja CI/CD en PASS final. Cada FAIL tuvo parche real o limpieza de artefacto generada por la verificacion; los riesgos restantes son operativos y quedan documentados.

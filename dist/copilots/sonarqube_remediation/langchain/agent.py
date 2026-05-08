@@ -1,0 +1,181 @@
+"""LangChain-compatible Python brain for Copiloto SonarQube Remediacion.
+
+This file intentionally has no hard dependency on langchain. The class can be
+wrapped as a Tool, Runnable or AgentExecutor adapter later. Python owns routing,
+audit, schema checks and prompt rendering; LLM calls should receive only the
+`render_prompt()` result plus a small evidence bundle.
+"""
+
+from __future__ import annotations
+
+import json
+import re
+import sys
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from _runtime_safety import redact_value, validate_evidence, validate_request
+
+
+PROFILE = {"connectors": ["github_mcp", "sonarqube_mcp"], "env_keys": ["GITHUB_TOKEN", "SONARQUBE_TOKEN"], "family": "quality", "function": "SonarQube non-conformity remediation and technical debt burn-down.", "id": "sonarqube_remediation", "name": "Copiloto SonarQube Remediacion", "outputs": ["sonar_report", "remediation_backlog"], "sdlc_phases": ["test", "security", "release"], "stacks": ["all"], "version": "copilot-factory-0.2.0"}
+SYSTEM_PROMPT = "You are Copiloto SonarQube Remediacion, a production-grade SDLC copilot.\n\nMission:\nFind defects before users do by converting requirements, code, risks and telemetry into executable checks.\n\nScope:\n- Primary function: SonarQube non-conformity remediation and technical debt burn-down.\n- Runtime family: quality\n- Stacks: all\n- SDLC phases: test, security, release\n- Declared connectors: github_mcp, sonarqube_mcp\n- Declared environment variable names: GITHUB_TOKEN, SONARQUBE_TOKEN\n\nNon-negotiable behavior:\n1. Start from evidence. If a repository, issue, PR, build log, SonarQube issue or catalog is available, inspect that before giving guidance.\n2. Python is the deterministic brain. Use Python tools for routing, catalog checks, schema checks, prompt checks, matrix generation and repetitive audits. Use an LLM only for judgement-heavy synthesis.\n3. Do not store secrets, invent connector access, fake CI results or pretend to have inspected files that were not inspected.\n4. Keep work scoped to the selected copilot mission. If another copilot owns the problem, hand off with an evidence pack instead of expanding silently.\n5. Every recommendation must include a next action, owner, evidence source and validation method.\n6. Prefer product-grade outputs over chatty advice: scorecards, ADR reviews, test matrices, patch plans, routing decisions, remediation backlogs or runbooks.\n\nStack rules:\n- Start with source evidence, not memory. Keep every recommendation traceable to files, logs or catalog entries.\n\nMain risk to prevent:\nHappy-path testing, unprioritized findings, weak reproduction steps and noisy reports.\n\nPrimary quality gate:\nEvery finding needs severity, evidence, reproduction path and a concrete verification command.\n"
+DEVELOPER_PROMPT = 'Developer operating instructions for Copiloto SonarQube Remediacion:\n\nExecution order:\n1. Intake: restate the requested outcome in one precise sentence.\n2. Route: confirm why this copilot is selected and name any secondary copilots that should be consulted.\n3. Evidence: collect the smallest useful set of files, logs, catalog entries or connector outputs.\n4. Deterministic pass: use Python or structured checks for anything countable or schema-like.\n5. Judgement pass: use the LLM only to interpret trade-offs, synthesize risks or design non-trivial patches.\n6. Output: return the expected artifact in the declared schema, then a short human summary.\n7. Verification: include exact commands, checks or acceptance criteria.\n8. Handoff: if blocked, provide the evidence pack and stop condition.\n\nExpected outputs:\n- sonar_report: must be concrete, evidence-backed and machine-checkable when possible.\n- remediation_backlog: must be concrete, evidence-backed and machine-checkable when possible.\n\nPhase instructions:\n- test: Turn requirements and code risks into unit, integration, negative and regression tests.\n- security: Check secrets, auth, data exposure, dependency risk and least-privilege connector use.\n- release: Prepare versioning, changelog, risk signoff, deployment and rollback evidence.\n\nConnector discipline:\n- Connector declarations are not credentials. They are capability contracts.\n- Required connectors for this copilot: github_mcp, sonarqube_mcp\n- Environment variable names only: GITHUB_TOKEN, SONARQUBE_TOKEN\n- If a connector is unavailable, produce an offline audit using local files and mark connector evidence as pending.\n\nCost discipline:\n- Python handles discovery, scoring, diff summaries, schema checks and regression matrices.\n- Codex or Claude handles only the narrow judgement slice that Python cannot decide.\n- Never send an entire repository to an LLM when a file list, symbol graph or targeted excerpt is enough.\n\nFailure discipline:\n- If evidence contradicts the user request, state the contradiction plainly.\n- If a task is too broad, split it into phase-gated batches.\n- If a proposed change touches security, release, credentials or production connectors, require explicit human approval.\n'
+OUTPUT_SCHEMA = {'$schema': 'https://json-schema.org/draft/2020-12/schema', 'title': 'Copiloto SonarQube Remediacion Output Contract', 'type': 'object', 'required': ['copilot_id', 'decision', 'phase', 'expected_outputs', 'evidence', 'findings', 'actions', 'validation', 'risks', 'runtime_trace', 'cost_budget'], 'properties': {'copilot_id': {'const': 'sonarqube_remediation'}, 'decision': {'type': 'string'}, 'phase': {'enum': ['test', 'security', 'release']}, 'expected_outputs': {'type': 'array', 'items': {'enum': ['sonar_report', 'remediation_backlog']}}, 'evidence': {'type': 'array', 'items': {'type': 'object', 'required': ['kind', 'ref', 'summary']}}, 'findings': {'type': 'array', 'items': {'type': 'object', 'required': ['severity', 'evidence_ref', 'reproduction_path', 'verification_command'], 'properties': {'severity': {'enum': ['INFO', 'MINOR', 'MAJOR', 'CRITICAL', 'BLOCKER']}}}}, 'actions': {'type': 'array', 'items': {'type': 'object', 'required': ['owner', 'action', 'scope', 'evidence_ref', 'validation_method']}}, 'validation': {'type': 'array', 'items': {'type': 'string'}}, 'risks': {'type': 'array', 'items': {'type': 'string'}}, 'runtime_trace': {'type': 'object', 'required': ['runtime', 'source_of_truth', 'schema_ref', 'max_unexplained_drift', 'prompt_bodies_stored'], 'properties': {'runtime': {'enum': ['codex', 'claude', 'github-copilot', 'langchain']}, 'max_unexplained_drift': {'const': 0}, 'prompt_bodies_stored': {'const': False}}}, 'cost_budget': {'type': 'object', 'required': ['routing_mode', 'deterministic_first', 'prompt_bodies_stored'], 'properties': {'routing_mode': {'const': 'python_first_llm_sparse'}, 'deterministic_first': {'const': True}, 'max_evidence_refs': {'type': 'integer', 'minimum': 1, 'maximum': 12}, 'prompt_bodies_stored': {'const': False}}}, 'handoff': {'type': 'object'}}}
+SDLC_PLAYBOOK = [{"exitEvidence": "test artifact plus one validation signal for Copiloto SonarQube Remediacion", "goal": "Turn requirements and code risks into unit, integration, negative and regression tests.", "phase": "test", "pythonCheck": "test matrix expansion, pairwise/negative case generation"}, {"exitEvidence": "security artifact plus one validation signal for Copiloto SonarQube Remediacion", "goal": "Check secrets, auth, data exposure, dependency risk and least-privilege connector use.", "phase": "security", "pythonCheck": "secret pattern scan, dependency policy check, connector least-privilege check"}, {"exitEvidence": "release artifact plus one validation signal for Copiloto SonarQube Remediacion", "goal": "Prepare versioning, changelog, risk signoff, deployment and rollback evidence.", "phase": "release", "pythonCheck": "manifest, changelog and version compatibility check"}]
+QUALITY_RUBRIC = [{'criterion': 'Evidence first', 'passSignal': 'Claims cite files, logs, catalog entries, connector outputs or explicit user constraints.', 'failSignal': 'Advice appears before evidence or invents repository state.'}, {'criterion': 'Python first', 'passSignal': 'Deterministic checks are delegated to scripts or structured validation.', 'failSignal': 'LLM is asked to count, route, validate keys or scan secrets.'}, {'criterion': 'Output contract', 'passSignal': 'Produces one of: sonar_report, remediation_backlog.', 'failSignal': 'Returns generic consultancy text with no artifact.'}, {'criterion': 'Scope control', 'passSignal': 'Names affected phases, files, connectors and owners.', 'failSignal': 'Expands beyond copilot mission without handoff.'}, {'criterion': 'Primary gate', 'passSignal': 'Every finding needs severity, evidence, reproduction path and a concrete verification command.', 'failSignal': 'Moves forward without the primary quality gate.'}]
+RUNTIME_PARITY_CONTRACT = {'ref': 'dist/copilots/sonarqube_remediation/shared/spec.json#/runtimeParityContract', 'runtimes': ['codex', 'claude', 'github-copilot', 'langchain'], 'maxUnexplainedDrift': 0, 'requiredTraceFields': ['phase', 'expected_outputs', 'findings', 'runtime_trace', 'cost_budget']}
+ARCHITECTURE_DECISION_AUDIT = None
+DESIGN_BOUNDARY_AUDIT = None
+BUILD_IMPLEMENTATION_AUDIT = None
+
+
+@dataclass
+class AuditResult:
+    pass_: bool
+    score: int
+    issues: list[str]
+    evidence_needed: list[str]
+
+    def to_dict(self) -> dict[str, Any]:
+        return {
+            "pass": self.pass_,
+            "score": self.score,
+            "issues": self.issues,
+            "evidence_needed": self.evidence_needed,
+        }
+
+
+class SonarqubeRemediationAgent:
+    def __init__(self, profile: dict[str, Any] | None = None):
+        self.profile = profile or PROFILE
+
+    def normalize(self, text: str) -> set[str]:
+        return set(re.sub(r"[^a-zA-Z0-9_ -]+", " ", text.lower()).replace("-", " ").replace("_", " ").split())
+
+    def score(self, request: str) -> int:
+        request = validate_request(request)
+        words = self.normalize(request)
+        tags: list[str] = []
+        for key in ["family", "function"]:
+            tags.extend(str(self.profile.get(key, "")).lower().replace("_", " ").split())
+        for key in ["stacks", "sdlc_phases", "connectors", "outputs"]:
+            tags.extend(" ".join(self.profile.get(key, [])).lower().replace("_", " ").split())
+        return sum(1 for tag in tags if tag in words)
+
+    def output_schema(self) -> dict[str, Any]:
+        return OUTPUT_SCHEMA
+
+    def audit_architecture_decision(self, evidence: dict[str, Any] | None = None) -> dict[str, Any]:
+        evidence = validate_evidence(evidence)
+        if ARCHITECTURE_DECISION_AUDIT is None:
+            return AuditResult(pass_=True, score=0, issues=[], evidence_needed=[]).to_dict()
+        needed = [
+            key
+            for key in ARCHITECTURE_DECISION_AUDIT.get("requiredEvidence", [])
+            if not evidence.get(key)
+        ]
+        return AuditResult(pass_=not needed, score=100 if not needed else 50, issues=[], evidence_needed=needed).to_dict()
+
+    def audit(self, request: str, evidence: dict[str, Any] | None = None) -> dict[str, Any]:
+        request = validate_request(request)
+        evidence = validate_evidence(evidence)
+        issues: list[str] = []
+        needed: list[str] = []
+        score = self.score(request)
+        if score == 0:
+            issues.append("Request does not match this copilot strongly enough.")
+        if not evidence.get("source_refs"):
+            needed.append("source_refs")
+        architecture_words = {"architecture", "arquitectura", "principles", "principios", "adr", "decision", "quality", "calidad", "technical", "tecnica", "tecnico"}
+        design_words = {"design", "diseno", "domain", "dominio", "boundary", "boundaries", "limites", "contract", "contracts", "contratos", "handoff", "traspaso"}
+        build_words = {"build", "implementation", "implementacion", "plan", "patch", "stack", "rules", "reglas", "affected", "files", "archivos", "rollback", "validation", "tests"}
+        if ARCHITECTURE_DECISION_AUDIT is not None and self.normalize(request) & architecture_words:
+            architecture_audit = self.audit_architecture_decision(evidence)
+            for key in architecture_audit.get("evidence_needed", []):
+                if key not in needed:
+                    needed.append(key)
+        elif DESIGN_BOUNDARY_AUDIT is not None and self.normalize(request) & design_words:
+            for key in DESIGN_BOUNDARY_AUDIT.get("requiredEvidence", []):
+                if not evidence.get(key):
+                    needed.append(key)
+        elif BUILD_IMPLEMENTATION_AUDIT is not None and self.normalize(request) & build_words:
+            for key in BUILD_IMPLEMENTATION_AUDIT.get("requiredEvidence", []):
+                if not evidence.get(key):
+                    needed.append(key)
+        elif not evidence.get("validation"):
+            needed.append("validation")
+        words = self.normalize(request)
+        s = words & {"auth","connector","connectors","credential","credentials","prod","production","release","secret","secrets","security","token","tokens","vulnerability"}
+        w = words & {"activate","change","changes","commit","delete","deploy","enable","fix","implement","merge","modify","patch","publish","push","remove","rotate","store","update","write","writes"}
+        if s and w:
+            issues.append("Human approval gate required for security or release-sensitive work.")
+        return AuditResult(pass_=not issues and not needed, score=score, issues=issues, evidence_needed=needed).to_dict()
+
+    def plan(self, request: str, evidence: dict[str, Any] | None = None) -> dict[str, Any]:
+        request = validate_request(request)
+        audit = self.audit(request, evidence)
+        plan = {
+            "copilot": self.profile["id"],
+            "name": self.profile["name"],
+            "score": audit["score"],
+            "python_first": [
+                "catalog lookup",
+                "semantic scoring",
+                "phase audit",
+                "connector declaration check",
+                "output schema check",
+            ],
+            "llm_escalation": self.should_escalate_to_llm(request, audit),
+            "connectors": self.profile["connectors"],
+            "env_keys": self.profile["env_keys"],
+            "outputs": self.profile["outputs"],
+            "runtime_parity_contract": RUNTIME_PARITY_CONTRACT,
+            "required_trace_fields": RUNTIME_PARITY_CONTRACT["requiredTraceFields"],
+            "audit": audit,
+        }
+        if ARCHITECTURE_DECISION_AUDIT is not None:
+            plan["architecture_decision_audit"] = ARCHITECTURE_DECISION_AUDIT
+        if DESIGN_BOUNDARY_AUDIT is not None:
+            plan["design_boundary_audit"] = DESIGN_BOUNDARY_AUDIT
+        if BUILD_IMPLEMENTATION_AUDIT is not None:
+            plan["implementation_plan_audit"] = BUILD_IMPLEMENTATION_AUDIT
+        return plan
+
+    def should_escalate_to_llm(self, request: str, audit: dict[str, Any]) -> bool:
+        text = validate_request(request).lower()
+        judgement_words = ["architecture", "tradeoff", "design", "refactor", "write", "fix", "review", "explain"]
+        return audit.get("pass") is True and audit["score"] > 0 and any(word in text for word in judgement_words)
+
+    def render_prompt(self, request: str, evidence: dict[str, Any] | None = None) -> list[dict[str, str]]:
+        request = validate_request(request)
+        evidence = validate_evidence(evidence)
+        safe_request = redact_value(request)
+        safe_evidence = redact_value(evidence)
+        plan = redact_value(self.plan(request, safe_evidence))
+        user_payload = {
+            "request": safe_request,
+            "profile": self.profile,
+            "plan": plan,
+            "output_schema": OUTPUT_SCHEMA,
+            "runtime_parity_contract": RUNTIME_PARITY_CONTRACT,
+            "sdlc_playbook": SDLC_PLAYBOOK,
+            "evidence": safe_evidence,
+        }
+        return [
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "developer", "content": DEVELOPER_PROMPT},
+            {"role": "user", "content": json.dumps(user_payload, indent=2)},
+        ]
+
+
+def build_agent() -> SonarqubeRemediationAgent:
+    return SonarqubeRemediationAgent()
+
+
+if __name__ == "__main__":
+    import sys
+    agent = build_agent()
+    request = " ".join(sys.argv[1:]) or "route and audit this request"
+    print(json.dumps(agent.plan(request, {"source_refs": [], "validation": []}), indent=2))

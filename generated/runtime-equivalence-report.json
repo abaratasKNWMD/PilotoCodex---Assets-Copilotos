@@ -1,0 +1,1673 @@
+{
+  "pass": true,
+  "checkedAt": "2026-05-05T19:48:49.851425+00:00",
+  "copilotsChecked": 18,
+  "metrics": [
+    {
+      "id": "devex",
+      "name": "Copiloto DevEx",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/devex/shared/spec.json"
+    },
+    {
+      "id": "aida_architecture",
+      "name": "Copiloto de Principios de Arquitectura AIDA",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/aida_architecture/shared/spec.json"
+    },
+    {
+      "id": "as_is_discovery",
+      "name": "Copiloto de Discovery AS-IS",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/as_is_discovery/shared/spec.json"
+    },
+    {
+      "id": "single_registry",
+      "name": "Copiloto Registro Unico",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/single_registry/shared/spec.json"
+    },
+    {
+      "id": "firefly_v5",
+      "name": "Copiloto Firefly v5",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/firefly_v5/shared/spec.json"
+    },
+    {
+      "id": "firefly_v6",
+      "name": "Copiloto Firefly v6",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/firefly_v6/shared/spec.json"
+    },
+    {
+      "id": "moonshine",
+      "name": "Copiloto Moonshine",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/moonshine/shared/spec.json"
+    },
+    {
+      "id": "java_generic",
+      "name": "Copiloto Java Generico",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/java_generic/shared/spec.json"
+    },
+    {
+      "id": "java_architect",
+      "name": "Copiloto Java Architect",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/java_architect/shared/spec.json"
+    },
+    {
+      "id": "angular_18",
+      "name": "Copiloto Angular 18",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/angular_18/shared/spec.json"
+    },
+    {
+      "id": "nodejs",
+      "name": "Copiloto Node.js",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/nodejs/shared/spec.json"
+    },
+    {
+      "id": "python",
+      "name": "Copiloto Python",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/python/shared/spec.json"
+    },
+    {
+      "id": "qa_general",
+      "name": "Copiloto QA General",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/qa_general/shared/spec.json"
+    },
+    {
+      "id": "sonarqube_remediation",
+      "name": "Copiloto SonarQube Remediacion",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/sonarqube_remediation/shared/spec.json"
+    },
+    {
+      "id": "cicd",
+      "name": "Copiloto CI/CD",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/cicd/shared/spec.json"
+    },
+    {
+      "id": "journey_to_cloud",
+      "name": "Copiloto Journey to Cloud",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/journey_to_cloud/shared/spec.json"
+    },
+    {
+      "id": "copilots_manager",
+      "name": "Copilots Manager",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/copilots_manager/shared/spec.json"
+    },
+    {
+      "id": "firefly_marketplace",
+      "name": "Copiloto Firefly Marketplace",
+      "runtimesChecked": 4,
+      "sharedSpec": "dist/copilots/firefly_marketplace/shared/spec.json"
+    }
+  ],
+  "codexAdapterAudit": {
+    "mission": "Builds Codex-facing task prompts and local tool protocol.",
+    "ownerAgent": "factory_agent_14_codex",
+    "policyVersion": "codex-local-tool-protocol-1.0",
+    "protocolsChecked": 18,
+    "requiredEvidence": [
+      "codex_task_prompt",
+      "local_tool_protocol",
+      "validation_commands",
+      "runtime_equivalence"
+    ],
+    "qualityGates": [
+      "codex_prompt_embeds_shared_spec",
+      "local_tool_protocol_declared",
+      "tool_fallbacks_are_non_fatal",
+      "traceability_and_cost"
+    ],
+    "metrics": [
+      {
+        "id": "devex",
+        "protocol": "dist/copilots/devex/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/devex/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "aida_architecture",
+        "protocol": "dist/copilots/aida_architecture/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/aida_architecture/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "as_is_discovery",
+        "protocol": "dist/copilots/as_is_discovery/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/as_is_discovery/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "single_registry",
+        "protocol": "dist/copilots/single_registry/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/single_registry/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v5",
+        "protocol": "dist/copilots/firefly_v5/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/firefly_v5/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v6",
+        "protocol": "dist/copilots/firefly_v6/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/firefly_v6/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "moonshine",
+        "protocol": "dist/copilots/moonshine/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/moonshine/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_generic",
+        "protocol": "dist/copilots/java_generic/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/java_generic/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_architect",
+        "protocol": "dist/copilots/java_architect/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/java_architect/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "angular_18",
+        "protocol": "dist/copilots/angular_18/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/angular_18/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "nodejs",
+        "protocol": "dist/copilots/nodejs/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/nodejs/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "python",
+        "protocol": "dist/copilots/python/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/python/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "qa_general",
+        "protocol": "dist/copilots/qa_general/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/qa_general/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "sonarqube_remediation",
+        "protocol": "dist/copilots/sonarqube_remediation/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "cicd",
+        "protocol": "dist/copilots/cicd/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/cicd/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "journey_to_cloud",
+        "protocol": "dist/copilots/journey_to_cloud/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "copilots_manager",
+        "protocol": "dist/copilots/copilots_manager/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/copilots_manager/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_marketplace",
+        "protocol": "dist/copilots/firefly_marketplace/shared/codex_tool_protocol.json",
+        "runtimeFile": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "issues": 0
+  },
+  "claudeAdapterAudit": {
+    "mission": "Builds Claude-facing project instructions and agent cards.",
+    "ownerAgent": "factory_agent_15_claude",
+    "policyVersion": "claude-project-instructions-1.0",
+    "protocolsChecked": 18,
+    "requiredEvidence": [
+      "claude_project_instructions",
+      "claude_agent_card",
+      "evidence_pack_handoff",
+      "runtime_equivalence"
+    ],
+    "qualityGates": [
+      "claude_instructions_embed_shared_spec",
+      "agent_card_declared",
+      "handoff_is_executor_ready",
+      "traceability_and_cost"
+    ],
+    "metrics": [
+      {
+        "id": "devex",
+        "protocol": "dist/copilots/devex/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/devex/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "aida_architecture",
+        "protocol": "dist/copilots/aida_architecture/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/aida_architecture/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "as_is_discovery",
+        "protocol": "dist/copilots/as_is_discovery/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/as_is_discovery/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "single_registry",
+        "protocol": "dist/copilots/single_registry/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/single_registry/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v5",
+        "protocol": "dist/copilots/firefly_v5/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/firefly_v5/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v6",
+        "protocol": "dist/copilots/firefly_v6/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/firefly_v6/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "moonshine",
+        "protocol": "dist/copilots/moonshine/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/moonshine/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_generic",
+        "protocol": "dist/copilots/java_generic/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/java_generic/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_architect",
+        "protocol": "dist/copilots/java_architect/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/java_architect/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "angular_18",
+        "protocol": "dist/copilots/angular_18/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/angular_18/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "nodejs",
+        "protocol": "dist/copilots/nodejs/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/nodejs/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "python",
+        "protocol": "dist/copilots/python/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/python/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "qa_general",
+        "protocol": "dist/copilots/qa_general/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/qa_general/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "sonarqube_remediation",
+        "protocol": "dist/copilots/sonarqube_remediation/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "cicd",
+        "protocol": "dist/copilots/cicd/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/cicd/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "journey_to_cloud",
+        "protocol": "dist/copilots/journey_to_cloud/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "copilots_manager",
+        "protocol": "dist/copilots/copilots_manager/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/copilots_manager/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_marketplace",
+        "protocol": "dist/copilots/firefly_marketplace/shared/claude_project_instructions.json",
+        "runtimeFile": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "issues": 0
+  },
+  "githubCopilotAdapterAudit": {
+    "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+    "ownerAgent": "factory_agent_16_github",
+    "policyVersion": "github-copilot-profile-mcp-placeholders-1.0",
+    "profilesChecked": 18,
+    "requiredEvidence": [
+      "github_copilot_profile_doc",
+      "mcp_placeholders",
+      "runtime_equivalence",
+      "safe_connector_policy"
+    ],
+    "qualityGates": [
+      "github_profile_embeds_shared_spec",
+      "mcp_placeholders_are_disabled",
+      "connector_env_names_only",
+      "traceability_and_cost"
+    ],
+    "metrics": [
+      {
+        "id": "devex",
+        "profile": "dist/copilots/devex/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/devex/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/devex/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "aida_architecture",
+        "profile": "dist/copilots/aida_architecture/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/aida_architecture/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "as_is_discovery",
+        "profile": "dist/copilots/as_is_discovery/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/as_is_discovery/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "single_registry",
+        "profile": "dist/copilots/single_registry/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/single_registry/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/single_registry/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v5",
+        "profile": "dist/copilots/firefly_v5/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/firefly_v5/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v6",
+        "profile": "dist/copilots/firefly_v6/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/firefly_v6/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "moonshine",
+        "profile": "dist/copilots/moonshine/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/moonshine/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_generic",
+        "profile": "dist/copilots/java_generic/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/java_generic/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/java_generic/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_architect",
+        "profile": "dist/copilots/java_architect/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/java_architect/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "angular_18",
+        "profile": "dist/copilots/angular_18/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/angular_18/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "nodejs",
+        "profile": "dist/copilots/nodejs/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/nodejs/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/nodejs/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "python",
+        "profile": "dist/copilots/python/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/python/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/python/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "qa_general",
+        "profile": "dist/copilots/qa_general/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/qa_general/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "sonarqube_remediation",
+        "profile": "dist/copilots/sonarqube_remediation/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/sonarqube_remediation/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "cicd",
+        "profile": "dist/copilots/cicd/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/cicd/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "journey_to_cloud",
+        "profile": "dist/copilots/journey_to_cloud/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/journey_to_cloud/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "copilots_manager",
+        "profile": "dist/copilots/copilots_manager/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/copilots_manager/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_marketplace",
+        "profile": "dist/copilots/firefly_marketplace/github-copilot/copilot-profile.json",
+        "mcpPlaceholders": "dist/copilots/firefly_marketplace/github-copilot/mcp-placeholders.json",
+        "runtimeFile": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "issues": 0
+  },
+  "langchainAgentAudit": {
+    "mission": "Builds Python/LangChain compatible agent specs.",
+    "ownerAgent": "factory_agent_17_langchain",
+    "policyVersion": "langchain-agent-spec-1.0",
+    "contractsChecked": 18,
+    "requiredEvidence": [
+      "langchain_agent_spec",
+      "agent_profile_contract",
+      "runtime_equivalence",
+      "schema_digest",
+      "safe_prompt_rendering"
+    ],
+    "qualityGates": [
+      "profile_embeds_shared_spec",
+      "agent_exports_required_api",
+      "hard_langchain_dependency_not_required",
+      "render_prompt_redacts_inputs",
+      "traceability_and_cost"
+    ],
+    "metrics": [
+      {
+        "id": "devex",
+        "contract": "dist/copilots/devex/langchain/agent_contract.json",
+        "profile": "dist/copilots/devex/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/devex/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "aida_architecture",
+        "contract": "dist/copilots/aida_architecture/langchain/agent_contract.json",
+        "profile": "dist/copilots/aida_architecture/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/aida_architecture/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "as_is_discovery",
+        "contract": "dist/copilots/as_is_discovery/langchain/agent_contract.json",
+        "profile": "dist/copilots/as_is_discovery/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/as_is_discovery/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "single_registry",
+        "contract": "dist/copilots/single_registry/langchain/agent_contract.json",
+        "profile": "dist/copilots/single_registry/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/single_registry/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v5",
+        "contract": "dist/copilots/firefly_v5/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_v5/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_v5/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_v6",
+        "contract": "dist/copilots/firefly_v6/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_v6/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_v6/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "moonshine",
+        "contract": "dist/copilots/moonshine/langchain/agent_contract.json",
+        "profile": "dist/copilots/moonshine/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/moonshine/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_generic",
+        "contract": "dist/copilots/java_generic/langchain/agent_contract.json",
+        "profile": "dist/copilots/java_generic/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/java_generic/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "java_architect",
+        "contract": "dist/copilots/java_architect/langchain/agent_contract.json",
+        "profile": "dist/copilots/java_architect/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/java_architect/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "angular_18",
+        "contract": "dist/copilots/angular_18/langchain/agent_contract.json",
+        "profile": "dist/copilots/angular_18/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/angular_18/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "nodejs",
+        "contract": "dist/copilots/nodejs/langchain/agent_contract.json",
+        "profile": "dist/copilots/nodejs/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/nodejs/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "python",
+        "contract": "dist/copilots/python/langchain/agent_contract.json",
+        "profile": "dist/copilots/python/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/python/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "qa_general",
+        "contract": "dist/copilots/qa_general/langchain/agent_contract.json",
+        "profile": "dist/copilots/qa_general/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/qa_general/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "sonarqube_remediation",
+        "contract": "dist/copilots/sonarqube_remediation/langchain/agent_contract.json",
+        "profile": "dist/copilots/sonarqube_remediation/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/sonarqube_remediation/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "cicd",
+        "contract": "dist/copilots/cicd/langchain/agent_contract.json",
+        "profile": "dist/copilots/cicd/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/cicd/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "journey_to_cloud",
+        "contract": "dist/copilots/journey_to_cloud/langchain/agent_contract.json",
+        "profile": "dist/copilots/journey_to_cloud/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/journey_to_cloud/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "copilots_manager",
+        "contract": "dist/copilots/copilots_manager/langchain/agent_contract.json",
+        "profile": "dist/copilots/copilots_manager/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/copilots_manager/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+        "pass": true
+      },
+      {
+        "id": "firefly_marketplace",
+        "contract": "dist/copilots/firefly_marketplace/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_marketplace/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_marketplace/langchain/agent.py",
+        "runtimeSmoke": true,
+        "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "issues": 0
+  },
+  "dataHygieneAudit": {
+    "pass": true,
+    "artifactsChecked": 91,
+    "artifactsDeclared": 91,
+    "localPathLeaks": 0,
+    "secretPatternLeaks": 0,
+    "issues": 0,
+    "metrics": [
+      {
+        "artifact": "generated/runtime-injection-map.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/devex/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/devex/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/devex/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/devex/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/devex/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/aida_architecture/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/aida_architecture/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/aida_architecture/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/aida_architecture/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/aida_architecture/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/as_is_discovery/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/as_is_discovery/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/as_is_discovery/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/as_is_discovery/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/as_is_discovery/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/single_registry/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/single_registry/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/single_registry/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/single_registry/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/single_registry/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v5/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v5/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v5/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v5/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v5/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v6/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v6/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v6/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v6/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_v6/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/moonshine/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/moonshine/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/moonshine/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/moonshine/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/moonshine/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_generic/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_generic/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_generic/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_generic/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_generic/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_architect/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_architect/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_architect/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_architect/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/java_architect/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/angular_18/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/angular_18/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/angular_18/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/angular_18/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/angular_18/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/nodejs/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/nodejs/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/nodejs/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/nodejs/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/nodejs/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/python/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/python/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/python/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/python/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/python/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/qa_general/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/qa_general/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/qa_general/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/qa_general/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/qa_general/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/sonarqube_remediation/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/sonarqube_remediation/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/sonarqube_remediation/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/sonarqube_remediation/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/sonarqube_remediation/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/cicd/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/cicd/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/cicd/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/cicd/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/cicd/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/journey_to_cloud/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/journey_to_cloud/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/journey_to_cloud/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/journey_to_cloud/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/journey_to_cloud/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/copilots_manager/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/copilots_manager/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/copilots_manager/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/copilots_manager/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/copilots_manager/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_marketplace/shared/codex_tool_protocol.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_marketplace/shared/claude_project_instructions.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_marketplace/github-copilot/copilot-profile.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_marketplace/github-copilot/mcp-placeholders.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      },
+      {
+        "artifact": "dist/copilots/firefly_marketplace/langchain/agent_contract.json",
+        "checked": true,
+        "localPathLeak": false,
+        "secretPatternLeak": false
+      }
+    ]
+  },
+  "sdlcRuntimeMatrixAudit": {
+    "pass": true,
+    "mission": "Maintains the SDLC x Copilot x Runtime matrix.",
+    "artifact": "generated/sdlc-runtime-matrix.json",
+    "markdownArtifact": "generated/sdlc-runtime-matrix.md",
+    "maintenanceArtifact": "generated/sdlc-runtime-matrix-maintenance.json",
+    "maintenanceMarkdownArtifact": "generated/sdlc-runtime-matrix-maintenance.md",
+    "policyVersion": "sdlc-copilot-runtime-matrix-1.0",
+    "dimensions": [
+      "sdlc_phase",
+      "copilot_id",
+      "runtime"
+    ],
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "expectedCells": 204,
+    "actualCells": 204,
+    "copilotsChecked": 18,
+    "pairwiseRuntimeCases": 306,
+    "digestDriftCount": 0,
+    "runtimeFileMismatches": 0,
+    "traceLedgerEntries": 51,
+    "traceLedgerDigestMatches": true,
+    "traceLedgerMismatches": 0,
+    "cellEquivalenceAudit": {
+      "pass": true,
+      "version": "runtime-cell-equivalence-1.0",
+      "requiredAssertions": [
+        "sourceOfTruthMatchesRuntimeMap",
+        "runtimeFileMatchesCanonical",
+        "runtimeTraceRefMatchesRuntimeMap",
+        "sharedSpecDigestPresent",
+        "outputSchemaDigestPresent",
+        "runtimeFileDigestPresent",
+        "promptBodiesStoredFalse",
+        "maxUnexplainedDriftZero"
+      ],
+      "cellsChecked": 204,
+      "passingCells": 204,
+      "cellFailures": 0,
+      "evidenceMode": "per_cell_boolean_assertions_plus_sha256_digests"
+    },
+    "promptContentStored": false,
+    "maintenanceAudit": {
+      "pass": true,
+      "artifact": "generated/sdlc-runtime-matrix-maintenance.json",
+      "policyVersion": "sdlc-runtime-matrix-maintenance-1.0",
+      "cellDigestMatches": true,
+      "traceLedgerDigestMatches": true,
+      "cellEquivalenceContractDigestMatches": true,
+      "runtimeCountMatches": true,
+      "pairwiseCasesPerCopilotPhase": 6,
+      "allAcceptanceGatesPass": true,
+      "cellEquivalenceGatePass": true,
+      "sourceRuntimeMapChecked": true
+    },
+    "issues": []
+  },
+  "testStrategyAudit": {
+    "mission": "Audits test strategy, pairwise cases and negative cases.",
+    "targetCopilot": "qa_general",
+    "pairwiseCases": [
+      {
+        "id": "codex__claude",
+        "runtimes": [
+          "codex",
+          "claude"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      },
+      {
+        "id": "codex__github-copilot",
+        "runtimes": [
+          "codex",
+          "github-copilot"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      },
+      {
+        "id": "codex__langchain",
+        "runtimes": [
+          "codex",
+          "langchain"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      },
+      {
+        "id": "claude__github-copilot",
+        "runtimes": [
+          "claude",
+          "github-copilot"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      },
+      {
+        "id": "claude__langchain",
+        "runtimes": [
+          "claude",
+          "langchain"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      },
+      {
+        "id": "github-copilot__langchain",
+        "runtimes": [
+          "github-copilot",
+          "langchain"
+        ],
+        "assertions": [
+          "same_shared_spec",
+          "same_output_schema",
+          "same_prompt_source",
+          "no_local_path_leak",
+          "no_secret_pattern_leak"
+        ]
+      }
+    ],
+    "pairwiseCoverageCases": 108,
+    "negativeCases": [
+      {
+        "id": "local_path_leak",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "local_path"
+        ]
+      },
+      {
+        "id": "secret_pattern_leak",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "secret_pattern"
+        ]
+      },
+      {
+        "id": "missing_langchain_output_schema",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "langchain_embedded_output_schema"
+        ]
+      },
+      {
+        "id": "invalid_langchain_syntax",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "langchain_agent_syntax"
+        ]
+      },
+      {
+        "id": "schema_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "output_schema_sync"
+        ]
+      },
+      {
+        "id": "runtime_trace_fields_schema",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "runtime_trace_fields_schema"
+        ]
+      },
+      {
+        "id": "unsafe_copilot_id",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "runtime_map_copilot_id"
+        ]
+      },
+      {
+        "id": "empty_runtime_injection_map",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "runtime_map_coverage"
+        ]
+      },
+      {
+        "id": "indented_runtime_protocol_markdown",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "claude_runtime_specific_protocol_markdown"
+        ]
+      },
+      {
+        "id": "github_mcp_non_empty_placeholder",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "github_mcp_github_mcp_env_reference",
+          "github_mcp_github_mcp_credential_value"
+        ]
+      },
+      {
+        "id": "github_mcp_env_reference_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "github_mcp_github_mcp_env_reference"
+        ]
+      },
+      {
+        "id": "github_profile_cost_control_drift",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "github_profile_cost_control_promptExpansion",
+          "github_profile_cost_control_deterministicPythonFirst",
+          "github_profile_cost_control_llmEscalation"
+        ]
+      },
+      {
+        "id": "incomplete_langchain_agent_api",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "langchain_agent_api_methods",
+          "langchain_agent_api_constant"
+        ]
+      },
+      {
+        "id": "unsafe_langchain_static_side_effect",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "langchain_agent_static_import",
+          "langchain_agent_static_call",
+          "langchain_agent_static_top_level"
+        ]
+      },
+      {
+        "id": "unsafe_langchain_render_prompt",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "detectors": [
+          "langchain_agent_runtime_render_prompt_secret"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "qaRuntimeMarkersChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "qaTraceabilityChecked": true,
+    "pass": true,
+    "issues": []
+  },
+  "validatorSmoke": {
+    "version": "generated-validator-smoke-1.0",
+    "ownerAgent": "factory_agent_25_smoke",
+    "mission": "Runs generated validators and reports blockers.",
+    "validatorId": "runtime_equivalence",
+    "command": "python tools/validate_runtime_equivalence.py",
+    "reportArtifact": "generated/runtime-equivalence-report.json",
+    "reportPass": true,
+    "blockerCount": 0,
+    "blockers": [],
+    "status": "pass",
+    "evidenceMode": "report_path_digest_and_blocker_summary",
+    "promptBodiesStored": false,
+    "runtimeEquivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+      "maxUnexplainedDrift": 0,
+      "promptBodiesStored": false,
+      "equivalenceAssertions": {
+        "sameValidatorCommands": true,
+        "sameBlockerTaxonomy": true,
+        "reportDigestTracePresent": true,
+        "promptBodiesStoredFalse": true,
+        "maxUnexplainedDriftZero": true
+      }
+    }
+  },
+  "issues": []
+}

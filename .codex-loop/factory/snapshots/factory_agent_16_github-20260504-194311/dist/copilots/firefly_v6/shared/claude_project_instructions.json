@@ -1,0 +1,111 @@
+{
+  "policyVersion": "claude-project-instructions-1.0",
+  "ownerAgent": "factory_agent_15_claude",
+  "mission": "Builds Claude-facing project instructions and agent cards.",
+  "copilotId": "firefly_v6",
+  "runtime": "claude",
+  "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+  "projectInstructions": {
+    "artifact": "dist/copilots/firefly_v6/claude/AGENT.md",
+    "schemaRef": "dist/copilots/firefly_v6/shared/output_schema.json",
+    "outputSchemaSha256": "af3eeeb6eefb2a1d2a6fba652fdb84d458229d31154fd4f68cc391cf668370ea",
+    "requiredSections": [
+      "Runtime Injection",
+      "Claude Project Instructions",
+      "System Prompt",
+      "Developer Prompt",
+      "Execution Protocol",
+      "Python Brain Contract",
+      "Evidence Gates",
+      "Outputs",
+      "Runtime Specific Protocol"
+    ],
+    "promptSourceRefs": [
+      "dist/copilots/firefly_v6/shared/spec.json#/systemPrompt",
+      "dist/copilots/firefly_v6/shared/spec.json#/developerPrompt",
+      "dist/copilots/firefly_v6/shared/output_schema.json"
+    ]
+  },
+  "agentCard": {
+    "copilotId": "firefly_v6",
+    "runtime": "claude",
+    "displayName": "Copiloto Firefly v6",
+    "family": "development",
+    "function": "Firefly v5 evolution with stronger knowledge-base separation and QA specialization.",
+    "connectors": [
+      "github_mcp",
+      "sonarqube_mcp"
+    ],
+    "envKeys": [
+      "GITHUB_TOKEN",
+      "SONARQUBE_TOKEN"
+    ],
+    "sdlcPhases": [
+      "build",
+      "test",
+      "devops"
+    ],
+    "declaredOutputs": [
+      "kb_partition_report",
+      "test_plan",
+      "quality_gate"
+    ],
+    "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+    "outputSchema": "dist/copilots/firefly_v6/shared/output_schema.json",
+    "runtimeFile": "dist/copilots/firefly_v6/claude/AGENT.md",
+    "handoffTargets": [
+      "codex",
+      "github-copilot"
+    ],
+    "focus": "long_context_synthesis_and_review_ready_project_instructions",
+    "avoid": [
+      "inventing_file_state",
+      "claiming_connector_access_without_evidence",
+      "broad_prompt_expansion_without_python_first_evidence"
+    ],
+    "must": [
+      "embed_shared_system_and_developer_prompts_verbatim",
+      "cite_evidence_refs_before_recommendations",
+      "produce_executor_ready_handoff_when_code_edits_are_needed",
+      "use_placeholders_only_for_credentials_billing_and_customer_data"
+    ]
+  },
+  "requiredEvidence": [
+    "claude_project_instructions",
+    "claude_agent_card",
+    "evidence_pack_handoff",
+    "runtime_equivalence"
+  ],
+  "qualityGates": [
+    "claude_instructions_embed_shared_spec",
+    "agent_card_declared",
+    "handoff_is_executor_ready",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/firefly_v6/codex/AGENT.md",
+      "claude": "dist/copilots/firefly_v6/claude/AGENT.md",
+      "github-copilot": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/firefly_v6/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "reference_only_no_schema_duplication",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_python_evidence_pack_or_ambiguous_tradeoff"
+  }
+}

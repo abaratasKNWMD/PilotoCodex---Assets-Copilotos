@@ -1,0 +1,229 @@
+{
+  "version": "copilot-factory-0.2.0",
+  "brain": "python_deterministic_orchestrator",
+  "llm_role": "sparse_cerebellum_for_code_reasoning_architecture_tradeoffs_and_final_copy",
+  "copilots": 18,
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "factoryAgents": 50,
+  "qualityGate": {
+    "structure": "python tools/validate_copilot_factory.py",
+    "promptDepth": "python tools/validate_prompt_quality.py",
+    "runtimeEquivalence": "python tools/validate_runtime_equivalence.py",
+    "fullRun": "python tools/run_factory.py"
+  },
+  "controlRoom": {
+    "ownerAgent": "factory_agent_01_director",
+    "room": "Control Room",
+    "mission": "Owns the whole run, keeps gates honest and prevents scope drift.",
+    "concurrency": "serial",
+    "stateLockFrontier": {
+      "lockFile": ".codex-loop/run.lock.json",
+      "denyConcurrentFactoryRuns": true,
+      "activeRunRequiresNoNewFactory": true,
+      "snapshotRequiredWhenGitMissing": true,
+      "requiredLockFields": [
+        "id",
+        "pid",
+        "workspace",
+        "startedAt",
+        "heartbeatAt",
+        "mode"
+      ],
+      "workspaceMustMatchRoot": true,
+      "heartbeatMustNotPrecedeStart": true,
+      "snapshotEvidenceRoots": [
+        ".codex-loop/backups",
+        ".codex-loop/rollback"
+      ],
+      "frontier": "state-locks"
+    },
+    "gateHonesty": {
+      "mustPassBeforeDone": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/validate_runtime_equivalence.py"
+      ],
+      "requiredReports": [
+        "generated/validation-report.json",
+        "generated/prompt-quality-report.json",
+        "generated/runtime-equivalence-report.json"
+      ],
+      "doneRequiresEvidence": true,
+      "compileOnlyIsInsufficient": true
+    },
+    "scopeDrift": {
+      "declaredTaskFilesOnlyByDefault": true,
+      "allowedFactoryRoots": [
+        ".codex-loop",
+        "config",
+        "data",
+        "dist",
+        "generated",
+        "products",
+        "tools"
+      ],
+      "productRoot": "products",
+      "registryRequiredForNewProducts": true
+    },
+    "runtimeEquivalence": {
+      "canonicalSpec": "dist/copilots/<copilot>/shared/spec.json",
+      "traceMap": "generated/runtime-injection-map.json",
+      "adapters": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "maxUnexplainedDrift": 0
+    },
+    "costTrace": {
+      "deterministicPythonFirst": true,
+      "llmRole": "sparse_judgement_code_edits_and_final_synthesis",
+      "avoidRepeatedPromptExpansion": true,
+      "auditArtifactsAreSourceOfTruth": true
+    },
+    "releaseTruthGate": {
+      "ownerReviewRequired": true,
+      "qaReviewRequired": true,
+      "safeCodingPrivacyReviewRequired": true,
+      "releaseReviewRequired": true,
+      "residualRiskMustBeExplicit": true,
+      "releaseReadinessAudit": {
+        "policyVersion": "release-readiness-scorecard-exit-criteria-audit-1.0",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "frontier": "output-topology",
+        "targetCopilots": [
+          "devex",
+          "aida_architecture",
+          "java_architect",
+          "qa_general",
+          "sonarqube_remediation",
+          "cicd",
+          "journey_to_cloud",
+          "firefly_marketplace"
+        ],
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "artifactTargets": [
+          "web-app",
+          "desktop-tauri-windows-exe",
+          "docs-and-seo"
+        ],
+        "exitCriteria": [
+          "product-market-fit",
+          "implementation",
+          "test-coverage",
+          "browser-navigation-render",
+          "safe-coding-privacy",
+          "seo-content",
+          "packaging-artifact",
+          "release-handoff"
+        ],
+        "validationCommands": [
+          "python tools/validate_copilot_factory.py",
+          "python tools/validate_prompt_quality.py",
+          "python tools/validate_runtime_equivalence.py"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        },
+        "minimumScore": 80,
+        "residualRiskMustBeExplicit": true,
+        "claimPolicy": "no_product_artifact_claim_without_build_render_or_package_evidence",
+        "scorecardIndex": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot",
+        "requiredScorecardFields": [
+          "copilotId",
+          "sourceOfTruth",
+          "runtimeAdapters",
+          "declaredOutputs",
+          "score",
+          "scoreType",
+          "scoreScope",
+          "exitCriteriaStatus",
+          "releaseClaimStatus",
+          "claimPolicyRef",
+          "residualRiskRefs",
+          "evidenceRefs"
+        ],
+        "scoreScopePolicy": "score_is_metadata_only_and_does_not_override_residual_risks_or_claim_policy",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks"
+      },
+      "packagerDistribution": {
+        "policyVersion": "packager-distribution-manifest-file-index-1.0",
+        "ownerAgent": "factory_agent_23_packager",
+        "room": "Operations",
+        "mission": "Builds distribution manifests and file indexes.",
+        "concurrency": "parallel-safe",
+        "frontier": "output-topology",
+        "manifestRef": "generated/factory-audit.json#/releaseAudit/distributionManifest",
+        "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/runtime-injection-map.json#/distributionFileIndex",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        },
+        "targetCopilots": [
+          "devex",
+          "aida_architecture",
+          "java_architect",
+          "qa_general",
+          "sonarqube_remediation",
+          "cicd",
+          "journey_to_cloud",
+          "firefly_marketplace"
+        ],
+        "requiredArtifacts": [
+          "dist/copilots/<copilot_id>/shared/spec.json",
+          "dist/copilots/<copilot_id>/shared/output_schema.json",
+          "dist/copilots/<copilot_id>/codex/AGENT.md",
+          "dist/copilots/<copilot_id>/claude/AGENT.md",
+          "dist/copilots/<copilot_id>/github-copilot/copilot-agent.md",
+          "dist/copilots/<copilot_id>/langchain/agent.py"
+        ],
+        "validationCommands": [
+          "python tools/validate_copilot_factory.py",
+          "python tools/validate_prompt_quality.py",
+          "python tools/validate_runtime_equivalence.py"
+        ],
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy"
+      }
+    }
+  },
+  "runtimeInjection": "generated/runtime-injection-map.json",
+  "codexLoop": {
+    "tasksFile": "tasks.json",
+    "freePromptFile": "factory-prompt.md",
+    "workspaceSettings": ".vscode/settings.json"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "implementation_plan_audit_v1",
+  "version": "implementation-plan-stack-rules-audit-1.0",
+  "ownerAgent": "factory_agent_07_build",
+  "copilotId": "firefly_v6",
+  "mission": "Audits implementation plans and stack-specific rules.",
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/firefly_v6/shared/implementation_plan_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "maxUnexplainedDrift": 0
+  },
+  "stackRuleMatrix": [
+    {
+      "stack": "java",
+      "rules": [
+        "Inspect build files before proposing framework changes: pom.xml, build.gradle, settings.gradle and CI workflows.",
+        "Respect package boundaries, dependency direction, transaction scope and existing test style.",
+        "Prefer small refactors with characterization tests before broad modernization."
+      ]
+    },
+    {
+      "stack": "enterprise",
+      "rules": [
+        "Apply repository evidence before changing enterprise artifacts."
+      ]
+    }
+  ],
+  "requiredEvidence": [
+    {
+      "id": "implementation_plan",
+      "minimumRefs": 1,
+      "description": "Scoped plan steps tied to files, modules or generated artifacts before code changes proceed."
+    },
+    {
+      "id": "stack_rules",
+      "minimumRefs": 1,
+      "description": "Stack-specific rules from this copilot package that were checked against the plan."
+    },
+    {
+      "id": "affected_files",
+      "minimumRefs": 1,
+      "description": "Concrete files, globs, modules or generated paths in scope, with unrelated scope excluded."
+    },
+    {
+      "id": "validation",
+      "minimumRefs": 1,
+      "description": "Deterministic command, test, lint, typecheck or schema check that proves build readiness."
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "scoped_implementation_plan",
+      "passSignal": "Plan names changed files, ownership, sequencing and explicit out-of-scope boundaries.",
+      "failSignal": "Plan says to implement broadly without affected files, owner or stop condition."
+    },
+    {
+      "id": "stack_rule_alignment",
+      "passSignal": "Plan references relevant stack rules and explains any unsupported or deferred rule.",
+      "failSignal": "Plan ignores stack-specific framework, build-tool, UI or runtime constraints."
+    },
+    {
+      "id": "test_and_rollback_readiness",
+      "passSignal": "Validation commands and rollback notes are present before handoff to an editing runtime.",
+      "failSignal": "Patch work starts without tests, typecheck/build signal or rollback path."
+    },
+    {
+      "id": "traceability_and_cost",
+      "passSignal": "Python-first checks, source refs and one shared contract drive all four runtime adapters.",
+      "failSignal": "One runtime invents a separate build plan or expands prompt cost without artifact evidence."
+    }
+  ],
+  "requiredOutputFields": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "implementation"
+  ],
+  "requiredImplementationFields": [
+    "target_stack",
+    "affected_files",
+    "plan_steps",
+    "stack_rules_checked",
+    "validation_commands",
+    "rollback_plan",
+    "out_of_scope",
+    "evidence_pack"
+  ],
+  "routingSignals": [
+    "build",
+    "implementation",
+    "implementacion",
+    "plan",
+    "patch",
+    "stack",
+    "stack-specific",
+    "rules",
+    "reglas",
+    "affected",
+    "files",
+    "archivos",
+    "rollback",
+    "validation",
+    "tests",
+    "maven",
+    "gradle",
+    "angular",
+    "node",
+    "typescript",
+    "python"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/semantic_router.py build implementation stack rules affected files rollback",
+    "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+    "python tools/semantic_router.py python ci routing"
+  ]
+}

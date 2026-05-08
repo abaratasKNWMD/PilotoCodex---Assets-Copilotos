@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copiloto de Discovery AS-IS Output Contract",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "as_is_discovery"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "phase": {
+      "enum": [
+        "discovery",
+        "as_is"
+      ]
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "as_is_report",
+          "inventory_json"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "owner",
+          "action",
+          "scope"
+        ],
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "cloud_migration": {
+      "type": "object"
+    },
+    "runtime_contract": {
+      "type": "object",
+      "required": [
+        "source_of_truth",
+        "runtimes",
+        "max_unexplained_drift",
+        "cost_control",
+        "traceability"
+      ],
+      "properties": {
+        "source_of_truth": {
+          "const": "dist/copilots/as_is_discovery/shared/spec.json"
+        },
+        "runtimes": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "codex",
+              "claude",
+              "github-copilot",
+              "langchain"
+            ]
+          },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "max_unexplained_drift": {
+          "const": 0
+        },
+        "cost_control": {
+          "enum": [
+            "python_first_llm_sparse"
+          ]
+        },
+        "traceability": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

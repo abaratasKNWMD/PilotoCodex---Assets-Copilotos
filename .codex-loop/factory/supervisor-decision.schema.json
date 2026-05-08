@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["action", "reason", "evidence", "newTaskCount", "confidence"],
+  "properties": {
+    "action": { "enum": ["acceptStop", "appendTasks", "restartSamePreset", "humanBlock"] },
+    "reason": { "type": "string" },
+    "evidence": { "type": "array", "items": { "type": "string" } },
+    "newTaskCount": { "type": "number" },
+    "confidence": { "enum": ["low", "medium", "high"] }
+  }
+}

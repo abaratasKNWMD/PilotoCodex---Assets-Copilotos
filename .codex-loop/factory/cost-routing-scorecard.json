@@ -1,0 +1,64 @@
+{
+  "policyVersion": "cost-routing-1.0",
+  "ownerAgent": "factory_agent_20_cost",
+  "contract": ".codex-loop/factory/cost-routing-contract.json",
+  "pass": true,
+  "checkedBy": "python tools/validate_copilot_factory.py#/costRoutingAuditor",
+  "checks": [
+    {
+      "id": "contract_present",
+      "status": "pass",
+      "evidence": ".codex-loop/factory/cost-routing-contract.json"
+    },
+    {
+      "id": "python_first_required",
+      "status": "pass",
+      "evidence": "decisionRules.pythonFirstRequired=true"
+    },
+    {
+      "id": "llm_before_python_blocked",
+      "status": "pass",
+      "evidence": "decisionRules.llmBeforePythonAllowed=false"
+    },
+    {
+      "id": "cheap_work_routes_to_python",
+      "status": "pass",
+      "evidence": "cheapDeterministicWork[*].executor=python"
+    },
+    {
+      "id": "judgement_waits_for_python_gates",
+      "status": "pass",
+      "evidence": "expensiveJudgementWork[*].allowedAfter includes python_gates_pass"
+    },
+    {
+      "id": "runtime_equivalence_locked",
+      "status": "pass",
+      "evidence": "runtimeEquivalence.maxUnexplainedDrift=0 across Codex, Claude, GitHub Copilot and LangChain"
+    },
+    {
+      "id": "prompt_growth_budget_traced",
+      "status": "pass",
+      "evidence": "generated/prompt-quality-report.json#/costBudget"
+    },
+    {
+      "id": "raw_log_prompts_blocked_setting",
+      "status": "pass",
+      "evidence": ".vscode/settings.json codexLoop.rawLogPromptsAllowed=false"
+    }
+  ],
+  "sampleRoutes": [
+    {
+      "request": "python ci routing",
+      "expectedTopRoute": "python",
+      "expectedCheapPath": true,
+      "evidenceField": "routing_evidence"
+    }
+  ],
+  "residualRisks": [
+    {
+      "id": "llm_judgement_quality",
+      "status": "accepted",
+      "mitigation": "LLM judgement remains report-backed and cannot replace validation, runtime equivalence or release evidence."
+    }
+  ]
+}

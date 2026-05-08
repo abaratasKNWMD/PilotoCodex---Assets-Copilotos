@@ -1,0 +1,254 @@
+{
+  "policy_version": "sensitive-credentials-mcp-audit-1.0",
+  "owner_agent": "factory_agent_09_security",
+  "mission": "Audits sensitive credentials policy, threat model and safe MCP usage.",
+  "runtime_equivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "source_of_truth": "config/mcp-connectors.example.json",
+    "same_policy_for_all_runtimes": true,
+    "trace_evidence": "generated/validation-report.json.securityAuditor",
+    "max_unexplained_drift": 0,
+    "cost_control": "python_first_llm_sparse"
+  },
+  "mcp_connector_audit": {
+    "policy_version": "mcp-connector-placeholder-audit-1.0",
+    "owner_agent": "factory_agent_18_mcp",
+    "mission": "Audits connector declarations and env placeholders.",
+    "source_of_truth": "config/mcp-connectors.example.json",
+    "env_example": "config/.env.example",
+    "trace_evidence": "generated/validation-report.json#mcpConnectorAuditor",
+    "runtime_equivalence": {
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "source_of_truth": "config/mcp-connectors.example.json",
+      "same_connector_contract_for_all_runtimes": true,
+      "max_unexplained_drift": 0,
+      "cost_control": "python_first_llm_sparse"
+    },
+    "declaration_requirements": {
+      "connector_name_case": "lower_snake_case",
+      "env_name_case": "upper_snake_case",
+      "required_fields": [
+        "enabled",
+        "env",
+        "purpose",
+        "owner",
+        "rotation_owner",
+        "least_privilege_scope",
+        "allowed_runtimes",
+        "requires_operator_activation",
+        "operator_approval_required_for_writes",
+        "allowed_operations",
+        "denied_operations",
+        "traceability_refs"
+      ],
+      "default_enabled": false,
+      "runtime_allowlist": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "validation_command": "python tools/validate_copilot_factory.py"
+    },
+    "env_placeholder_requirements": {
+      "placeholder_value": "",
+      "connector_env_must_exist": true,
+      "connector_env_must_be_unique": true,
+      "no_orphan_sensitive_placeholders": true,
+      "deny_credential_shaped_values": true
+    },
+    "quality_gates": [
+      "connector_declarations_complete",
+      "env_placeholders_empty",
+      "runtime_equivalence_preserved",
+      "traceability_refs_present",
+      "cost_control_python_first"
+    ],
+    "validation_commands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py"
+    ]
+  },
+  "sensitive_credentials_policy": {
+    "storage": "environment_only",
+    "placeholder_only_in_repo": true,
+    "deny_real_values_in_env_example": true,
+    "required_env_example": "config/.env.example",
+    "redaction_required": true,
+    "rotation_owner_required": true,
+    "customer_data_allowed": false,
+    "billing_data_allowed": false,
+    "allowed_placeholder_values": [
+      ""
+    ],
+    "deny_value_prefixes": [
+      "sk-",
+      "github_pat_",
+      "ghp_",
+      "gho_",
+      "ghu_",
+      "ghs_",
+      "ghr_",
+      "Bearer "
+    ]
+  },
+  "threat_model": [
+    {
+      "id": "credential_exposure",
+      "asset": "MCP credentials",
+      "threat": "Repository, prompt, trace, or generated artifact contains a live token.",
+      "control": "Only env var names and empty placeholders are allowed in tracked examples.",
+      "verification": "python tools/validate_copilot_factory.py"
+    },
+    {
+      "id": "overprivileged_connector",
+      "asset": "External systems reachable through MCP",
+      "threat": "A connector grants broad write, admin, secret, billing, or destructive access.",
+      "control": "Each connector declares owner, purpose, allowed operations, denied operations, and least-privilege scope.",
+      "verification": "python tools/validate_copilot_factory.py"
+    },
+    {
+      "id": "prompt_or_trace_leakage",
+      "asset": "Runtime prompts, traces, logs, and reports",
+      "threat": "Sensitive values or customer data are copied into prompts or audit traces.",
+      "control": "Tokens are redacted from logs, customer data is denied in prompts, and validation scans text artifacts.",
+      "verification": "python tools/validate_copilot_factory.py"
+    },
+    {
+      "id": "unsafe_mcp_activation",
+      "asset": "Local MCP runtime configuration",
+      "threat": "A connector is enabled without operator intent, traceability, or runtime parity.",
+      "control": "Examples default to disabled and require operator activation, allowlists, and common runtime policy.",
+      "verification": "python tools/validate_copilot_factory.py"
+    }
+  ],
+  "mcp_safe_usage": {
+    "default_enabled": false,
+    "local_only_config": true,
+    "allowlist_required": true,
+    "operator_activation_required": true,
+    "operator_approval_required_for_writes": true,
+    "deny_customer_data_in_prompts": true,
+    "redact_tokens_in_logs": true,
+    "audit_trail_required": true,
+    "no_external_network_without_operator_approval": true
+  },
+  "connectors": {
+    "github_mcp": {
+      "enabled": false,
+      "env": "GITHUB_TOKEN",
+      "purpose": "Repository metadata plus operator-approved issue, pull request, and review operations.",
+      "owner": "Operations",
+      "rotation_owner": "Operations",
+      "least_privilege_scope": "repo metadata and pull request issue operations approved by operator",
+      "allowed_runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "requires_operator_activation": true,
+      "operator_approval_required_for_writes": true,
+      "allowed_operations": [
+        "read_repo_metadata",
+        "read_issues",
+        "read_pull_requests",
+        "write_operator_approved_comments"
+      ],
+      "traceability_refs": {
+        "policy_ref": "config/mcp-connectors.example.json#/connectors/github_mcp",
+        "env_ref": "config/.env.example#GITHUB_TOKEN",
+        "validation_report_key": "generated/validation-report.json#mcpConnectorAuditor"
+      },
+      "denied_operations": [
+        "secret_read",
+        "secret_write",
+        "billing_admin",
+        "org_admin",
+        "destructive_repo_admin"
+      ]
+    },
+    "sonarqube_mcp": {
+      "enabled": false,
+      "env": "SONARQUBE_TOKEN",
+      "purpose": "Quality gate, issue, and coverage signal reads for release readiness.",
+      "owner": "Quality",
+      "rotation_owner": "Quality",
+      "least_privilege_scope": "quality gate and issue read access",
+      "allowed_runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "requires_operator_activation": true,
+      "operator_approval_required_for_writes": true,
+      "allowed_operations": [
+        "read_quality_gates",
+        "read_issues",
+        "read_coverage"
+      ],
+      "traceability_refs": {
+        "policy_ref": "config/mcp-connectors.example.json#/connectors/sonarqube_mcp",
+        "env_ref": "config/.env.example#SONARQUBE_TOKEN",
+        "validation_report_key": "generated/validation-report.json#mcpConnectorAuditor"
+      },
+      "denied_operations": [
+        "secret_read",
+        "secret_write",
+        "billing_admin",
+        "org_admin",
+        "destructive_repo_admin"
+      ]
+    },
+    "confluence_mcp_optional": {
+      "enabled": false,
+      "env": "CONFLUENCE_TOKEN_OPTIONAL",
+      "purpose": "Approved architecture documentation reads for enterprise handoff only.",
+      "owner": "Architecture",
+      "rotation_owner": "Architecture",
+      "least_privilege_scope": "approved documentation read access",
+      "allowed_runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "requires_operator_activation": true,
+      "operator_approval_required_for_writes": true,
+      "allowed_operations": [
+        "read_approved_spaces",
+        "read_architecture_docs"
+      ],
+      "traceability_refs": {
+        "policy_ref": "config/mcp-connectors.example.json#/connectors/confluence_mcp_optional",
+        "env_ref": "config/.env.example#CONFLUENCE_TOKEN_OPTIONAL",
+        "validation_report_key": "generated/validation-report.json#mcpConnectorAuditor"
+      },
+      "denied_operations": [
+        "secret_read",
+        "secret_write",
+        "billing_admin",
+        "org_admin",
+        "destructive_repo_admin"
+      ]
+    }
+  },
+  "rules": [
+    "Never store real token values in this repository.",
+    "Use environment variable names only in tracked examples.",
+    "Every connector must have a purpose, owner, rotation owner, runtime allowlist, allowed operations, denied operations, and least-privilege scope before activation.",
+    "Examples must default connectors to disabled until the operator activates them locally.",
+    "The same MCP safety policy applies to Codex, Claude, GitHub Copilot, and LangChain."
+  ]
+}

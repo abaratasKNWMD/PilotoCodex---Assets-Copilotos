@@ -1,0 +1,104 @@
+{
+  "policyVersion": "github-copilot-profile-mcp-placeholders-1.0",
+  "ownerAgent": "factory_agent_16_github",
+  "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+  "copilotId": "aida_architecture",
+  "runtime": "github-copilot",
+  "displayName": "Copiloto de Principios de Arquitectura AIDA",
+  "family": "core",
+  "function": "Architecture evaluation, decision review and enterprise guidelines.",
+  "connectors": [
+    "github_mcp",
+    "confluence_mcp_optional"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN",
+    "CONFLUENCE_TOKEN_OPTIONAL"
+  ],
+  "sdlcPhases": [
+    "architecture",
+    "design",
+    "release"
+  ],
+  "declaredOutputs": [
+    "adr_review",
+    "architecture_principles_report"
+  ],
+  "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+  "outputSchema": "dist/copilots/aida_architecture/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+  "profileDoc": {
+    "artifact": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+    "profileArtifact": "dist/copilots/aida_architecture/github-copilot/copilot-profile.json",
+    "schemaRef": "dist/copilots/aida_architecture/shared/output_schema.json",
+    "outputSchemaSha256": "118288046d9dcf1d7050b0ae10e0d38a864f8a2204c771b69dfc7b980656e6c5",
+    "requiredSections": [
+      "Runtime Injection",
+      "System Prompt",
+      "Developer Prompt",
+      "Execution Protocol",
+      "Python Brain Contract",
+      "Evidence Gates",
+      "Outputs",
+      "Runtime Specific Protocol",
+      "GitHub Copilot Profile",
+      "MCP Placeholder Contract"
+    ],
+    "promptSourceRefs": [
+      "dist/copilots/aida_architecture/shared/spec.json#/systemPrompt",
+      "dist/copilots/aida_architecture/shared/spec.json#/developerPrompt",
+      "dist/copilots/aida_architecture/shared/output_schema.json"
+    ]
+  },
+  "mcpPlaceholderRef": "dist/copilots/aida_architecture/github-copilot/mcp-placeholders.json",
+  "repositoryWorkflow": {
+    "evidenceOrder": [
+      "issue_or_pr_context",
+      "branch_and_review_policy",
+      "workflow_or_check_status",
+      "source_file_refs",
+      "validation_commands"
+    ],
+    "branchPolicyRespected": true,
+    "reviewCommentsActionable": true,
+    "offlineFallback": "use_local_files_and_mark_connector_evidence_pending"
+  },
+  "requiredEvidence": [
+    "github_copilot_profile_doc",
+    "mcp_placeholders",
+    "runtime_equivalence",
+    "safe_connector_policy"
+  ],
+  "qualityGates": [
+    "github_profile_embeds_shared_spec",
+    "mcp_placeholders_are_disabled",
+    "connector_env_names_only",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+      "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+      "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "profile_json_references_shared_spec_and_schema",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_github_evidence_or_local_file_checks_are_insufficient"
+  }
+}

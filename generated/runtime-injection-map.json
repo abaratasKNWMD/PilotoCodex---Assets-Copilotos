@@ -1,0 +1,3870 @@
+{
+  "version": "copilot-factory-0.2.0",
+  "generatedAt": "2026-05-04T18:04:57.667860+00:00",
+  "runtimes": [
+    "codex",
+    "claude",
+    "github-copilot",
+    "langchain"
+  ],
+  "distributionFileIndex": {
+    "policyVersion": "packager-distribution-manifest-file-index-1.0",
+    "ownerAgent": "factory_agent_23_packager",
+    "room": "Operations",
+    "mission": "Builds distribution manifests and file indexes.",
+    "frontier": "output-topology",
+    "manifestRef": "generated/factory-audit.json#/releaseAudit/distributionManifest",
+    "fileIndexRef": "generated/runtime-injection-map.json#/distributionFileIndex",
+    "sourceOfTruth": "generated/factory-audit.json#/releaseAudit/distributionManifest",
+    "packageCount": 8,
+    "indexedFileCount": 48,
+    "runtimeAdapterCounts": {
+      "codex": 8,
+      "claude": 8,
+      "github-copilot": 8,
+      "langchain": 8
+    },
+    "runtimeEquivalence": {
+      "sourceOfTruth": "generated/runtime-injection-map.json#/distributionFileIndex",
+      "runtimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "maxUnexplainedDrift": 0
+    },
+    "packages": {
+      "devex": {
+        "distributionSlug": "devex",
+        "sharedFiles": [
+          "dist/copilots/devex/shared/spec.json",
+          "dist/copilots/devex/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/devex/codex/AGENT.md",
+          "claude": "dist/copilots/devex/claude/AGENT.md",
+          "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/devex/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/devex"
+      },
+      "aida_architecture": {
+        "distributionSlug": "aida-architecture",
+        "sharedFiles": [
+          "dist/copilots/aida_architecture/shared/spec.json",
+          "dist/copilots/aida_architecture/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+          "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+          "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/aida_architecture"
+      },
+      "java_architect": {
+        "distributionSlug": "java-architect",
+        "sharedFiles": [
+          "dist/copilots/java_architect/shared/spec.json",
+          "dist/copilots/java_architect/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/java_architect/codex/AGENT.md",
+          "claude": "dist/copilots/java_architect/claude/AGENT.md",
+          "github-copilot": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/java_architect/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/java_architect"
+      },
+      "qa_general": {
+        "distributionSlug": "qa-general",
+        "sharedFiles": [
+          "dist/copilots/qa_general/shared/spec.json",
+          "dist/copilots/qa_general/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/qa_general/codex/AGENT.md",
+          "claude": "dist/copilots/qa_general/claude/AGENT.md",
+          "github-copilot": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/qa_general/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/qa_general"
+      },
+      "sonarqube_remediation": {
+        "distributionSlug": "sonarqube-remediation",
+        "sharedFiles": [
+          "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "dist/copilots/sonarqube_remediation/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+          "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+          "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/sonarqube_remediation"
+      },
+      "cicd": {
+        "distributionSlug": "cicd",
+        "sharedFiles": [
+          "dist/copilots/cicd/shared/spec.json",
+          "dist/copilots/cicd/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/cicd/codex/AGENT.md",
+          "claude": "dist/copilots/cicd/claude/AGENT.md",
+          "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/cicd/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/cicd"
+      },
+      "journey_to_cloud": {
+        "distributionSlug": "journey-to-cloud",
+        "sharedFiles": [
+          "dist/copilots/journey_to_cloud/shared/spec.json",
+          "dist/copilots/journey_to_cloud/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+          "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+          "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/journey_to_cloud"
+      },
+      "firefly_marketplace": {
+        "distributionSlug": "firefly-marketplace",
+        "sharedFiles": [
+          "dist/copilots/firefly_marketplace/shared/spec.json",
+          "dist/copilots/firefly_marketplace/shared/output_schema.json"
+        ],
+        "runtimeFiles": {
+          "codex": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+          "claude": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+          "github-copilot": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+          "langchain": "dist/copilots/firefly_marketplace/langchain/agent.py"
+        },
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/firefly_marketplace"
+      }
+    },
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py"
+    ],
+    "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy"
+  },
+  "copilots": {
+    "devex": {
+      "name": "Copiloto DevEx",
+      "family": "core",
+      "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+      "systemPrompt": "dist/copilots/devex/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/devex/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/devex/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/devex/codex/AGENT.md",
+        "claude": "dist/copilots/devex/claude/AGENT.md",
+        "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/devex/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/devex/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/devex/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/devex/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/devex/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/devex/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/devex/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/devex/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/devex/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/devex/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/devex/codex/AGENT.md",
+            "claude": "dist/copilots/devex/claude/AGENT.md",
+            "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/devex/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/devex/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/devex/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/devex",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/devex/langchain/agent_contract.json",
+        "profile": "dist/copilots/devex/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/devex/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/devex/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/devex/codex/AGENT.md",
+            "claude": "dist/copilots/devex/claude/AGENT.md",
+            "github-copilot": "dist/copilots/devex/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/devex/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "aida_architecture": {
+      "name": "Copiloto de Principios de Arquitectura AIDA",
+      "family": "core",
+      "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+      "systemPrompt": "dist/copilots/aida_architecture/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/aida_architecture/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/aida_architecture/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+        "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+        "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/aida_architecture/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/aida_architecture/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/aida_architecture/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/aida_architecture/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/aida_architecture/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/aida_architecture/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/aida_architecture/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/aida_architecture/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+            "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+            "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "designBoundaryAudit": {
+        "artifact": "dist/copilots/aida_architecture/shared/design_boundary_audit.json",
+        "ownerAgent": "factory_agent_06_design",
+        "mission": "Audits domain boundaries, contracts and handoff clarity.",
+        "requiredEvidence": [
+          "domain_boundaries",
+          "contracts",
+          "handoff_clarity",
+          "validation"
+        ],
+        "qualityGates": [
+          "boundary_ownership",
+          "contract_completeness",
+          "handoff_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "handoff"
+        ],
+        "requiredHandoffFields": [
+          "next_owner",
+          "next_runtime",
+          "next_action",
+          "excluded_scope",
+          "dependency_direction",
+          "evidence_pack",
+          "validation_command",
+          "stop_condition"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/design_boundary_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/aida_architecture",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/aida_architecture/langchain/agent_contract.json",
+        "profile": "dist/copilots/aida_architecture/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/aida_architecture/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/aida_architecture/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/aida_architecture/codex/AGENT.md",
+            "claude": "dist/copilots/aida_architecture/claude/AGENT.md",
+            "github-copilot": "dist/copilots/aida_architecture/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/aida_architecture/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "as_is_discovery": {
+      "name": "Copiloto de Discovery AS-IS",
+      "family": "core",
+      "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+      "systemPrompt": "dist/copilots/as_is_discovery/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/as_is_discovery/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/as_is_discovery/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/as_is_discovery/codex/AGENT.md",
+        "claude": "dist/copilots/as_is_discovery/claude/AGENT.md",
+        "github-copilot": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/as_is_discovery/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/as_is_discovery/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/as_is_discovery/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/as_is_discovery/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/as_is_discovery/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/as_is_discovery/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/as_is_discovery/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/as_is_discovery/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/as_is_discovery/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/as_is_discovery/codex/AGENT.md",
+            "claude": "dist/copilots/as_is_discovery/claude/AGENT.md",
+            "github-copilot": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/as_is_discovery/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/as_is_discovery/langchain/agent_contract.json",
+        "profile": "dist/copilots/as_is_discovery/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/as_is_discovery/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/as_is_discovery/codex/AGENT.md",
+            "claude": "dist/copilots/as_is_discovery/claude/AGENT.md",
+            "github-copilot": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/as_is_discovery/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "single_registry": {
+      "name": "Copiloto Registro Unico",
+      "family": "core",
+      "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+      "systemPrompt": "dist/copilots/single_registry/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/single_registry/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/single_registry/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/single_registry/codex/AGENT.md",
+        "claude": "dist/copilots/single_registry/claude/AGENT.md",
+        "github-copilot": "dist/copilots/single_registry/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/single_registry/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/single_registry/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/single_registry/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/single_registry/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/single_registry/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/single_registry/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/single_registry/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/single_registry/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/single_registry/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/single_registry/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/single_registry/codex/AGENT.md",
+            "claude": "dist/copilots/single_registry/claude/AGENT.md",
+            "github-copilot": "dist/copilots/single_registry/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/single_registry/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/single_registry/langchain/agent_contract.json",
+        "profile": "dist/copilots/single_registry/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/single_registry/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/single_registry/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/single_registry/codex/AGENT.md",
+            "claude": "dist/copilots/single_registry/claude/AGENT.md",
+            "github-copilot": "dist/copilots/single_registry/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/single_registry/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "firefly_v5": {
+      "name": "Copiloto Firefly v5",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+      "systemPrompt": "dist/copilots/firefly_v5/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/firefly_v5/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/firefly_v5/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/firefly_v5/codex/AGENT.md",
+        "claude": "dist/copilots/firefly_v5/claude/AGENT.md",
+        "github-copilot": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/firefly_v5/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_v5/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_v5/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_v5/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_v5/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/firefly_v5/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/firefly_v5/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/firefly_v5/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/firefly_v5/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_v5/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_v5/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_v5/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/firefly_v5/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v5/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/firefly_v5/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_v5/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_v5/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_v5/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_v5/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_v5/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "firefly_v6": {
+      "name": "Copiloto Firefly v6",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+      "systemPrompt": "dist/copilots/firefly_v6/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/firefly_v6/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/firefly_v6/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/firefly_v6/codex/AGENT.md",
+        "claude": "dist/copilots/firefly_v6/claude/AGENT.md",
+        "github-copilot": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/firefly_v6/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_v6/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_v6/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_v6/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_v6/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/firefly_v6/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/firefly_v6/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/firefly_v6/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/firefly_v6/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_v6/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_v6/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_v6/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/firefly_v6/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v6/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/firefly_v6/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_v6/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_v6/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_v6/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_v6/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_v6/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_v6/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_v6/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "moonshine": {
+      "name": "Copiloto Moonshine",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+      "systemPrompt": "dist/copilots/moonshine/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/moonshine/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/moonshine/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/moonshine/codex/AGENT.md",
+        "claude": "dist/copilots/moonshine/claude/AGENT.md",
+        "github-copilot": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/moonshine/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/moonshine/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/moonshine/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/moonshine/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/moonshine/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/moonshine/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/moonshine/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/moonshine/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/moonshine/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/moonshine/codex/AGENT.md",
+            "claude": "dist/copilots/moonshine/claude/AGENT.md",
+            "github-copilot": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/moonshine/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/moonshine/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/moonshine/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/moonshine/langchain/agent_contract.json",
+        "profile": "dist/copilots/moonshine/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/moonshine/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/moonshine/codex/AGENT.md",
+            "claude": "dist/copilots/moonshine/claude/AGENT.md",
+            "github-copilot": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/moonshine/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "java_generic": {
+      "name": "Copiloto Java Generico",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+      "systemPrompt": "dist/copilots/java_generic/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/java_generic/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/java_generic/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/java_generic/codex/AGENT.md",
+        "claude": "dist/copilots/java_generic/claude/AGENT.md",
+        "github-copilot": "dist/copilots/java_generic/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/java_generic/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/java_generic/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/java_generic/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/java_generic/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/java_generic/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/java_generic/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/java_generic/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/java_generic/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/java_generic/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/java_generic/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/java_generic/codex/AGENT.md",
+            "claude": "dist/copilots/java_generic/claude/AGENT.md",
+            "github-copilot": "dist/copilots/java_generic/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/java_generic/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "designBoundaryAudit": {
+        "artifact": "dist/copilots/java_generic/shared/design_boundary_audit.json",
+        "ownerAgent": "factory_agent_06_design",
+        "mission": "Audits domain boundaries, contracts and handoff clarity.",
+        "requiredEvidence": [
+          "domain_boundaries",
+          "contracts",
+          "handoff_clarity",
+          "validation"
+        ],
+        "qualityGates": [
+          "boundary_ownership",
+          "contract_completeness",
+          "handoff_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "handoff"
+        ],
+        "requiredHandoffFields": [
+          "next_owner",
+          "next_runtime",
+          "next_action",
+          "excluded_scope",
+          "dependency_direction",
+          "evidence_pack",
+          "validation_command",
+          "stop_condition"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/design_boundary_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/java_generic/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/java_generic/langchain/agent_contract.json",
+        "profile": "dist/copilots/java_generic/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/java_generic/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_generic/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/java_generic/codex/AGENT.md",
+            "claude": "dist/copilots/java_generic/claude/AGENT.md",
+            "github-copilot": "dist/copilots/java_generic/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/java_generic/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "java_architect": {
+      "name": "Copiloto Java Architect",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+      "systemPrompt": "dist/copilots/java_architect/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/java_architect/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/java_architect/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/java_architect/codex/AGENT.md",
+        "claude": "dist/copilots/java_architect/claude/AGENT.md",
+        "github-copilot": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/java_architect/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/java_architect/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/java_architect/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/java_architect/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/java_architect/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/java_architect/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/java_architect/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/java_architect/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/java_architect/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/java_architect/codex/AGENT.md",
+            "claude": "dist/copilots/java_architect/claude/AGENT.md",
+            "github-copilot": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/java_architect/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "designBoundaryAudit": {
+        "artifact": "dist/copilots/java_architect/shared/design_boundary_audit.json",
+        "ownerAgent": "factory_agent_06_design",
+        "mission": "Audits domain boundaries, contracts and handoff clarity.",
+        "requiredEvidence": [
+          "domain_boundaries",
+          "contracts",
+          "handoff_clarity",
+          "validation"
+        ],
+        "qualityGates": [
+          "boundary_ownership",
+          "contract_completeness",
+          "handoff_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "handoff"
+        ],
+        "requiredHandoffFields": [
+          "next_owner",
+          "next_runtime",
+          "next_action",
+          "excluded_scope",
+          "dependency_direction",
+          "evidence_pack",
+          "validation_command",
+          "stop_condition"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_architect/shared/design_boundary_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/java_architect",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/java_architect/langchain/agent_contract.json",
+        "profile": "dist/copilots/java_architect/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/java_architect/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/java_architect/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/java_architect/codex/AGENT.md",
+            "claude": "dist/copilots/java_architect/claude/AGENT.md",
+            "github-copilot": "dist/copilots/java_architect/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/java_architect/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "angular_18": {
+      "name": "Copiloto Angular 18",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+      "systemPrompt": "dist/copilots/angular_18/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/angular_18/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/angular_18/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/angular_18/codex/AGENT.md",
+        "claude": "dist/copilots/angular_18/claude/AGENT.md",
+        "github-copilot": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/angular_18/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/angular_18/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/angular_18/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/angular_18/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/angular_18/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/angular_18/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/angular_18/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/angular_18/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/angular_18/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/angular_18/codex/AGENT.md",
+            "claude": "dist/copilots/angular_18/claude/AGENT.md",
+            "github-copilot": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/angular_18/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "designBoundaryAudit": {
+        "artifact": "dist/copilots/angular_18/shared/design_boundary_audit.json",
+        "ownerAgent": "factory_agent_06_design",
+        "mission": "Audits domain boundaries, contracts and handoff clarity.",
+        "requiredEvidence": [
+          "domain_boundaries",
+          "contracts",
+          "handoff_clarity",
+          "validation"
+        ],
+        "qualityGates": [
+          "boundary_ownership",
+          "contract_completeness",
+          "handoff_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "handoff"
+        ],
+        "requiredHandoffFields": [
+          "next_owner",
+          "next_runtime",
+          "next_action",
+          "excluded_scope",
+          "dependency_direction",
+          "evidence_pack",
+          "validation_command",
+          "stop_condition"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/design_boundary_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/angular_18/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/angular_18/langchain/agent_contract.json",
+        "profile": "dist/copilots/angular_18/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/angular_18/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/angular_18/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/angular_18/codex/AGENT.md",
+            "claude": "dist/copilots/angular_18/claude/AGENT.md",
+            "github-copilot": "dist/copilots/angular_18/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/angular_18/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "nodejs": {
+      "name": "Copiloto Node.js",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+      "systemPrompt": "dist/copilots/nodejs/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/nodejs/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/nodejs/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/nodejs/codex/AGENT.md",
+        "claude": "dist/copilots/nodejs/claude/AGENT.md",
+        "github-copilot": "dist/copilots/nodejs/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/nodejs/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/nodejs/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/nodejs/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/nodejs/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/nodejs/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/nodejs/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/nodejs/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/nodejs/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/nodejs/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/nodejs/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/nodejs/codex/AGENT.md",
+            "claude": "dist/copilots/nodejs/claude/AGENT.md",
+            "github-copilot": "dist/copilots/nodejs/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/nodejs/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "designBoundaryAudit": {
+        "artifact": "dist/copilots/nodejs/shared/design_boundary_audit.json",
+        "ownerAgent": "factory_agent_06_design",
+        "mission": "Audits domain boundaries, contracts and handoff clarity.",
+        "requiredEvidence": [
+          "domain_boundaries",
+          "contracts",
+          "handoff_clarity",
+          "validation"
+        ],
+        "qualityGates": [
+          "boundary_ownership",
+          "contract_completeness",
+          "handoff_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "handoff"
+        ],
+        "requiredHandoffFields": [
+          "next_owner",
+          "next_runtime",
+          "next_action",
+          "excluded_scope",
+          "dependency_direction",
+          "evidence_pack",
+          "validation_command",
+          "stop_condition"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/design_boundary_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/nodejs/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/nodejs/langchain/agent_contract.json",
+        "profile": "dist/copilots/nodejs/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/nodejs/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/nodejs/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/nodejs/codex/AGENT.md",
+            "claude": "dist/copilots/nodejs/claude/AGENT.md",
+            "github-copilot": "dist/copilots/nodejs/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/nodejs/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "python": {
+      "name": "Copiloto Python",
+      "family": "development",
+      "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+      "systemPrompt": "dist/copilots/python/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/python/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/python/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/python/codex/AGENT.md",
+        "claude": "dist/copilots/python/claude/AGENT.md",
+        "github-copilot": "dist/copilots/python/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/python/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/python/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/python/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/python/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/python/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/python/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/python/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/python/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/python/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/python/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/python/codex/AGENT.md",
+            "claude": "dist/copilots/python/claude/AGENT.md",
+            "github-copilot": "dist/copilots/python/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/python/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "buildImplementationAudit": {
+        "artifact": "dist/copilots/python/shared/implementation_plan_audit.json",
+        "ownerAgent": "factory_agent_07_build",
+        "mission": "Audits implementation plans and stack-specific rules.",
+        "requiredEvidence": [
+          "implementation_plan",
+          "stack_rules",
+          "affected_files",
+          "validation"
+        ],
+        "qualityGates": [
+          "scoped_implementation_plan",
+          "stack_rule_alignment",
+          "test_and_rollback_readiness",
+          "traceability_and_cost"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "implementation"
+        ],
+        "requiredImplementationFields": [
+          "target_stack",
+          "affected_files",
+          "plan_steps",
+          "stack_rules_checked",
+          "validation_commands",
+          "rollback_plan",
+          "out_of_scope",
+          "evidence_pack"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/python/shared/implementation_plan_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/python/langchain/agent_contract.json",
+        "profile": "dist/copilots/python/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/python/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/python/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/python/codex/AGENT.md",
+            "claude": "dist/copilots/python/claude/AGENT.md",
+            "github-copilot": "dist/copilots/python/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/python/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "qa_general": {
+      "name": "Copiloto QA General",
+      "family": "quality",
+      "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+      "systemPrompt": "dist/copilots/qa_general/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/qa_general/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/qa_general/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/qa_general/codex/AGENT.md",
+        "claude": "dist/copilots/qa_general/claude/AGENT.md",
+        "github-copilot": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/qa_general/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/qa_general/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/qa_general/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/qa_general/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/qa_general/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/qa_general/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/qa_general/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/qa_general/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/qa_general/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/qa_general/codex/AGENT.md",
+            "claude": "dist/copilots/qa_general/claude/AGENT.md",
+            "github-copilot": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/qa_general/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/qa_general",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/qa_general/langchain/agent_contract.json",
+        "profile": "dist/copilots/qa_general/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/qa_general/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/qa_general/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/qa_general/codex/AGENT.md",
+            "claude": "dist/copilots/qa_general/claude/AGENT.md",
+            "github-copilot": "dist/copilots/qa_general/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/qa_general/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "sonarqube_remediation": {
+      "name": "Copiloto SonarQube Remediacion",
+      "family": "quality",
+      "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+      "systemPrompt": "dist/copilots/sonarqube_remediation/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/sonarqube_remediation/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/sonarqube_remediation/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+        "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+        "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/sonarqube_remediation/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/sonarqube_remediation/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/sonarqube_remediation/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/sonarqube_remediation/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/sonarqube_remediation/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/sonarqube_remediation/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/sonarqube_remediation/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/sonarqube_remediation/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+            "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+            "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/sonarqube_remediation",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/sonarqube_remediation/langchain/agent_contract.json",
+        "profile": "dist/copilots/sonarqube_remediation/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/sonarqube_remediation/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/sonarqube_remediation/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/sonarqube_remediation/codex/AGENT.md",
+            "claude": "dist/copilots/sonarqube_remediation/claude/AGENT.md",
+            "github-copilot": "dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/sonarqube_remediation/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "cicd": {
+      "name": "Copiloto CI/CD",
+      "family": "devops",
+      "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+      "systemPrompt": "dist/copilots/cicd/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/cicd/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/cicd/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/cicd/codex/AGENT.md",
+        "claude": "dist/copilots/cicd/claude/AGENT.md",
+        "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/cicd/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/cicd/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/cicd/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/cicd/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/cicd/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/cicd/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/cicd/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/cicd/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/cicd/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/cicd/codex/AGENT.md",
+            "claude": "dist/copilots/cicd/claude/AGENT.md",
+            "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/cicd/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/cicd",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/cicd/langchain/agent_contract.json",
+        "profile": "dist/copilots/cicd/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/cicd/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/cicd/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/cicd/codex/AGENT.md",
+            "claude": "dist/copilots/cicd/claude/AGENT.md",
+            "github-copilot": "dist/copilots/cicd/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/cicd/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "journey_to_cloud": {
+      "name": "Copiloto Journey to Cloud",
+      "family": "cloud",
+      "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+      "systemPrompt": "dist/copilots/journey_to_cloud/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/journey_to_cloud/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/journey_to_cloud/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+        "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+        "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/journey_to_cloud/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/journey_to_cloud/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/journey_to_cloud/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/journey_to_cloud/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/journey_to_cloud/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/journey_to_cloud/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+            "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+            "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "cloudMigrationAudit": {
+        "artifact": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+        "ownerAgent": "factory_agent_11_cloud",
+        "mission": "Audits migration, target platform and modernization increments.",
+        "requiredEvidence": [
+          "migration_inventory",
+          "target_platform",
+          "modernization_increments",
+          "validation"
+        ],
+        "qualityGates": [
+          "incremental_migration_plan",
+          "platform_fit_and_constraints",
+          "modernization_traceability",
+          "cost_time_guard"
+        ],
+        "requiredOutputFields": [
+          "copilot_id",
+          "decision",
+          "evidence",
+          "actions",
+          "validation",
+          "risks",
+          "cloud_migration"
+        ],
+        "requiredCloudMigrationFields": [
+          "current_state_refs",
+          "target_platform",
+          "migration_increments",
+          "modernization_actions",
+          "data_network_security_impacts",
+          "rollback_and_parallel_run",
+          "validation_commands",
+          "evidence_pack",
+          "out_of_scope"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/cloudMigrationAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/journey_to_cloud",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/journey_to_cloud/langchain/agent_contract.json",
+        "profile": "dist/copilots/journey_to_cloud/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/journey_to_cloud/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/journey_to_cloud/codex/AGENT.md",
+            "claude": "dist/copilots/journey_to_cloud/claude/AGENT.md",
+            "github-copilot": "dist/copilots/journey_to_cloud/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/journey_to_cloud/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "copilots_manager": {
+      "name": "Copilots Manager",
+      "family": "orchestration",
+      "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+      "systemPrompt": "dist/copilots/copilots_manager/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/copilots_manager/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/copilots_manager/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/copilots_manager/codex/AGENT.md",
+        "claude": "dist/copilots/copilots_manager/claude/AGENT.md",
+        "github-copilot": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/copilots_manager/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/copilots_manager/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/copilots_manager/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/copilots_manager/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/copilots_manager/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/copilots_manager/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/copilots_manager/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/copilots_manager/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/copilots_manager/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/copilots_manager/codex/AGENT.md",
+            "claude": "dist/copilots/copilots_manager/claude/AGENT.md",
+            "github-copilot": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/copilots_manager/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/copilots_manager/langchain/agent_contract.json",
+        "profile": "dist/copilots/copilots_manager/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/copilots_manager/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/copilots_manager/codex/AGENT.md",
+            "claude": "dist/copilots/copilots_manager/claude/AGENT.md",
+            "github-copilot": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/copilots_manager/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    },
+    "firefly_marketplace": {
+      "name": "Copiloto Firefly Marketplace",
+      "family": "marketplace",
+      "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+      "systemPrompt": "dist/copilots/firefly_marketplace/shared/spec.json#/systemPrompt",
+      "developerPrompt": "dist/copilots/firefly_marketplace/shared/spec.json#/developerPrompt",
+      "outputSchema": "dist/copilots/firefly_marketplace/shared/output_schema.json",
+      "runtimeFiles": {
+        "codex": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+        "claude": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+        "github-copilot": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+        "langchain": "dist/copilots/firefly_marketplace/langchain/agent.py"
+      },
+      "pythonBrain": {
+        "router": "tools/semantic_router.py",
+        "factory": "tools/generate_copilot_factory.py",
+        "qualityAudit": "tools/validate_prompt_quality.py"
+      },
+      "codexAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_marketplace/shared/codex_tool_protocol.json",
+        "ownerAgent": "factory_agent_14_codex",
+        "mission": "Builds Codex-facing task prompts and local tool protocol.",
+        "requiredEvidence": [
+          "codex_task_prompt",
+          "local_tool_protocol",
+          "validation_commands",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "codex_prompt_embeds_shared_spec",
+          "local_tool_protocol_declared",
+          "tool_fallbacks_are_non_fatal",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_marketplace/codexAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "claudeAdapterProtocol": {
+        "artifact": "dist/copilots/firefly_marketplace/shared/claude_project_instructions.json",
+        "ownerAgent": "factory_agent_15_claude",
+        "mission": "Builds Claude-facing project instructions and agent cards.",
+        "requiredEvidence": [
+          "claude_project_instructions",
+          "claude_agent_card",
+          "evidence_pack_handoff",
+          "runtime_equivalence"
+        ],
+        "qualityGates": [
+          "claude_instructions_embed_shared_spec",
+          "agent_card_declared",
+          "handoff_is_executor_ready",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/firefly_marketplace/claudeAdapterProtocol",
+          "maxUnexplainedDrift": 0
+        },
+        "projectInstructionsRef": "dist/copilots/firefly_marketplace/shared/claude_project_instructions.json#/projectInstructions",
+        "agentCardRef": "dist/copilots/firefly_marketplace/shared/claude_project_instructions.json#/agentCard"
+      },
+      "githubCopilotProfileProtocol": {
+        "artifact": "dist/copilots/firefly_marketplace/github-copilot/copilot-profile.json",
+        "profileDoc": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+        "mcpPlaceholders": "dist/copilots/firefly_marketplace/github-copilot/mcp-placeholders.json",
+        "policyRef": "config/mcp-connectors.example.json",
+        "ownerAgent": "factory_agent_16_github",
+        "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+        "requiredEvidence": [
+          "github_copilot_profile_doc",
+          "mcp_placeholders",
+          "runtime_equivalence",
+          "safe_connector_policy"
+        ],
+        "qualityGates": [
+          "github_profile_embeds_shared_spec",
+          "mcp_placeholders_are_disabled",
+          "connector_env_names_only",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_marketplace/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "releaseReadinessAudit": {
+        "artifact": "generated/factory-audit.json#/releaseAudit",
+        "ownerAgent": "factory_agent_12_release",
+        "mission": "Audits package readiness, scorecards and exit criteria.",
+        "requiredEvidence": [
+          "package_readiness",
+          "scorecards",
+          "exit_criteria",
+          "validation"
+        ],
+        "qualityGates": [
+          "output_topology",
+          "artifact_manifest",
+          "scorecard_completeness",
+          "exit_criteria_evidence",
+          "traceability_and_cost"
+        ],
+        "scorecardRef": "generated/factory-audit.json#/releaseAudit/scorecardsByCopilot/firefly_marketplace",
+        "claimPolicyRef": "generated/factory-audit.json#/releaseAudit/packageReadiness/claimPolicy",
+        "residualRiskRef": "generated/factory-audit.json#/releaseAudit/residualRisks",
+        "runtimeEquivalence": {
+          "sourceOfTruth": "generated/factory-audit.json#/releaseAudit",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "traceSource": "generated/runtime-injection-map.json#/copilots/<copilot_id>/releaseReadinessAudit",
+          "maxUnexplainedDrift": 0
+        }
+      },
+      "langchainAgentProtocol": {
+        "artifact": "dist/copilots/firefly_marketplace/langchain/agent_contract.json",
+        "profile": "dist/copilots/firefly_marketplace/langchain/agent_profile.json",
+        "runtimeFile": "dist/copilots/firefly_marketplace/langchain/agent.py",
+        "ownerAgent": "factory_agent_17_langchain",
+        "mission": "Builds Python/LangChain compatible agent specs.",
+        "requiredEvidence": [
+          "langchain_agent_spec",
+          "agent_profile_contract",
+          "runtime_equivalence",
+          "schema_digest",
+          "safe_prompt_rendering"
+        ],
+        "qualityGates": [
+          "profile_embeds_shared_spec",
+          "agent_exports_required_api",
+          "hard_langchain_dependency_not_required",
+          "render_prompt_redacts_inputs",
+          "traceability_and_cost"
+        ],
+        "runtimeEquivalence": {
+          "sourceOfTruth": "dist/copilots/firefly_marketplace/shared/spec.json",
+          "runtimes": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ],
+          "adapterFiles": {
+            "codex": "dist/copilots/firefly_marketplace/codex/AGENT.md",
+            "claude": "dist/copilots/firefly_marketplace/claude/AGENT.md",
+            "github-copilot": "dist/copilots/firefly_marketplace/github-copilot/copilot-agent.md",
+            "langchain": "dist/copilots/firefly_marketplace/langchain/agent.py"
+          },
+          "maxUnexplainedDrift": 0
+        },
+        "costControl": {
+          "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+          "deterministicPythonFirst": true,
+          "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+          "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+        }
+      }
+    }
+  }
+}

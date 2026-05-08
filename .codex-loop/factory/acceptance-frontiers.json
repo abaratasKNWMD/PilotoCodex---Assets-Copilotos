@@ -1,0 +1,17 @@
+{
+  "workspaceType": "copilot-factory",
+  "frontiers": [
+    "runtime-contracts",
+    "routing-equivalence",
+    "runtime-toolchain",
+    "state-locks",
+    "quality-real",
+    "sensitive-data",
+    "cost-time",
+    "output-topology"
+  ],
+  "disabledFrontiers": [
+    "render-browser",
+    "packaging"
+  ]
+}

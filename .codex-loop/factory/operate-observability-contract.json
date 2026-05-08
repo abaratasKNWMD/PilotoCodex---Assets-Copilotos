@@ -1,0 +1,169 @@
+{
+  "policyVersion": "operate-observability-incident-runbook-audit-1.0",
+  "ownerAgent": "factory_agent_13_operate",
+  "mission": "Audits observability, incident playbooks and runbooks.",
+  "frontier": "state-locks",
+  "targetCopilots": [
+    "single_registry",
+    "moonshine",
+    "nodejs",
+    "python",
+    "cicd",
+    "copilots_manager",
+    "firefly_marketplace"
+  ],
+  "requiredEvidence": [
+    "observability_contract",
+    "incident_playbooks",
+    "runbook_ownership",
+    "validation"
+  ],
+  "qualityGates": [
+    "signal_coverage",
+    "incident_response_playbook",
+    "runbook_freshness",
+    "privacy_safe_observability",
+    "traceability_and_cost"
+  ],
+  "telemetrySignals": [
+    {
+      "id": "state_lock_heartbeat",
+      "source": ".codex-loop/run.lock.json",
+      "purpose": "Detect active, stale or mismatched factory state before a worker starts.",
+      "privacy": "Workspace-local process metadata only; no prompt or customer payloads.",
+      "threshold": "id, pid, workspace, startedAt, heartbeatAt and mode are present, and heartbeatAt does not precede startedAt."
+    },
+    {
+      "id": "validation_gate_reports",
+      "source": "generated/validation-report.json",
+      "purpose": "Track structure, agent contracts and factory acceptance gates.",
+      "privacy": "Sanitized artifact status and evidence references only.",
+      "threshold": "pass=true and operateAuditor.pass=true after validation."
+    },
+    {
+      "id": "prompt_quality_gate",
+      "source": "generated/prompt-quality-report.json",
+      "purpose": "Track prompt depth, runtime prompt parity and prompt growth budget.",
+      "privacy": "Prompt metrics and detector results only; raw credentials are blocked.",
+      "threshold": "pass=true with no secret or local-path detector findings."
+    },
+    {
+      "id": "runtime_equivalence_gate",
+      "source": "generated/runtime-equivalence-report.json",
+      "purpose": "Track Codex, Claude, GitHub Copilot and LangChain adapter drift.",
+      "privacy": "Runtime file references and normalized drift status only.",
+      "threshold": "pass=true with max unexplained drift equal to 0."
+    },
+    {
+      "id": "runtime_incident_summary",
+      "source": ".codex-loop/factory/codex-runtime-incidents.md",
+      "purpose": "Summarize local Codex runtime incidents without exposing raw log bodies.",
+      "privacy": "Aggregated incident classes only; no raw logs are included in prompts or reports.",
+      "threshold": "Only sanitized incident ids, counts and remediation pointers are referenced."
+    }
+  ],
+  "incidentPlaybooks": [
+    {
+      "id": "state-lock-stale",
+      "severity": "P1",
+      "detect": "State lock missing, workspace mismatch, timestamp inversion or heartbeat older than the configured stale threshold.",
+      "response": [
+        "Pause new factory starts in this workspace.",
+        "Inspect .codex-loop/run.lock.json and current worker ownership.",
+        "Create a rollback snapshot before any declared-file edits.",
+        "Run python tools/validate_copilot_factory.py."
+      ],
+      "owner": "factory_agent_13_operate",
+      "runbookRef": ".codex-loop/factory/operate-observability-runbook.md#state-lock-stale"
+    },
+    {
+      "id": "validation-report-regression",
+      "severity": "P1",
+      "detect": "generated/validation-report.json or generated/prompt-quality-report.json reports pass=false.",
+      "response": [
+        "Read the failing report issue list before changing code.",
+        "Scope the fix to declared files or documented factory roots.",
+        "Re-run the validation command that produced the regression.",
+        "Record residual risk if a non-product gate is intentionally not applicable."
+      ],
+      "owner": "factory_agent_13_operate",
+      "runbookRef": ".codex-loop/factory/operate-observability-runbook.md#validation-report-regression"
+    },
+    {
+      "id": "runtime-equivalence-drift",
+      "severity": "P1",
+      "detect": "Codex, Claude, GitHub Copilot or LangChain diverges from the shared spec or trace map.",
+      "response": [
+        "Treat dist/copilots/<copilot>/shared/spec.json as canonical.",
+        "Repair all runtime adapters or record an explicit unsupported drift.",
+        "Run python tools/validate_runtime_equivalence.py.",
+        "Keep generated/runtime-injection-map.json as trace evidence."
+      ],
+      "owner": "factory_agent_13_operate",
+      "runbookRef": ".codex-loop/factory/operate-observability-runbook.md#runtime-equivalence-drift"
+    },
+    {
+      "id": "observability-signal-gap",
+      "severity": "P2",
+      "detect": "A required telemetry signal source is missing or no longer resolves to an artifact.",
+      "response": [
+        "Confirm whether the signal is local factory evidence or product-specific evidence.",
+        "Restore the local source or mark product-specific evidence as residual risk.",
+        "Update this contract and the scorecard in the same patch.",
+        "Run python tools/validate_copilot_factory.py."
+      ],
+      "owner": "factory_agent_13_operate",
+      "runbookRef": ".codex-loop/factory/operate-observability-runbook.md#observability-signal-gap"
+    },
+    {
+      "id": "privacy-log-exposure",
+      "severity": "P0",
+      "detect": "A report, runbook or prompt includes raw logs, credentials, local personal paths or customer data.",
+      "response": [
+        "Stop propagation of the affected artifact.",
+        "Replace raw values with placeholders or sanitized evidence references.",
+        "Run python tools/validate_prompt_quality.py.",
+        "Keep only local defensive engineering context in follow-up notes."
+      ],
+      "owner": "factory_agent_13_operate",
+      "runbookRef": ".codex-loop/factory/operate-observability-runbook.md#privacy-log-exposure"
+    }
+  ],
+  "runbookRefs": [
+    ".codex-loop/factory/operate-observability-runbook.md",
+    ".codex-loop/factory/incident-runbook.md",
+    ".codex-loop/factory/codex-runtime-incidents.md"
+  ],
+  "stateLockPolicy": {
+    "lockFile": ".codex-loop/run.lock.json",
+    "frontier": "state-locks",
+    "maxStaleHeartbeatSeconds": 900,
+    "snapshotRoots": [
+      ".codex-loop/backups",
+      ".codex-loop/rollback"
+    ],
+    "serialConcurrencyRequired": true
+  },
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sourceOfTruth": ".codex-loop/factory/operate-observability-contract.json",
+    "traceEvidence": "generated/validation-report.json#/operateAuditor",
+    "sameContractForAdapters": true,
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_for_incident_summary_after_artifact_checks",
+    "rawLogPromptsAllowed": false,
+    "sanitizedEvidenceOnly": true
+  },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py"
+  ]
+}

@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copiloto Java Architect Output Contract",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "handoff"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "java_architect"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "phase": {
+      "enum": [
+        "architecture",
+        "design",
+        "release"
+      ]
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "java_adr",
+          "architecture_fitness_report"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "domain_boundaries",
+              "contracts",
+              "handoff_clarity",
+              "validation"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 4,
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "domain_boundaries"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "contracts"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "handoff_clarity"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "validation"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "owner",
+          "action",
+          "scope"
+        ],
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object",
+      "required": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "next_owner": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_runtime": {
+          "enum": [
+            "codex",
+            "claude",
+            "github-copilot",
+            "langchain"
+          ]
+        },
+        "next_action": {
+          "type": "string",
+          "minLength": 1
+        },
+        "excluded_scope": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "dependency_direction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_pack": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "validation_command": {
+          "type": "string",
+          "minLength": 1
+        },
+        "stop_condition": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "cloud_migration": {
+      "type": "object"
+    }
+  }
+}

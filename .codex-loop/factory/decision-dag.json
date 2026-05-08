@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    "ingest",
+    "plan",
+    "dispatch",
+    "synthesize",
+    "critique",
+    "validate",
+    "export"
+  ],
+  "edges": [
+    ["ingest", "plan"],
+    ["plan", "dispatch"],
+    ["dispatch", "synthesize"],
+    ["synthesize", "critique"],
+    ["critique", "validate"],
+    ["validate", "export"]
+  ]
+}

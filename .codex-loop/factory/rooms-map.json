@@ -1,0 +1,8 @@
+{
+  "Control Room": ["orchestrator", "continuation-planner", "supervisor-guard"],
+  "Python Brain": ["catalog-normalizer", "semantic-router", "token-cost-governor"],
+  "Architecture Board": ["principles-auditor", "knowledge-boundary-auditor"],
+  "Adapter Lab": ["codex-adapter-builder", "claude-adapter-builder", "github-copilot-builder", "langchain-adapter-builder"],
+  "QA Lab": ["prompt-quality-verifier", "runtime-equivalence-verifier", "smoke-runner"],
+  "Operations": ["release-auditor", "runbook-writer", "connector-auditor"]
+}

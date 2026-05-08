@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "cloud_migration_audit_v1",
+  "version": "cloud-migration-target-modernization-audit-1.0",
+  "ownerAgent": "factory_agent_11_cloud",
+  "copilotId": "journey_to_cloud",
+  "mission": "Audits migration, target platform and modernization increments.",
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "traceSource": "generated/runtime-injection-map.json#/copilots/journey_to_cloud/cloudMigrationAudit",
+    "maxUnexplainedDrift": 0
+  },
+  "requiredEvidence": [
+    {
+      "id": "migration_inventory",
+      "minimumRefs": 1,
+      "description": "Current-state systems, integrations, data flows, owners and coupling that shape the migration path."
+    },
+    {
+      "id": "target_platform",
+      "minimumRefs": 1,
+      "description": "Target runtime, data, identity, network, observability and operating-model constraints."
+    },
+    {
+      "id": "modernization_increments",
+      "minimumRefs": 3,
+      "description": "Reversible modernization steps that preserve service continuity and avoid unbounded rewrites."
+    },
+    {
+      "id": "validation",
+      "minimumRefs": 1,
+      "description": "Deterministic command, schema check or review gate that proves the cloud plan is traceable."
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "incremental_migration_plan",
+      "passSignal": "Each migration increment names current-state evidence, target capability, validation and rollback.",
+      "failSignal": "The plan jumps from legacy state to target platform without bounded intermediate states."
+    },
+    {
+      "id": "platform_fit_and_constraints",
+      "passSignal": "Target platform choice records runtime, data, identity, network, observability and operating constraints.",
+      "failSignal": "Cloud provider or platform claims appear without constraints, caveats or local evidence."
+    },
+    {
+      "id": "modernization_traceability",
+      "passSignal": "Modernization actions trace to source evidence, owner, affected surface and acceptance signal.",
+      "failSignal": "Modernization is described as generic improvement without changed surfaces or owners."
+    },
+    {
+      "id": "cost_time_guard",
+      "passSignal": "Python-first checks verify artifacts and LLM escalation is limited to platform trade-off judgement.",
+      "failSignal": "Prompt growth or repeated LLM analysis replaces deterministic artifact checks."
+    }
+  ],
+  "requiredOutputFields": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "cloud_migration"
+  ],
+  "requiredCloudMigrationFields": [
+    "current_state_refs",
+    "target_platform",
+    "migration_increments",
+    "modernization_actions",
+    "data_network_security_impacts",
+    "rollback_and_parallel_run",
+    "validation_commands",
+    "evidence_pack",
+    "out_of_scope"
+  ],
+  "migrationIncrementTemplate": {
+    "requiredFields": [
+      "increment_id",
+      "source_evidence",
+      "target_capability",
+      "modernization_action",
+      "validation_command",
+      "rollback_path"
+    ],
+    "emptyStatePolicy": "If evidence is unavailable, mark the increment blocked and record the missing source rather than inventing platform facts.",
+    "privacyPolicy": "Use placeholders for credentials, billing data, customer data and connector demonstrations."
+  },
+  "targetPlatformDecisionInputs": [
+    "runtime",
+    "data",
+    "identity",
+    "network",
+    "observability",
+    "operating_model",
+    "rollback"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py"
+  ],
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "llmEscalation": "allowed_after_platform_tradeoff_only",
+    "maxPromptGrowthRatio": 0.1
+  }
+}

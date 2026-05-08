@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+agent.log
+agent-state.json
+.codex-loop/run.lock.json
+.codex-loop/backups/
+.codex-loop/codex-runs/
+.codex-loop/pixel-ops/
+.codex-loop/rollback/
+.codex-loop/tmp/
+.codex-loop/tool-shims/
+.codex-loop/verification/
+.codex-loop/verification-probes/
+.codex-loop/runtime/

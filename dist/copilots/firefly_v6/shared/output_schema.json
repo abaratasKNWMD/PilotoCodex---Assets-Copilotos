@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "implementation",
+    "kb_partition"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "firefly_v6"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "implementation_plan",
+              "stack_rules",
+              "affected_files",
+              "validation",
+              "kb_partition_map",
+              "source_of_truth_registry",
+              "context_window_budget",
+              "runtime_trace"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "allOf": [
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "implementation_plan"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "stack_rules"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "affected_files"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "validation"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "kb_partition_map"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "source_of_truth_registry"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "context_window_budget"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "properties": {
+              "kind": {
+                "const": "runtime_trace"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "type": "array"
+    },
+    "validation": {
+      "type": "array"
+    },
+    "risks": {
+      "type": "array"
+    },
+    "implementation": {
+      "type": "object",
+      "required": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "target_stack": {},
+        "affected_files": {},
+        "plan_steps": {},
+        "stack_rules_checked": {},
+        "validation_commands": {},
+        "rollback_plan": {},
+        "out_of_scope": {},
+        "evidence_pack": {}
+      }
+    },
+    "kb_partition": {
+      "type": "object",
+      "required": [
+        "kb_partition_map",
+        "source_of_truth_registry",
+        "context_window_budget",
+        "excluded_sources",
+        "runtime_trace",
+        "validation_commands"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "kb_partition_map": {
+          "type": "array",
+          "minItems": 1
+        },
+        "source_of_truth_registry": {
+          "type": "array",
+          "minItems": 1
+        },
+        "context_window_budget": {
+          "type": "object",
+          "required": [
+            "max_evidence_refs",
+            "max_prompt_bytes",
+            "summary_first",
+            "redaction_required",
+            "overflow_action"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "max_evidence_refs": {
+              "maximum": 12
+            },
+            "max_prompt_bytes": {
+              "maximum": 12000
+            },
+            "summary_first": {
+              "const": true
+            },
+            "redaction_required": {
+              "const": true
+            },
+            "overflow_action": {
+              "const": "emit_gap_register_before_llm_escalation"
+            }
+          }
+        },
+        "excluded_sources": {
+          "type": "array"
+        },
+        "runtime_trace": {
+          "type": "object",
+          "required": [
+            "source_of_truth",
+            "runtime_adapters",
+            "runtimes"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "source_of_truth": {
+              "const": "dist/copilots/firefly_v6/shared/spec.json"
+            },
+            "runtime_adapters": {
+              "type": "object"
+            },
+            "runtimes": {
+              "type": "array",
+              "minItems": 4
+            }
+          }
+        },
+        "validation_commands": {
+          "type": "array"
+        }
+      }
+    }
+  }
+}

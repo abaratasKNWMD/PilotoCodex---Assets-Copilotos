@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "design_boundary_audit_v1",
+  "version": "domain-boundary-handoff-audit-1.0",
+  "ownerAgent": "factory_agent_06_design",
+  "copilotId": "java_architect",
+  "mission": "Audits domain boundaries, contracts and handoff clarity.",
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/java_architect/shared/design_boundary_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "maxUnexplainedDrift": 0
+  },
+  "requiredEvidence": [
+    {
+      "id": "domain_boundaries",
+      "minimumRefs": 1,
+      "description": "Named bounded context, module, UI/API surface or data ownership boundary under review."
+    },
+    {
+      "id": "contracts",
+      "minimumRefs": 1,
+      "description": "Schema, interface, route, event, DTO or acceptance contract that callers and implementers share."
+    },
+    {
+      "id": "handoff_clarity",
+      "minimumRefs": 1,
+      "description": "Owner, next action, excluded scope, dependency and stop condition for the next runtime or copilot."
+    },
+    {
+      "id": "validation",
+      "minimumRefs": 1,
+      "description": "Deterministic command, schema check, route payload or review checklist proving the handoff path."
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "boundary_ownership",
+      "passSignal": "Every changed domain surface names owner, caller, callee and allowed dependency direction.",
+      "failSignal": "The plan changes a module, API or data boundary without naming ownership and dependency direction."
+    },
+    {
+      "id": "contract_completeness",
+      "passSignal": "Inputs, outputs, errors, versioning and compatibility expectations are present or a gap is recorded.",
+      "failSignal": "The contract only describes happy-path behavior or leaves callers to infer payload shape."
+    },
+    {
+      "id": "handoff_readiness",
+      "passSignal": "Next owner, evidence pack, excluded scope, validation command and stop condition are explicit.",
+      "failSignal": "The next runtime or copilot receives a vague task with no acceptance evidence or owner."
+    },
+    {
+      "id": "traceability_and_cost",
+      "passSignal": "Python-first checks, source references and runtime adapter trace remain equivalent across all four runtimes.",
+      "failSignal": "One runtime changes gate names, expands prompt cost materially, or drops the shared design audit reference."
+    }
+  ],
+  "requiredOutputFields": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "handoff"
+  ],
+  "requiredHandoffFields": [
+    "next_owner",
+    "next_runtime",
+    "next_action",
+    "excluded_scope",
+    "dependency_direction",
+    "evidence_pack",
+    "validation_command",
+    "stop_condition"
+  ],
+  "routingSignals": [
+    "design",
+    "diseno",
+    "domain",
+    "dominio",
+    "boundaries",
+    "boundary",
+    "limites",
+    "contracts",
+    "contract",
+    "contratos",
+    "handoff",
+    "traspaso",
+    "modules",
+    "api",
+    "data",
+    "acceptance",
+    "criteria"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/semantic_router.py design domain boundaries contracts handoff",
+    "python tools/semantic_router.py diseno dominio contratos limites handoff",
+    "python tools/semantic_router.py python ci routing"
+  ]
+}

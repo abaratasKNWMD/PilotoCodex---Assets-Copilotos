@@ -1,0 +1,112 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "firefly_v5",
+  "runtime": "langchain",
+  "displayName": "Copiloto Firefly v5",
+  "family": "development",
+  "connectors": [
+    "github_mcp",
+    "sonarqube_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN",
+    "SONARQUBE_TOKEN"
+  ],
+  "declaredOutputs": [
+    "test_plan",
+    "ci_triage",
+    "sonar_remediation"
+  ],
+  "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+  "outputSchema": "dist/copilots/firefly_v5/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/firefly_v5/langchain/agent.py",
+  "profileArtifact": "dist/copilots/firefly_v5/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/firefly_v5/langchain/agent.py",
+    "profileArtifact": "dist/copilots/firefly_v5/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/firefly_v5/shared/output_schema.json",
+    "outputSchemaSha256": "6d61b76734abbf2d6f7633a75fbed740810fb102e7a3e90763e3770307155650",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/firefly_v5/shared/output_schema.json"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/firefly_v5/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/firefly_v5/codex/AGENT.md",
+      "claude": "dist/copilots/firefly_v5/claude/AGENT.md",
+      "github-copilot": "dist/copilots/firefly_v5/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/firefly_v5/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  }
+}

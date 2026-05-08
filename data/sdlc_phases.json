@@ -1,0 +1,15 @@
+{
+  "phases": [
+    "discovery",
+    "as_is",
+    "architecture",
+    "design",
+    "build",
+    "test",
+    "security",
+    "devops",
+    "cloud",
+    "release",
+    "operate"
+  ]
+}

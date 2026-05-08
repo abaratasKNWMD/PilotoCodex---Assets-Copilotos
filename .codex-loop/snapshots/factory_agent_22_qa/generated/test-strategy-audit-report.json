@@ -1,0 +1,342 @@
+{
+  "pass": true,
+  "checkedAt": "2026-05-04T19:29:53.326430+00:00",
+  "ownerAgent": "factory_agent_08_test",
+  "mission": "Audits test strategy, pairwise cases and negative cases.",
+  "targetCopilot": "qa_general",
+  "requiredEvidence": [
+    "test_strategy",
+    "pairwise_cases",
+    "negative_cases",
+    "validation"
+  ],
+  "qualityGates": [
+    "risk_based_strategy",
+    "pairwise_runtime_coverage",
+    "negative_case_coverage",
+    "traceability_and_cost"
+  ],
+  "pairwiseCases": [
+    {
+      "id": "codex__claude",
+      "runtimes": [
+        "codex",
+        "claude"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    },
+    {
+      "id": "codex__github-copilot",
+      "runtimes": [
+        "codex",
+        "github-copilot"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    },
+    {
+      "id": "codex__langchain",
+      "runtimes": [
+        "codex",
+        "langchain"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    },
+    {
+      "id": "claude__github-copilot",
+      "runtimes": [
+        "claude",
+        "github-copilot"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    },
+    {
+      "id": "claude__langchain",
+      "runtimes": [
+        "claude",
+        "langchain"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    },
+    {
+      "id": "github-copilot__langchain",
+      "runtimes": [
+        "github-copilot",
+        "langchain"
+      ],
+      "assertions": [
+        "shared_system_prompt",
+        "shared_developer_prompt",
+        "shared_output_schema",
+        "runtime_trace"
+      ]
+    }
+  ],
+  "negativeCases": [
+    {
+      "id": "valid_control",
+      "expectedFailure": false,
+      "failureDetected": false,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": []
+    },
+    {
+      "id": "missing_strategy",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing test_strategy"
+      ]
+    },
+    {
+      "id": "missing_pairwise_cases",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing pairwise_cases"
+      ]
+    },
+    {
+      "id": "missing_negative_cases",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing negative_cases"
+      ]
+    },
+    {
+      "id": "missing_traceability",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing traceability"
+      ]
+    },
+    {
+      "id": "missing_cost_control",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing deterministic cost control"
+      ]
+    }
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py",
+    "python tools/semantic_router.py test strategy pairwise negative cases"
+  ],
+  "summary": {
+    "agentPresent": true,
+    "qaCopilotPresent": true,
+    "qaSpecPlaybookChecked": true,
+    "runtimeRefsChecked": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "pairwiseCaseCount": 6,
+    "pairwiseCases": [
+      {
+        "id": "codex__claude",
+        "runtimes": [
+          "codex",
+          "claude"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "codex__github-copilot",
+        "runtimes": [
+          "codex",
+          "github-copilot"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "codex__langchain",
+        "runtimes": [
+          "codex",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "claude__github-copilot",
+        "runtimes": [
+          "claude",
+          "github-copilot"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "claude__langchain",
+        "runtimes": [
+          "claude",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      },
+      {
+        "id": "github-copilot__langchain",
+        "runtimes": [
+          "github-copilot",
+          "langchain"
+        ],
+        "assertions": [
+          "shared_system_prompt",
+          "shared_developer_prompt",
+          "shared_output_schema",
+          "runtime_trace"
+        ]
+      }
+    ],
+    "negativeCases": [
+      {
+        "id": "valid_control",
+        "expectedFailure": false,
+        "failureDetected": false,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": []
+      },
+      {
+        "id": "missing_strategy",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing test_strategy"
+        ]
+      },
+      {
+        "id": "missing_pairwise_cases",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing pairwise_cases"
+        ]
+      },
+      {
+        "id": "missing_negative_cases",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing negative_cases"
+        ]
+      },
+      {
+        "id": "missing_traceability",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing traceability"
+        ]
+      },
+      {
+        "id": "missing_cost_control",
+        "expectedFailure": true,
+        "failureDetected": true,
+        "passedExpectation": true,
+        "detected": true,
+        "issues": [
+          "missing deterministic cost control"
+        ]
+      }
+    ],
+    "negativeCasesDetected": true,
+    "sampleRouteChecked": true,
+    "sampleTopRoute": "qa_general",
+    "sampleRouteCheapPath": true,
+    "runtimeTraceReturned": true,
+    "validationCommands": [
+      "python tools/validate_copilot_factory.py",
+      "python tools/validate_prompt_quality.py",
+      "python tools/validate_runtime_equivalence.py",
+      "python tools/semantic_router.py test strategy pairwise negative cases"
+    ],
+    "requiredEvidence": [
+      "test_strategy",
+      "pairwise_cases",
+      "negative_cases",
+      "validation"
+    ],
+    "qualityGates": [
+      "risk_based_strategy",
+      "pairwise_runtime_coverage",
+      "negative_case_coverage",
+      "traceability_and_cost"
+    ],
+    "issues": [],
+    "pass": true
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "policyVersion": "github-copilot-profile-mcp-placeholders-1.0",
+  "ownerAgent": "factory_agent_16_github",
+  "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+  "copilotId": "as_is_discovery",
+  "runtime": "github-copilot",
+  "sourcePolicy": "config/mcp-connectors.example.json",
+  "defaultEnabled": false,
+  "placeholderOnly": true,
+  "credentialsRequired": false,
+  "credentialValuesStored": false,
+  "customerDataAllowed": false,
+  "billingDataAllowed": false,
+  "connectors": {
+    "github_mcp": {
+      "connector": "github_mcp",
+      "enabled": false,
+      "env": "GITHUB_TOKEN",
+      "envReference": "${GITHUB_TOKEN}",
+      "credentialValue": "",
+      "credentialValuesStored": false,
+      "requiresOperatorActivation": true,
+      "operatorApprovalRequiredForWrites": true,
+      "localOnlyConfig": true,
+      "allowedRuntimes": [
+        "codex",
+        "claude",
+        "github-copilot",
+        "langchain"
+      ],
+      "policyRef": "config/mcp-connectors.example.json"
+    }
+  },
+  "safeUsage": {
+    "operatorActivationRequired": true,
+    "operatorApprovalRequiredForWrites": true,
+    "denyCustomerDataInPrompts": true,
+    "redactTokensInLogs": true,
+    "noExternalNetworkWithoutOperatorApproval": true
+  },
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/as_is_discovery/codex/AGENT.md",
+      "claude": "dist/copilots/as_is_discovery/claude/AGENT.md",
+      "github-copilot": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/as_is_discovery/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  }
+}

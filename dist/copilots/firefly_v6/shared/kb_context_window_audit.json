@@ -1,0 +1,107 @@
+{
+  "version": "kb-separation-source-context-audit-1.0",
+  "ownerAgent": "factory_agent_21_kb",
+  "copilotId": "firefly_v6",
+  "mission": "Audits KB separation, source-of-truth rules and context windows.",
+  "requiredEvidence": [
+    {
+      "id": "kb_partition_map",
+      "description": "Names the knowledge partitions, owners and excluded partitions before any answer or patch plan."
+    },
+    {
+      "id": "source_of_truth_registry",
+      "description": "Lists canonical local artifacts and marks generated or runtime-specific mirrors as derived."
+    },
+    {
+      "id": "context_window_budget",
+      "description": "Defines the bounded evidence window sent to LLM runtimes and the summarization fallback."
+    },
+    {
+      "id": "runtime_trace",
+      "description": "Links Codex, Claude, GitHub Copilot and LangChain back to the same shared contract."
+    }
+  ],
+  "qualityGates": [
+    {
+      "id": "kb_separation",
+      "description": "Shared KB, runtime prompt text, connector declarations and generated reports are not mixed."
+    },
+    {
+      "id": "canonical_source_refs",
+      "description": "Every material claim cites the canonical source or explicitly marks a derived artifact."
+    },
+    {
+      "id": "context_budget",
+      "description": "Runtime prompts carry a small evidence pack, not whole-repository context."
+    },
+    {
+      "id": "runtime_equivalence",
+      "description": "All runtime adapters expose the same KB audit contract with max unexplained drift zero."
+    }
+  ],
+  "routingSignals": [
+    "kb",
+    "knowledge",
+    "knowledge_base",
+    "source",
+    "source_of_truth",
+    "truth",
+    "context",
+    "window",
+    "windows",
+    "separation",
+    "separacion"
+  ],
+  "sourceOfTruthRules": [
+    "dist/copilots/firefly_v6/shared/spec.json is canonical for runtime identity, prompts and output schema.",
+    "dist/copilots/firefly_v6/shared/kb_context_window_audit.json is canonical for KB separation, source-of-truth and context-window audit policy.",
+    "generated/copilot-index.json and runtime adapter files are derived mirrors and must cite shared artifacts instead of redefining policy.",
+    "Connector files declare env var names only and never become a KB source for secrets or customer data."
+  ],
+  "kbSeparationRules": [
+    "shared/ contains canonical contracts and schemas.",
+    "codex/, claude/, github-copilot/ and langchain/ contain runtime adapters only.",
+    "generated/ contains deterministic reports and indexes only.",
+    "Evidence packs include references and short summaries; raw logs, credentials and customer data stay out of prompts."
+  ],
+  "contextWindowPolicy": {
+    "maxEvidenceRefs": 12,
+    "maxPromptBytes": 12000,
+    "summaryFirst": true,
+    "fullDocumentOnlyWhenGapBlocksDecision": true,
+    "redactionRequired": true,
+    "overflowAction": "emit_gap_register_before_llm_escalation"
+  },
+  "requiredOutputFields": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "kb_partition"
+  ],
+  "requiredKbPartitionFields": [
+    "kb_partition_map",
+    "source_of_truth_registry",
+    "context_window_budget",
+    "excluded_sources",
+    "runtime_trace",
+    "validation_commands"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/semantic_router.py kb source truth context windows",
+    "python tools/semantic_router.py python ci routing"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/firefly_v6/shared/kb_context_window_audit.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "maxUnexplainedDrift": 0
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "generatedAt": "2026-05-05T19:37:33.728Z",
+  "workspace": "c:\\Users\\abaratas\\Desktop\\CARPETA PROYECTOS\\TEST CODEX\\NuevoProyecto",
+  "autonomousReady": true,
+  "summary": {
+    "totalScore": 901,
+    "maxScore": 1000,
+    "grade": "A",
+    "criticalFailures": 0,
+    "majorFailures": 1,
+    "warnings": 18
+  },
+  "governance": {
+    "score": 115,
+    "maxScore": 130,
+    "frontiers": [
+      {
+        "id": "output-topology",
+        "label": "Output/topologia",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "root=products; registry=0; unsafe=0; duplicates=0",
+        "mitigation": "Keep product apps under products/<slug>/ and maintain .codex-loop/factory/project-registry.json."
+      },
+      {
+        "id": "runtime-toolchain",
+        "label": "Runtime/toolchain",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "codex=true; execHelp=0; node=true; npm=true; rg=false; rgShim=true; timeout=900000; retries=3",
+        "mitigation": "Expose Codex/Node/npm on PATH, verify codex exec --help, keep local tool shims ready, and use long timeouts plus at least 3 retries."
+      },
+      {
+        "id": "state-locks",
+        "label": "Estado/locks",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "lock pid=20472; stale=true; alive=true; unfinished=false",
+        "mitigation": "Use run.lock, stale detection and unfinished-run detection before starting another factory."
+      },
+      {
+        "id": "quality-real",
+        "label": "Calidad real",
+        "status": "watch",
+        "score": 4,
+        "evidence": "build=false; test=false; coverageScript=false; coverage=missing%; verifyEach=true",
+        "mitigation": "Add build/test/coverage scripts and repair until coverage evidence approaches 80%."
+      },
+      {
+        "id": "render-browser",
+        "label": "Render/browser",
+        "status": "watch",
+        "score": 5,
+        "evidence": "browserQa=false; e2eScript=false; playwrightConfig=false",
+        "mitigation": "Frontend products need a real navigation/render smoke path, not only build."
+      },
+      {
+        "id": "packaging",
+        "label": "Packaging",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "enabled=false; tauriConfig=false; tauriScript=false; buildScript=false",
+        "mitigation": "Only claim a desktop/binary artifact when the packaging config/script or actual artifact exists."
+      },
+      {
+        "id": "sensitive-data",
+        "label": "Secretos/datos",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "0 hit groups; files=(none)",
+        "mitigation": "Use placeholders/env.example only; block generated credential-shaped values in changed files."
+      },
+      {
+        "id": "license-github-scout",
+        "label": "Licencias/GitHub Scout",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "githubScout=true; ledger=true; notices=false; policy=permissiveOnly",
+        "mitigation": "Use GitHub for patterns first; adapt only permissive compatible code and record attribution."
+      },
+      {
+        "id": "research-trust",
+        "label": "Research trust",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "preset=freePrompt; researchEvidence=true; policySafeBrief=true",
+        "mitigation": "Treat market/web findings as noisy; store source signals, confidence and caveats."
+      },
+      {
+        "id": "cost-time",
+        "label": "Coste/tiempo",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "forever=false; guard=true; hours=4; maxTasks=0",
+        "mitigation": "Forever mode needs a supervisor guard; finite mode needs an explicit budget or task cap."
+      },
+      {
+        "id": "naming",
+        "label": "Naming",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "duplicates=(none); unsafe=(none)",
+        "mitigation": "Use stable kebab-case product slugs and avoid third-party brands in product identity."
+      },
+      {
+        "id": "rollback",
+        "label": "Rollback",
+        "status": "controlled",
+        "score": 10,
+        "evidence": "createBackups=true; git=false; rollbackFolder=true",
+        "mitigation": "Keep snapshots or Git available before autonomous workers edit product files."
+      },
+      {
+        "id": "final-truth-gate",
+        "label": "Final truth gate",
+        "status": "watch",
+        "score": 6,
+        "evidence": "frontierReview=true; finalReview=false; releaseReport=false",
+        "mitigation": "Do not declare done until build/test/render/packaging/data/license evidence is present or residual risk is explicit."
+      }
+    ],
+    "secretRisk": {
+      "score": 10,
+      "maxScore": 10,
+      "hits": [],
+      "sampleFiles": []
+    },
+    "finalTruth": {
+      "ready": false,
+      "missingEvidence": [
+        "No build script yet.",
+        "No test script yet.",
+        "Coverage evidence missing or below 80%.",
+        "Policy-safe wording scan found risky phrasing in planning files."
+      ]
+    }
+  },
+  "note": "This report is the final gate map: a project is not done until blocked/watch frontiers have evidence or an explicit residual-risk note."
+}

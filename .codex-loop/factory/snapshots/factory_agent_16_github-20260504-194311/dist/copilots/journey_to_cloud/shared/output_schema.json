@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Copiloto Journey to Cloud Output Contract",
+  "type": "object",
+  "required": [
+    "copilot_id",
+    "decision",
+    "evidence",
+    "actions",
+    "validation",
+    "risks",
+    "cloud_migration"
+  ],
+  "properties": {
+    "copilot_id": {
+      "const": "journey_to_cloud"
+    },
+    "decision": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "phase": {
+      "enum": [
+        "architecture",
+        "cloud",
+        "release"
+      ]
+    },
+    "expected_outputs": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "migration_plan",
+          "cloud_readiness_report"
+        ]
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "kind",
+          "ref",
+          "summary"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "migration_inventory",
+              "target_platform",
+              "modernization_increments",
+              "validation"
+            ]
+          },
+          "ref": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 4,
+      "allOf": [
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "migration_inventory"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "target_platform"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "modernization_increments"
+              }
+            }
+          }
+        },
+        {
+          "contains": {
+            "type": "object",
+            "required": [
+              "kind"
+            ],
+            "properties": {
+              "kind": {
+                "const": "validation"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "owner",
+          "action",
+          "scope"
+        ],
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "validation": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "risks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "handoff": {
+      "type": "object"
+    },
+    "implementation": {
+      "type": "object"
+    },
+    "cloud_migration": {
+      "type": "object",
+      "required": [
+        "current_state_refs",
+        "target_platform",
+        "migration_increments",
+        "modernization_actions",
+        "data_network_security_impacts",
+        "rollback_and_parallel_run",
+        "validation_commands",
+        "evidence_pack",
+        "out_of_scope"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "current_state_refs": {
+          "type": "array"
+        },
+        "target_platform": {
+          "type": "object"
+        },
+        "migration_increments": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "increment_id",
+              "source_evidence",
+              "target_capability",
+              "modernization_action",
+              "validation_command",
+              "rollback_path"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "modernization_actions": {
+          "type": "array"
+        },
+        "data_network_security_impacts": {
+          "type": "array"
+        },
+        "rollback_and_parallel_run": {
+          "type": "string"
+        },
+        "validation_commands": {
+          "type": "array"
+        },
+        "evidence_pack": {
+          "type": "array"
+        },
+        "out_of_scope": {
+          "type": "array"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,37 @@
+{
+  "version": "generated-validator-smoke-1.0",
+  "ownerAgent": "factory_agent_25_smoke",
+  "mission": "Runs generated validators and reports blockers.",
+  "validatorId": "runtime_equivalence",
+  "command": "python tools/validate_runtime_equivalence.py",
+  "reportArtifact": "generated/runtime-equivalence-report.json",
+  "reportPass": true,
+  "blockerCount": 0,
+  "blockers": [],
+  "status": "pass",
+  "evidenceMode": "report_path_digest_and_blocker_summary",
+  "promptBodiesStored": false,
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+    "maxUnexplainedDrift": 0,
+    "promptBodiesStored": false,
+    "equivalenceAssertions": {
+      "sameValidatorCommands": true,
+      "sameBlockerTaxonomy": true,
+      "reportDigestTracePresent": true,
+      "promptBodiesStoredFalse": true,
+      "maxUnexplainedDriftZero": true
+    }
+  },
+  "checkedAt": "2026-05-05T19:48:49.889794+00:00",
+  "reportPresent": true,
+  "reportCheckedAt": "2026-05-05T19:48:49.851425+00:00",
+  "reportDigest": "53be1613e7ca94d603ebceec0a1f59cb4986c5985a7a2e6a42acb1f155a60371",
+  "receiptArtifact": "generated/validator-smoke/runtime-equivalence.json"
+}

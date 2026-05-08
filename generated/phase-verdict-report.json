@@ -1,0 +1,306 @@
+{
+  "version": "phase-verdict-report-1.0",
+  "checkedAt": "2026-05-05T19:47:50.362585+00:00",
+  "ownerAgent": "factory_agent_22_qa",
+  "mission": "Consolidates all phase verdicts into a pass/fail report.",
+  "contract": "dist/copilots/qa_general/shared/phase_verdict_report_contract.json",
+  "requiredPhases": [
+    "discovery",
+    "as_is",
+    "architecture",
+    "design",
+    "build",
+    "test",
+    "security",
+    "devops",
+    "cloud",
+    "release",
+    "operate"
+  ],
+  "phaseVerdicts": [
+    {
+      "phase": "discovery",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_04_discovery",
+      "source": "generated/validation-report.json#/discoveryAuditor",
+      "evidence": [
+        "generated/copilot-index.json#/discoveryAudit",
+        "dist/copilots/as_is_discovery/shared/spec.json"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "as_is",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_04_discovery",
+      "source": "generated/validation-report.json#/discoveryAuditor",
+      "evidence": [
+        "data/copilots.json#/as_is_discovery",
+        "dist/copilots/as_is_discovery/shared/spec.json"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "architecture",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_05_architecture",
+      "source": "generated/validation-report.json#/architectureAuditor",
+      "evidence": [
+        "dist/copilots/aida_architecture/shared/architecture_decision_audit.json",
+        "generated/validation-report.json#/architectureAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "design",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_06_design",
+      "source": "generated/validation-report.json#/designAuditor",
+      "evidence": [
+        "generated/sdlc-audit-matrix.md#design-boundary-contract-evidence",
+        "generated/validation-report.json#/designAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "build",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_07_build",
+      "source": "generated/validation-report.json#/buildAuditor",
+      "evidence": [
+        "generated/factory-audit.json#/buildImplementationAudit",
+        "generated/validation-report.json#/buildAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "test",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_08_test",
+      "source": "generated/validation-report.json#/testStrategyAudit",
+      "evidence": [
+        "generated/test-strategy-audit-report.json",
+        "generated/validation-report.json#/testStrategyAudit"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "security",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_09_security",
+      "source": "generated/validation-report.json#/securityAuditor",
+      "evidence": [
+        "config/.env.example",
+        "config/mcp-connectors.example.json",
+        "generated/validation-report.json#/securityAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "devops",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_10_devops",
+      "source": "generated/validation-report.json#/devopsAuditor",
+      "evidence": [
+        "generated/devops-log-evidence.json",
+        "generated/factory-audit.json#/devopsAudit",
+        "generated/validation-report.json#/devopsAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "cloud",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_11_cloud",
+      "source": "generated/validation-report.json#/cloudAuditor",
+      "evidence": [
+        "dist/copilots/journey_to_cloud/shared/cloud_migration_audit.json",
+        "generated/validation-report.json#/cloudAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "release",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_12_release",
+      "source": "generated/validation-report.json#/releaseAuditor",
+      "evidence": [
+        "generated/factory-audit.json#/releaseAudit",
+        "generated/validation-report.json#/releaseAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    },
+    {
+      "phase": "operate",
+      "verdict": "pass",
+      "pass": true,
+      "ownerAgent": "factory_agent_13_operate",
+      "source": "generated/validation-report.json#/operateAuditor",
+      "evidence": [
+        ".codex-loop/factory/operate-observability-contract.json",
+        "generated/validation-report.json#/operateAuditor"
+      ],
+      "summaryPass": true,
+      "passInferred": false
+    }
+  ],
+  "overallPass": true,
+  "overallVerdict": "pass",
+  "failedPhases": [],
+  "failedGates": [],
+  "runtimeEquivalenceGate": {
+    "source": "generated/runtime-equivalence-report.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "maxUnexplainedDrift": 0,
+    "requiresReportPass": true,
+    "maxIssues": 0,
+    "reportPass": true,
+    "issuesCount": 0,
+    "copilotsChecked": 18,
+    "checkedAt": "2026-05-05T19:47:39.470398+00:00",
+    "negativeCasesDetected": true,
+    "adapters": [
+      "Codex",
+      "Claude",
+      "GitHub Copilot",
+      "LangChain"
+    ]
+  },
+  "costControl": {
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_for_final_operator_summary_after_report_exists",
+    "rawLogPromptsAllowed": false
+  },
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "negativeCases": [
+    {
+      "id": "valid_control",
+      "expectedFailure": false,
+      "failureDetected": false,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": []
+    },
+    {
+      "id": "missing_phase",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing phase verdict(s): operate",
+        "overallPass does not match phase verdict aggregation",
+        "overallVerdict does not match phase verdict aggregation"
+      ]
+    },
+    {
+      "id": "invalid_verdict",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "discovery verdict must be pass or fail",
+        "overallPass does not match phase verdict aggregation",
+        "overallVerdict does not match phase verdict aggregation"
+      ]
+    },
+    {
+      "id": "inconsistent_overall",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "overallPass does not match phase verdict aggregation"
+      ]
+    },
+    {
+      "id": "inconsistent_phase_pass",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "discovery pass boolean does not match verdict",
+        "discovery summaryPass does not match pass boolean"
+      ]
+    },
+    {
+      "id": "inconsistent_failed_phases",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "failedPhases does not match phase verdicts"
+      ]
+    },
+    {
+      "id": "missing_cost_control",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "missing deterministic cost control"
+      ]
+    },
+    {
+      "id": "inferred_phase_pass",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "discovery pass must be explicit, not inferred"
+      ]
+    },
+    {
+      "id": "runtime_gate_failed",
+      "expectedFailure": true,
+      "failureDetected": true,
+      "passedExpectation": true,
+      "detected": true,
+      "issues": [
+        "runtimeEquivalenceGate reportPass must be true",
+        "runtimeEquivalenceGate issuesCount must be 0",
+        "failedGates does not match runtime gate aggregation",
+        "overallPass does not match phase verdict aggregation",
+        "overallVerdict does not match phase verdict aggregation"
+      ]
+    }
+  ],
+  "negativeCasesDetected": true,
+  "issues": [],
+  "pass": true
+}

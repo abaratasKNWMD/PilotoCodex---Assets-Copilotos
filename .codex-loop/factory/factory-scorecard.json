@@ -1,0 +1,1011 @@
+{
+  "generatedAt": "2026-05-05T19:37:33.728Z",
+  "workspace": "c:\\Users\\abaratas\\Desktop\\CARPETA PROYECTOS\\TEST CODEX\\NuevoProyecto",
+  "totalScore": 901,
+  "maxScore": 1000,
+  "grade": "A",
+  "criticalFailures": 0,
+  "autonomousReady": true,
+  "checks": [
+    {
+      "id": "runtime.workspace.writable",
+      "category": "Runtime",
+      "label": "Workspace writable",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Write probe succeeded.",
+      "recommendation": "Fix workspace permissions before launching unattended."
+    },
+    {
+      "id": "runtime.workspace.path",
+      "category": "Runtime",
+      "label": "Workspace path resolved",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "c:\\Users\\abaratas\\Desktop\\CARPETA PROYECTOS\\TEST CODEX\\NuevoProyecto",
+      "recommendation": "Open a real workspace folder."
+    },
+    {
+      "id": "runtime.transport.codex_cli",
+      "category": "Runtime",
+      "label": "Autonomous transport is codexCli",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "transport=codexCli",
+      "recommendation": "Use codexLoop.transport=codexCli for unattended builds."
+    },
+    {
+      "id": "runtime.codex.version",
+      "category": "Runtime",
+      "label": "Codex CLI responds",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "display=c:\\Users\\abaratas\\.vscode\\extensions\\openai.chatgpt-26.429.30905-win32-x64\\bin\\windows-x86_64\\codex.exe; exit=0; stdout=codex-cli 0.128.0-alpha.1; stderr=",
+      "recommendation": "Install or expose Codex CLI, or set codexLoop.codexExecutable."
+    },
+    {
+      "id": "runtime.codex.exec_help",
+      "category": "Runtime",
+      "label": "Codex exec command shape responds",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "exit=0; stdout=Run Codex non-interactively Usage: codex exec [OPTIONS] [PROMPT] codex exec [OPTIONS] <COMMAND> [ARGS] Commands: resume Resume a previous session by id or pick ; stderr=",
+      "recommendation": "Update codexLoop.codexExtraArgs/codexExecutable if codex exec flags changed."
+    },
+    {
+      "id": "runtime.codex.approval",
+      "category": "Runtime",
+      "label": "Approval policy is unattended",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "approval_policy=never",
+      "recommendation": "Set codexLoop.codexApprovalPolicy=never for overnight runs."
+    },
+    {
+      "id": "runtime.codex.sandbox",
+      "category": "Runtime",
+      "label": "Sandbox can write workspace",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "sandbox=workspace-write",
+      "recommendation": "Use workspace-write or danger-full-access for builders."
+    },
+    {
+      "id": "runtime.timeout",
+      "category": "Runtime",
+      "label": "Task timeout supports long generations",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "900000ms",
+      "recommendation": "Use at least 600000ms for large factory tasks."
+    },
+    {
+      "id": "runtime.retries",
+      "category": "Runtime",
+      "label": "Retries are available",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "3",
+      "recommendation": "Use maxRetries >= 3."
+    },
+    {
+      "id": "runtime.web_search",
+      "category": "Runtime",
+      "label": "Research has web search",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "web_search=cached",
+      "recommendation": "Use cached/live search for Product Hunt/GitHub research phases."
+    },
+    {
+      "id": "runtime.git_folder",
+      "category": "Runtime",
+      "label": "No-git workspace is tolerated",
+      "severity": "minor",
+      "score": 8,
+      "status": "pass",
+      "evidence": "No .git folder; codex exec uses --skip-git-repo-check.",
+      "recommendation": "Optional: initialize git for safer diffs/worktrees."
+    },
+    {
+      "id": "factory.enabled",
+      "category": "Factory Config",
+      "label": "Factory mode enabled",
+      "severity": "major",
+      "score": 6,
+      "status": "warn",
+      "evidence": "factoryEnabled=false",
+      "recommendation": "Enable factory mode for autonomous planning."
+    },
+    {
+      "id": "factory.preset",
+      "category": "Factory Config",
+      "label": "Preset is recognized",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "preset=freePrompt",
+      "recommendation": "Choose a supported factory preset."
+    },
+    {
+      "id": "factory.task_count",
+      "category": "Factory Config",
+      "label": "Task count is large enough",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "50",
+      "recommendation": "Use 25-80 tasks for serious MVP/portfolio builds."
+    },
+    {
+      "id": "factory.quality_profile",
+      "category": "Factory Config",
+      "label": "Strict quality profile",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "strict",
+      "recommendation": "Use strict for overnight autonomous work."
+    },
+    {
+      "id": "factory.verify_each_task",
+      "category": "Factory Config",
+      "label": "Verify after each task",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Keep verification enabled to avoid false completion."
+    },
+    {
+      "id": "factory.repair_enabled",
+      "category": "Factory Config",
+      "label": "Automatic repair enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable repairOnVerificationFailure."
+    },
+    {
+      "id": "factory.review_at_end",
+      "category": "Factory Config",
+      "label": "Final review enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable reviewAtEnd."
+    },
+    {
+      "id": "factory.decision_guard",
+      "category": "Factory Config",
+      "label": "Supervisor decision guard enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable the supervisor guard."
+    },
+    {
+      "id": "factory.adaptive_planning",
+      "category": "Factory Config",
+      "label": "Adaptive planning enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable adaptive planning so new tasks can be created."
+    },
+    {
+      "id": "factory.autonomy_budget",
+      "category": "Factory Config",
+      "label": "Autonomy budget allows long run",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "forever=false; hours=4",
+      "recommendation": "Use forever mode or at least 3-4 hours."
+    },
+    {
+      "id": "factory.github_scout",
+      "category": "Factory Config",
+      "label": "GitHub Scout enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable GitHub Scout for frontier repairs."
+    },
+    {
+      "id": "factory.creative_studio",
+      "category": "Factory Config",
+      "label": "Creative Studio enabled",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable Creative Studio for image/deck/landing assets."
+    },
+    {
+      "id": "factory.browser_qa",
+      "category": "Factory Config",
+      "label": "Browser QA frontier enabled",
+      "severity": "major",
+      "score": 4,
+      "status": "warn",
+      "evidence": "false",
+      "recommendation": "Enable browser QA for real navigation/render checks."
+    },
+    {
+      "id": "factory.safe_coding_review",
+      "category": "Factory Config",
+      "label": "Safe-coding review enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable safe-coding/privacy review."
+    },
+    {
+      "id": "factory.release_readiness",
+      "category": "Factory Config",
+      "label": "Release readiness enabled",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable release readiness review."
+    },
+    {
+      "id": "runtime.policy_safe_mode",
+      "category": "Runtime Policy",
+      "label": "Prompt safe-mode enabled",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable policySafeModeEnabled to reduce provider false positives."
+    },
+    {
+      "id": "runtime.pause_on_failed_verification",
+      "category": "Runtime Policy",
+      "label": "Pause on unresolved failed verification",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "true",
+      "recommendation": "Enable pauseOnFailedVerification so the factory does not build on a red suite."
+    },
+    {
+      "id": "runtime.repair_depth",
+      "category": "Runtime Policy",
+      "label": "Repair depth handles transient red tests",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "2",
+      "recommendation": "Use at least 2 repair attempts for real projects."
+    },
+    {
+      "id": "runtime.policy_friction_scan",
+      "category": "Runtime Policy",
+      "label": "Workspace prompt-risk wording scan",
+      "severity": "major",
+      "score": 0,
+      "status": "fail",
+      "evidence": "3 hit groups; files=agent-state.json, agent.log, README.md, .codex-loop/factory/preflight-report.md, .codex-loop/factory/runtime-risk-report.md, .codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/shared/spec.json, .codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/github-copilot/copilot-agent.md, .codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/codex/AGENT.md, .codex-loop/factory/snapshots/firefly_v5-owner30-20260505-110705/dist/copilots/firefly_v5/claude/AGENT.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/shared/spec.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/shared/runtime_contract.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/langchain/agent_profile.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/github-copilot/copilot-agent.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/codex/AGENT.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/sonarqube_remediation/claude/AGENT.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/shared/spec.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/shared/runtime_contract.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/langchain/agent_profile.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/github-copilot/copilot-agent.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/codex/AGENT.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/single_registry/claude/AGENT.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/shared/spec.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/shared/runtime_contract.md, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/langchain/agent_profile.json, .codex-loop/factory/snapshots/factory_agent_16_github-20260504-194311/dist/copilots/qa_general/github-copilot/copilot-agent.md",
+      "recommendation": "Reframe prompts/tasks toward safe-coding/privacy language."
+    },
+    {
+      "id": "output.root_safe",
+      "category": "Output Topology",
+      "label": "Portfolio output root is safe",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "products",
+      "recommendation": "Use a dedicated folder such as products, not src/pages/.codex-loop/node_modules/dist."
+    },
+    {
+      "id": "output.registry",
+      "category": "Output Topology",
+      "label": "Project registry exists and parses",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "exists=false; parseable=true; path=.codex-loop/factory/project-registry.json",
+      "recommendation": "Generate .codex-loop/factory/project-registry.json during portfolio synthesis."
+    },
+    {
+      "id": "output.registry_count",
+      "category": "Output Topology",
+      "label": "Registry product count matches portfolio target",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "0/5",
+      "recommendation": "Each product needs a unique registry entry with slug, title, path, status and verification."
+    },
+    {
+      "id": "output.slug_collisions",
+      "category": "Output Topology",
+      "label": "No duplicate or unsafe project paths",
+      "severity": "critical",
+      "score": 10,
+      "status": "pass",
+      "evidence": "duplicates=(none); unsafe=(none)",
+      "recommendation": "Fix project-registry slugs/paths before building more products."
+    },
+    {
+      "id": "output.root_pollution",
+      "category": "Output Topology",
+      "label": "Portfolio does not mix product apps into workspace root",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "(none)",
+      "recommendation": "Keep product-specific code under products/<slug>/ and use root only for orchestration/shared docs."
+    },
+    {
+      "id": "frontier.output-topology",
+      "category": "Frontier Governance",
+      "label": "Output/topologia",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "root=products; registry=0; unsafe=0; duplicates=0",
+      "recommendation": "Keep product apps under products/<slug>/ and maintain .codex-loop/factory/project-registry.json."
+    },
+    {
+      "id": "frontier.runtime-toolchain",
+      "category": "Frontier Governance",
+      "label": "Runtime/toolchain",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "codex=true; execHelp=0; node=true; npm=true; rg=false; rgShim=true; timeout=900000; retries=3",
+      "recommendation": "Expose Codex/Node/npm on PATH, verify codex exec --help, keep local tool shims ready, and use long timeouts plus at least 3 retries."
+    },
+    {
+      "id": "frontier.state-locks",
+      "category": "Frontier Governance",
+      "label": "Estado/locks",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "lock pid=20472; stale=true; alive=true; unfinished=false",
+      "recommendation": "Use run.lock, stale detection and unfinished-run detection before starting another factory."
+    },
+    {
+      "id": "frontier.quality-real",
+      "category": "Frontier Governance",
+      "label": "Calidad real",
+      "severity": "major",
+      "score": 4,
+      "status": "warn",
+      "evidence": "build=false; test=false; coverageScript=false; coverage=missing%; verifyEach=true",
+      "recommendation": "Add build/test/coverage scripts and repair until coverage evidence approaches 80%."
+    },
+    {
+      "id": "frontier.render-browser",
+      "category": "Frontier Governance",
+      "label": "Render/browser",
+      "severity": "major",
+      "score": 5,
+      "status": "warn",
+      "evidence": "browserQa=false; e2eScript=false; playwrightConfig=false",
+      "recommendation": "Frontend products need a real navigation/render smoke path, not only build."
+    },
+    {
+      "id": "frontier.packaging",
+      "category": "Frontier Governance",
+      "label": "Packaging",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "enabled=false; tauriConfig=false; tauriScript=false; buildScript=false",
+      "recommendation": "Only claim a desktop/binary artifact when the packaging config/script or actual artifact exists."
+    },
+    {
+      "id": "frontier.sensitive-data",
+      "category": "Frontier Governance",
+      "label": "Secretos/datos",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "0 hit groups; files=(none)",
+      "recommendation": "Use placeholders/env.example only; block generated credential-shaped values in changed files."
+    },
+    {
+      "id": "frontier.license-github-scout",
+      "category": "Frontier Governance",
+      "label": "Licencias/GitHub Scout",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "githubScout=true; ledger=true; notices=false; policy=permissiveOnly",
+      "recommendation": "Use GitHub for patterns first; adapt only permissive compatible code and record attribution."
+    },
+    {
+      "id": "frontier.research-trust",
+      "category": "Frontier Governance",
+      "label": "Research trust",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "preset=freePrompt; researchEvidence=true; policySafeBrief=true",
+      "recommendation": "Treat market/web findings as noisy; store source signals, confidence and caveats."
+    },
+    {
+      "id": "frontier.cost-time",
+      "category": "Frontier Governance",
+      "label": "Coste/tiempo",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "forever=false; guard=true; hours=4; maxTasks=0",
+      "recommendation": "Forever mode needs a supervisor guard; finite mode needs an explicit budget or task cap."
+    },
+    {
+      "id": "frontier.naming",
+      "category": "Frontier Governance",
+      "label": "Naming",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "duplicates=(none); unsafe=(none)",
+      "recommendation": "Use stable kebab-case product slugs and avoid third-party brands in product identity."
+    },
+    {
+      "id": "frontier.rollback",
+      "category": "Frontier Governance",
+      "label": "Rollback",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "createBackups=true; git=false; rollbackFolder=true",
+      "recommendation": "Keep snapshots or Git available before autonomous workers edit product files."
+    },
+    {
+      "id": "frontier.final-truth-gate",
+      "category": "Frontier Governance",
+      "label": "Final truth gate",
+      "severity": "major",
+      "score": 6,
+      "status": "warn",
+      "evidence": "frontierReview=true; finalReview=false; releaseReport=false",
+      "recommendation": "Do not declare done until build/test/render/packaging/data/license evidence is present or residual risk is explicit."
+    },
+    {
+      "id": "tool.node",
+      "category": "Tools",
+      "label": "node available",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Install node or add it to PATH."
+    },
+    {
+      "id": "tool.npm",
+      "category": "Tools",
+      "label": "npm available",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Install npm or add it to PATH."
+    },
+    {
+      "id": "tool.npx",
+      "category": "Tools",
+      "label": "npx available",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Install npx or add it to PATH."
+    },
+    {
+      "id": "tool.git",
+      "category": "Tools",
+      "label": "git available",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Install git or add it to PATH."
+    },
+    {
+      "id": "tool.rg",
+      "category": "Tools",
+      "label": "rg available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Local shim ready in .codex-loop/tool-shims.",
+      "recommendation": "The local shim covers common rg --files/search calls; install ripgrep later for full speed."
+    },
+    {
+      "id": "tool.gh",
+      "category": "Tools",
+      "label": "gh available",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "Not found on PATH.",
+      "recommendation": "Optional but useful: install gh if the selected stack needs it."
+    },
+    {
+      "id": "tool.python",
+      "category": "Tools",
+      "label": "python available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install python if the selected stack needs it."
+    },
+    {
+      "id": "tool.py",
+      "category": "Tools",
+      "label": "py available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install py if the selected stack needs it."
+    },
+    {
+      "id": "tool.pnpm",
+      "category": "Tools",
+      "label": "pnpm available",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "Not found on PATH.",
+      "recommendation": "Optional but useful: install pnpm if the selected stack needs it."
+    },
+    {
+      "id": "tool.yarn",
+      "category": "Tools",
+      "label": "yarn available",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "Not found on PATH.",
+      "recommendation": "Optional but useful: install yarn if the selected stack needs it."
+    },
+    {
+      "id": "tool.bun",
+      "category": "Tools",
+      "label": "bun available",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "Not found on PATH.",
+      "recommendation": "Optional but useful: install bun if the selected stack needs it."
+    },
+    {
+      "id": "tool.cargo",
+      "category": "Tools",
+      "label": "cargo available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install cargo if the selected stack needs it."
+    },
+    {
+      "id": "tool.rustc",
+      "category": "Tools",
+      "label": "rustc available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install rustc if the selected stack needs it."
+    },
+    {
+      "id": "tool.tauri",
+      "category": "Tools",
+      "label": "tauri available",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "Not found on PATH.",
+      "recommendation": "Optional but useful: install tauri if the selected stack needs it."
+    },
+    {
+      "id": "tool.code",
+      "category": "Tools",
+      "label": "code available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install code if the selected stack needs it."
+    },
+    {
+      "id": "tool.codex",
+      "category": "Tools",
+      "label": "codex available",
+      "severity": "minor",
+      "score": 10,
+      "status": "pass",
+      "evidence": "Found on PATH.",
+      "recommendation": "Optional but useful: install codex if the selected stack needs it."
+    },
+    {
+      "id": "package.exists",
+      "category": "Workspace Package",
+      "label": "package.json exists",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "No package.json yet.",
+      "recommendation": "The builder can create this if the product is Node-based."
+    },
+    {
+      "id": "package.parseable",
+      "category": "Workspace Package",
+      "label": "package.json parses",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "OK",
+      "recommendation": "Fix malformed package.json."
+    },
+    {
+      "id": "package.script.dev",
+      "category": "Workspace Package",
+      "label": "dev script",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add a dev script once the app exists."
+    },
+    {
+      "id": "package.script.build",
+      "category": "Workspace Package",
+      "label": "build script",
+      "severity": "major",
+      "score": 5,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add a build script."
+    },
+    {
+      "id": "package.script.test",
+      "category": "Workspace Package",
+      "label": "test script",
+      "severity": "major",
+      "score": 4,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add a test script."
+    },
+    {
+      "id": "package.script.coverage",
+      "category": "Workspace Package",
+      "label": "coverage script",
+      "severity": "major",
+      "score": 4,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add coverage or test:coverage."
+    },
+    {
+      "id": "package.script.lint",
+      "category": "Workspace Package",
+      "label": "lint script",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add a lint script."
+    },
+    {
+      "id": "package.script.e2e",
+      "category": "Workspace Package",
+      "label": "e2e/browser script",
+      "severity": "minor",
+      "score": 5,
+      "status": "warn",
+      "evidence": "(none)",
+      "recommendation": "Add e2e or test:e2e when browser QA lands."
+    },
+    {
+      "id": "protocol.codex.loop.factory.factory.operating.system.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/factory-operating-system.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.microtask.contract.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/microtask-contract.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.quality.gates.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/quality-gates.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.acceptance.frontiers.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/acceptance-frontiers.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.departments.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/departments.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.department.raci.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/department-raci.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.browser.render.security.gates.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/browser-render-security-gates.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.packaging.gates.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/packaging-gates.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.github.scout.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/github-scout-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.github.reuse.ledger.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/github-reuse-ledger.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.capability.autodiscovery.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/capability-autodiscovery-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.creative.studio.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/creative-studio.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.image.generation.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/image-generation-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.presentation.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/presentation-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.scroll.storytelling.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/scroll-storytelling-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.pixel.ops.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/pixel-ops-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.rooms.map.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/rooms-map.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.parallelization.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/parallelization-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.parallel.scheduler.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/parallel-scheduler-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.worker.isolation.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/worker-isolation-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.adaptive.planning.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/adaptive-planning-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.completion.decision.schema.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/completion-decision.schema.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.supervisor.guard.policy.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/supervisor-guard-policy.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.supervisor.decision.schema.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/supervisor-decision.schema.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.backlog.mutation.log.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/backlog-mutation-log.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.org.graph.json",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/org-graph.json",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.org.graph.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/org-graph.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    },
+    {
+      "id": "protocol.codex.loop.factory.agent.roster.md",
+      "category": "Factory Protocol",
+      "label": ".codex-loop/factory/agent-roster.md",
+      "severity": "major",
+      "score": 10,
+      "status": "pass",
+      "evidence": "present",
+      "recommendation": "Run factory-protocol or let Start regenerate the operating system."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "moonshine",
+  "runtime": "langchain",
+  "displayName": "Copiloto Moonshine",
+  "family": "development",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "declaredOutputs": [
+    "backend_patch_plan",
+    "runtime_diagnostics"
+  ],
+  "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+  "outputSchema": "dist/copilots/moonshine/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/moonshine/langchain/agent.py",
+  "profileArtifact": "dist/copilots/moonshine/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/moonshine/langchain/agent.py",
+    "profileArtifact": "dist/copilots/moonshine/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/moonshine/shared/output_schema.json",
+    "outputSchemaSha256": "c46b7884212e024573f493cb8d5f6df28a4085851da457bb470eef2d806a46f8",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/moonshine/shared/output_schema.json"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/moonshine/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/moonshine/codex/AGENT.md",
+      "claude": "dist/copilots/moonshine/claude/AGENT.md",
+      "github-copilot": "dist/copilots/moonshine/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/moonshine/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  }
+}

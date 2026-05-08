@@ -1,0 +1,121 @@
+{
+  "policyVersion": "langchain-agent-spec-1.0",
+  "ownerAgent": "factory_agent_17_langchain",
+  "mission": "Builds Python/LangChain compatible agent specs.",
+  "copilotId": "as_is_discovery",
+  "runtime": "langchain",
+  "displayName": "Copiloto de Discovery AS-IS",
+  "family": "core",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "declaredOutputs": [
+    "as_is_report",
+    "inventory_json"
+  ],
+  "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+  "outputSchema": "dist/copilots/as_is_discovery/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/as_is_discovery/langchain/agent.py",
+  "profileArtifact": "dist/copilots/as_is_discovery/langchain/agent_profile.json",
+  "agentSpec": {
+    "artifact": "dist/copilots/as_is_discovery/langchain/agent.py",
+    "profileArtifact": "dist/copilots/as_is_discovery/langchain/agent_profile.json",
+    "schemaRef": "dist/copilots/as_is_discovery/shared/output_schema.json",
+    "outputSchemaSha256": "1b884c794b8b35a2e6c102edcc6fc6b1f52d2abffb41a1b7f48587d323ea6534",
+    "compatibleInterfaces": [
+      "plain_python_class",
+      "langchain_tool",
+      "langchain_runnable",
+      "agent_executor_adapter"
+    ],
+    "requiredPythonApi": {
+      "moduleConstants": [
+        "PROFILE",
+        "SYSTEM_PROMPT",
+        "DEVELOPER_PROMPT",
+        "OUTPUT_SCHEMA"
+      ],
+      "moduleFunctions": [
+        "build_agent"
+      ],
+      "agentMethods": [
+        "score",
+        "audit",
+        "plan",
+        "render_prompt",
+        "output_schema"
+      ],
+      "classNameSuffix": "Agent"
+    },
+    "promptSurfaces": [
+      "system",
+      "developer",
+      "user_payload"
+    ]
+  },
+  "runtimeContract": {
+    "deterministicPythonFirst": true,
+    "hardLangChainDependency": false,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "promptExpansion": "render_prompt_uses_redacted_request_profile_plan_schema_evidence",
+    "evidenceHandling": "validate_evidence_then_redact_value",
+    "connectorActivation": "declared_names_only_no_credentials",
+    "outputSchemaSource": "dist/copilots/as_is_discovery/shared/output_schema.json"
+  },
+  "requiredEvidence": [
+    "langchain_agent_spec",
+    "agent_profile_contract",
+    "runtime_equivalence",
+    "schema_digest",
+    "safe_prompt_rendering"
+  ],
+  "qualityGates": [
+    "profile_embeds_shared_spec",
+    "agent_exports_required_api",
+    "hard_langchain_dependency_not_required",
+    "render_prompt_redacts_inputs",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/as_is_discovery/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/as_is_discovery/codex/AGENT.md",
+      "claude": "dist/copilots/as_is_discovery/claude/AGENT.md",
+      "github-copilot": "dist/copilots/as_is_discovery/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/as_is_discovery/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "render_prompt_references_profile_plan_schema_evidence_without_repo_dump",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_audit_passes_and_request_requires_judgement",
+    "traceability": "runtime-injection-map links profile, spec, schema and agent file"
+  },
+  "runtimeEquivalenceContract": {
+    "source_of_truth": "dist/copilots/as_is_discovery/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "max_unexplained_drift": 0,
+    "cost_control": "python_first_llm_sparse",
+    "traceability": "shared spec, shared output schema, runtime injection map and validator receipts"
+  }
+}

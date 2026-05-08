@@ -1,0 +1,6 @@
+{
+  "workspaceType": "data-factory",
+  "logicalAgents": 107,
+  "realWorkersTarget": 4,
+  "clusters": ["legal_tax", "insurtech", "regtech_cyber", "fintech_aml_kyc", "trade_logistics"]
+}

@@ -1,0 +1,2019 @@
+[
+  {
+    "id": "devex",
+    "name": "Copiloto DevEx",
+    "family": "core",
+    "function": "Development standards, SDLC discipline, repo hygiene and cross-copilot support.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "all"
+    ],
+    "sdlc_phases": [
+      "discovery",
+      "build",
+      "test",
+      "release"
+    ],
+    "outputs": [
+      "devex_scorecard",
+      "standards_patch_plan"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "devex",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "devex_scorecard",
+          "standards_patch_plan"
+        ]
+      },
+      "source": {
+        "copilot_id": "devex",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "devex_scorecard",
+          "standards_patch_plan"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/devex/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "aida_architecture",
+    "name": "Copiloto de Principios de Arquitectura AIDA",
+    "family": "core",
+    "function": "Architecture evaluation, decision review and enterprise guidelines.",
+    "connectors": [
+      "github_mcp",
+      "confluence_mcp_optional"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN",
+      "CONFLUENCE_TOKEN_OPTIONAL"
+    ],
+    "stacks": [
+      "enterprise"
+    ],
+    "sdlc_phases": [
+      "architecture",
+      "design",
+      "release"
+    ],
+    "outputs": [
+      "adr_review",
+      "architecture_principles_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "aida_architecture",
+        "connector_names": [
+          "github_mcp",
+          "confluence_mcp_optional"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "CONFLUENCE_TOKEN_OPTIONAL"
+        ],
+        "outputs": [
+          "adr_review",
+          "architecture_principles_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "aida_architecture",
+        "connector_names": [
+          "github_mcp",
+          "confluence_mcp_optional"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "CONFLUENCE_TOKEN_OPTIONAL"
+        ],
+        "outputs": [
+          "adr_review",
+          "architecture_principles_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "design_boundary_audit": {
+      "policy_version": "domain-boundary-handoff-audit-1.0",
+      "owner_agent": "factory_agent_06_design",
+      "mission": "Audits domain boundaries, contracts and handoff clarity.",
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/aida_architecture/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_boundary_conflicts_only"
+      }
+    }
+  },
+  {
+    "id": "as_is_discovery",
+    "name": "Copiloto de Discovery AS-IS",
+    "family": "core",
+    "function": "Legacy discovery, system inventory and current-state documentation.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "legacy",
+      "all"
+    ],
+    "sdlc_phases": [
+      "discovery",
+      "as_is"
+    ],
+    "outputs": [
+      "as_is_report",
+      "inventory_json"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "as_is_discovery",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "as_is_report",
+          "inventory_json"
+        ]
+      },
+      "source": {
+        "copilot_id": "as_is_discovery",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "as_is_report",
+          "inventory_json"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "discovery_audit": {
+      "policy_version": "as-is-inventory-audit-1.0",
+      "owner_agent": "factory_agent_04_discovery",
+      "mission": "Audits AS-IS coverage and repo inventory contracts.",
+      "coverage_items": [
+        "source_systems",
+        "repository_topology",
+        "interfaces",
+        "data_flows",
+        "business_rules",
+        "dependencies",
+        "owners",
+        "risks",
+        "validation_signals"
+      ],
+      "inventory_fields": [
+        "path",
+        "artifact_type",
+        "owner",
+        "sdlc_phase",
+        "runtime_scope",
+        "evidence_ref",
+        "validation_status"
+      ],
+      "required_outputs": [
+        "as_is_report",
+        "inventory_json"
+      ],
+      "gap_register_required": true,
+      "evidence_field": "discovery_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py as_is inventory coverage",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_inventory_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "single_registry",
+    "name": "Copiloto Registro Unico",
+    "family": "core",
+    "function": "Normalize technical information into one canonical registry.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "all"
+    ],
+    "sdlc_phases": [
+      "discovery",
+      "operate"
+    ],
+    "outputs": [
+      "technical_registry",
+      "normalization_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "single_registry",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "technical_registry",
+          "normalization_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "single_registry",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "technical_registry",
+          "normalization_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "firefly_v5",
+    "name": "Copiloto Firefly v5",
+    "family": "development",
+    "function": "Unit tests, integration tests, QA, CI/CD troubleshooting and remediation.",
+    "connectors": [
+      "github_mcp",
+      "sonarqube_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN",
+      "SONARQUBE_TOKEN"
+    ],
+    "stacks": [
+      "java",
+      "enterprise"
+    ],
+    "sdlc_phases": [
+      "build",
+      "test",
+      "devops"
+    ],
+    "outputs": [
+      "test_plan",
+      "ci_triage",
+      "sonar_remediation"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "firefly_v5",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "test_plan",
+          "ci_triage",
+          "sonar_remediation"
+        ]
+      },
+      "source": {
+        "copilot_id": "firefly_v5",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "test_plan",
+          "ci_triage",
+          "sonar_remediation"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/firefly_v5/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "firefly_v6",
+    "name": "Copiloto Firefly v6",
+    "family": "development",
+    "function": "Firefly v5 evolution with stronger knowledge-base separation and QA specialization.",
+    "connectors": [
+      "github_mcp",
+      "sonarqube_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN",
+      "SONARQUBE_TOKEN"
+    ],
+    "stacks": [
+      "java",
+      "enterprise"
+    ],
+    "sdlc_phases": [
+      "build",
+      "test",
+      "devops"
+    ],
+    "outputs": [
+      "kb_partition_report",
+      "test_plan",
+      "quality_gate"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "firefly_v6",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "kb_partition_report",
+          "test_plan",
+          "quality_gate"
+        ]
+      },
+      "source": {
+        "copilot_id": "firefly_v6",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "kb_partition_report",
+          "test_plan",
+          "quality_gate"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/firefly_v6/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "moonshine",
+    "name": "Copiloto Moonshine",
+    "family": "development",
+    "function": "Moonshine backend development and operational repair.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "moonshine",
+      "backend"
+    ],
+    "sdlc_phases": [
+      "build",
+      "test",
+      "operate"
+    ],
+    "outputs": [
+      "backend_patch_plan",
+      "runtime_diagnostics"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "moonshine",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "backend_patch_plan",
+          "runtime_diagnostics"
+        ]
+      },
+      "source": {
+        "copilot_id": "moonshine",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "backend_patch_plan",
+          "runtime_diagnostics"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/moonshine/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "java_generic",
+    "name": "Copiloto Java Generico",
+    "family": "development",
+    "function": "Enterprise Java development, refactoring and maintainability.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "java",
+      "spring",
+      "maven",
+      "gradle"
+    ],
+    "sdlc_phases": [
+      "design",
+      "build",
+      "test"
+    ],
+    "outputs": [
+      "java_patch_plan",
+      "test_plan"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "java_generic",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "java_patch_plan",
+          "test_plan"
+        ]
+      },
+      "source": {
+        "copilot_id": "java_generic",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "java_patch_plan",
+          "test_plan"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "design_boundary_audit": {
+      "policy_version": "domain-boundary-handoff-audit-1.0",
+      "owner_agent": "factory_agent_06_design",
+      "mission": "Audits domain boundaries, contracts and handoff clarity.",
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/java_generic/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_boundary_conflicts_only"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/java_generic/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "java_architect",
+    "name": "Copiloto Java Architect",
+    "family": "development",
+    "function": "Java design decisions, modularity, integration boundaries and architecture fitness.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "java",
+      "architecture"
+    ],
+    "sdlc_phases": [
+      "architecture",
+      "design",
+      "release"
+    ],
+    "outputs": [
+      "java_adr",
+      "architecture_fitness_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "java_architect",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "java_adr",
+          "architecture_fitness_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "java_architect",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "java_adr",
+          "architecture_fitness_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "design_boundary_audit": {
+      "policy_version": "domain-boundary-handoff-audit-1.0",
+      "owner_agent": "factory_agent_06_design",
+      "mission": "Audits domain boundaries, contracts and handoff clarity.",
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/java_architect/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_boundary_conflicts_only"
+      }
+    }
+  },
+  {
+    "id": "angular_18",
+    "name": "Copiloto Angular 18",
+    "family": "development",
+    "function": "Angular 18 frontend development, components, state, routing and tests.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "angular",
+      "typescript",
+      "frontend"
+    ],
+    "sdlc_phases": [
+      "design",
+      "build",
+      "test"
+    ],
+    "outputs": [
+      "frontend_patch_plan",
+      "component_test_plan"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "angular_18",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "frontend_patch_plan",
+          "component_test_plan"
+        ]
+      },
+      "source": {
+        "copilot_id": "angular_18",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "frontend_patch_plan",
+          "component_test_plan"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "design_boundary_audit": {
+      "policy_version": "domain-boundary-handoff-audit-1.0",
+      "owner_agent": "factory_agent_06_design",
+      "mission": "Audits domain boundaries, contracts and handoff clarity.",
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/angular_18/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_boundary_conflicts_only"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/angular_18/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "nodejs",
+    "name": "Copiloto Node.js",
+    "family": "development",
+    "function": "Enterprise Node.js backend development, APIs, services and observability.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "node",
+      "typescript",
+      "backend"
+    ],
+    "sdlc_phases": [
+      "design",
+      "build",
+      "test",
+      "operate"
+    ],
+    "outputs": [
+      "node_patch_plan",
+      "api_contract_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "nodejs",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "node_patch_plan",
+          "api_contract_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "nodejs",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "node_patch_plan",
+          "api_contract_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "design_boundary_audit": {
+      "policy_version": "domain-boundary-handoff-audit-1.0",
+      "owner_agent": "factory_agent_06_design",
+      "mission": "Audits domain boundaries, contracts and handoff clarity.",
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/nodejs/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_boundary_conflicts_only"
+      }
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/nodejs/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "python",
+    "name": "Copiloto Python",
+    "family": "development",
+    "function": "Python development, automation, data pipelines, semantic engines and tests.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "python"
+    ],
+    "sdlc_phases": [
+      "build",
+      "test",
+      "operate"
+    ],
+    "outputs": [
+      "python_patch_plan",
+      "automation_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "python",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "python_patch_plan",
+          "automation_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "python",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "python_patch_plan",
+          "automation_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    },
+    "semantic_routing": {
+      "policy_version": "semantic-routing-1.0",
+      "router": "tools/semantic_router.py",
+      "role": "python_brain",
+      "deterministic_python_first": true,
+      "score_before_llm_assist": true,
+      "llm_assist_before_scoring_allowed": false,
+      "evidence_field": "routing_evidence",
+      "runtime_trace_required": true,
+      "score_model": "weighted_exact_and_token_overlap"
+    },
+    "implementation_plan_audit": {
+      "policy_version": "implementation-plan-stack-rules-audit-1.0",
+      "owner_agent": "factory_agent_07_build",
+      "mission": "Audits implementation plans and stack-specific rules.",
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "runtime_trace_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/python/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      },
+      "cost_control": {
+        "deterministic_python_first": true,
+        "llm_escalation": "allowed_after_stack_rule_gaps_only"
+      }
+    }
+  },
+  {
+    "id": "qa_general",
+    "name": "Copiloto QA General",
+    "family": "quality",
+    "function": "Test case identification, QA automation and risk-based validation.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "all"
+    ],
+    "sdlc_phases": [
+      "test",
+      "release"
+    ],
+    "outputs": [
+      "qa_strategy",
+      "test_matrix"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "qa_general",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "qa_strategy",
+          "test_matrix"
+        ]
+      },
+      "source": {
+        "copilot_id": "qa_general",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "qa_strategy",
+          "test_matrix"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "sonarqube_remediation",
+    "name": "Copiloto SonarQube Remediacion",
+    "family": "quality",
+    "function": "SonarQube non-conformity remediation and technical debt burn-down.",
+    "connectors": [
+      "github_mcp",
+      "sonarqube_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN",
+      "SONARQUBE_TOKEN"
+    ],
+    "stacks": [
+      "all"
+    ],
+    "sdlc_phases": [
+      "test",
+      "security",
+      "release"
+    ],
+    "outputs": [
+      "sonar_report",
+      "remediation_backlog"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "sonarqube_remediation",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "sonar_report",
+          "remediation_backlog"
+        ]
+      },
+      "source": {
+        "copilot_id": "sonarqube_remediation",
+        "connector_names": [
+          "github_mcp",
+          "sonarqube_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN",
+          "SONARQUBE_TOKEN"
+        ],
+        "outputs": [
+          "sonar_report",
+          "remediation_backlog"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "cicd",
+    "name": "Copiloto CI/CD",
+    "family": "devops",
+    "function": "Pipeline analysis, build troubleshooting, release automation and rollback diagnostics.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "github_actions",
+      "ci_cd"
+    ],
+    "sdlc_phases": [
+      "devops",
+      "release",
+      "operate"
+    ],
+    "outputs": [
+      "pipeline_triage",
+      "workflow_patch_plan"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "cicd",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "pipeline_triage",
+          "workflow_patch_plan"
+        ]
+      },
+      "source": {
+        "copilot_id": "cicd",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "pipeline_triage",
+          "workflow_patch_plan"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "journey_to_cloud",
+    "name": "Copiloto Journey to Cloud",
+    "family": "cloud",
+    "function": "Cloud migration, legacy rebuild strategy and target architecture planning.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "cloud",
+      "modernization"
+    ],
+    "sdlc_phases": [
+      "architecture",
+      "cloud",
+      "release"
+    ],
+    "outputs": [
+      "migration_plan",
+      "cloud_readiness_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "journey_to_cloud",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "migration_plan",
+          "cloud_readiness_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "journey_to_cloud",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "migration_plan",
+          "cloud_readiness_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "copilots_manager",
+    "name": "Copilots Manager",
+    "family": "orchestration",
+    "function": "Discover copilots, install profiles, manage dependencies and route work.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "orchestration"
+    ],
+    "sdlc_phases": [
+      "discovery",
+      "operate"
+    ],
+    "outputs": [
+      "copilot_registry",
+      "routing_plan"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "copilots_manager",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "copilot_registry",
+          "routing_plan"
+        ]
+      },
+      "source": {
+        "copilot_id": "copilots_manager",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "copilot_registry",
+          "routing_plan"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  },
+  {
+    "id": "firefly_marketplace",
+    "name": "Copiloto Firefly Marketplace",
+    "family": "marketplace",
+    "function": "Package, distribute and version copilots for reuse.",
+    "connectors": [
+      "github_mcp"
+    ],
+    "env_keys": [
+      "GITHUB_TOKEN"
+    ],
+    "stacks": [
+      "marketplace"
+    ],
+    "sdlc_phases": [
+      "release",
+      "operate"
+    ],
+    "outputs": [
+      "marketplace_manifest",
+      "distribution_report"
+    ],
+    "normalization": {
+      "version": "catalog-normalization-1.0",
+      "canonical": {
+        "copilot_id": "firefly_marketplace",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "marketplace_manifest",
+          "distribution_report"
+        ]
+      },
+      "source": {
+        "copilot_id": "firefly_marketplace",
+        "connector_names": [
+          "github_mcp"
+        ],
+        "env_names": [
+          "GITHUB_TOKEN"
+        ],
+        "outputs": [
+          "marketplace_manifest",
+          "distribution_report"
+        ]
+      },
+      "status": "already_normalized",
+      "case_policy": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "traceability": {
+        "catalog_index": "generated/copilot-index.json",
+        "runtime_source_of_truth": "dist/copilots/<copilot_id>/shared/spec.json"
+      }
+    }
+  }
+]

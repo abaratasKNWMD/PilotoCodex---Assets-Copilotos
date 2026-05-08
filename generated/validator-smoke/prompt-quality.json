@@ -1,0 +1,37 @@
+{
+  "version": "generated-validator-smoke-1.0",
+  "ownerAgent": "factory_agent_25_smoke",
+  "mission": "Runs generated validators and reports blockers.",
+  "validatorId": "prompt_quality",
+  "command": "python tools/validate_prompt_quality.py",
+  "reportArtifact": "generated/prompt-quality-report.json",
+  "reportPass": true,
+  "blockerCount": 0,
+  "blockers": [],
+  "status": "pass",
+  "evidenceMode": "report_path_digest_and_blocker_summary",
+  "promptBodiesStored": false,
+  "runtimeEquivalence": {
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "sourceOfTruth": "data/agent_roster.json#/factory_agent_25_smoke",
+    "maxUnexplainedDrift": 0,
+    "promptBodiesStored": false,
+    "equivalenceAssertions": {
+      "sameValidatorCommands": true,
+      "sameBlockerTaxonomy": true,
+      "reportDigestTracePresent": true,
+      "promptBodiesStoredFalse": true,
+      "maxUnexplainedDriftZero": true
+    }
+  },
+  "checkedAt": "2026-05-05T19:48:36.166552+00:00",
+  "reportPresent": true,
+  "reportCheckedAt": "2026-05-05T19:48:36.159767+00:00",
+  "reportDigest": "35058f74bdc358b560476462f263d93843952619acfc8c29ef74a618adba005b",
+  "receiptArtifact": "generated/validator-smoke/prompt-quality.json"
+}

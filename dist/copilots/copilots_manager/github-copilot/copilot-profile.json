@@ -1,0 +1,101 @@
+{
+  "policyVersion": "github-copilot-profile-mcp-placeholders-1.0",
+  "ownerAgent": "factory_agent_16_github",
+  "mission": "Builds GitHub Copilot profile docs and MCP placeholders.",
+  "copilotId": "copilots_manager",
+  "runtime": "github-copilot",
+  "displayName": "Copilots Manager",
+  "family": "orchestration",
+  "function": "Discover copilots, install profiles, manage dependencies and route work.",
+  "connectors": [
+    "github_mcp"
+  ],
+  "envKeys": [
+    "GITHUB_TOKEN"
+  ],
+  "sdlcPhases": [
+    "discovery",
+    "operate"
+  ],
+  "declaredOutputs": [
+    "copilot_registry",
+    "routing_plan"
+  ],
+  "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+  "outputSchema": "dist/copilots/copilots_manager/shared/output_schema.json",
+  "runtimeFile": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+  "profileDoc": {
+    "artifact": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+    "profileArtifact": "dist/copilots/copilots_manager/github-copilot/copilot-profile.json",
+    "schemaRef": "dist/copilots/copilots_manager/shared/output_schema.json",
+    "outputSchemaSha256": "74ec0f564294fecc7266ff856d49b7993c24b754a2a907dbbedae122d32fb23e",
+    "requiredSections": [
+      "Runtime Injection",
+      "System Prompt",
+      "Developer Prompt",
+      "Execution Protocol",
+      "Python Brain Contract",
+      "Evidence Gates",
+      "Outputs",
+      "Runtime Specific Protocol",
+      "GitHub Copilot Profile",
+      "MCP Placeholder Contract"
+    ],
+    "promptSourceRefs": [
+      "dist/copilots/copilots_manager/shared/spec.json#/systemPrompt",
+      "dist/copilots/copilots_manager/shared/spec.json#/developerPrompt",
+      "dist/copilots/copilots_manager/shared/output_schema.json"
+    ]
+  },
+  "mcpPlaceholderRef": "dist/copilots/copilots_manager/github-copilot/mcp-placeholders.json",
+  "repositoryWorkflow": {
+    "evidenceOrder": [
+      "issue_or_pr_context",
+      "branch_and_review_policy",
+      "workflow_or_check_status",
+      "source_file_refs",
+      "validation_commands"
+    ],
+    "branchPolicyRespected": true,
+    "reviewCommentsActionable": true,
+    "offlineFallback": "use_local_files_and_mark_connector_evidence_pending"
+  },
+  "requiredEvidence": [
+    "github_copilot_profile_doc",
+    "mcp_placeholders",
+    "runtime_equivalence",
+    "safe_connector_policy"
+  ],
+  "qualityGates": [
+    "github_profile_embeds_shared_spec",
+    "mcp_placeholders_are_disabled",
+    "connector_env_names_only",
+    "traceability_and_cost"
+  ],
+  "validationCommands": [
+    "python tools/validate_copilot_factory.py",
+    "python tools/validate_prompt_quality.py",
+    "python tools/validate_runtime_equivalence.py"
+  ],
+  "runtimeEquivalence": {
+    "sourceOfTruth": "dist/copilots/copilots_manager/shared/spec.json",
+    "runtimes": [
+      "codex",
+      "claude",
+      "github-copilot",
+      "langchain"
+    ],
+    "adapterFiles": {
+      "codex": "dist/copilots/copilots_manager/codex/AGENT.md",
+      "claude": "dist/copilots/copilots_manager/claude/AGENT.md",
+      "github-copilot": "dist/copilots/copilots_manager/github-copilot/copilot-agent.md",
+      "langchain": "dist/copilots/copilots_manager/langchain/agent.py"
+    },
+    "maxUnexplainedDrift": 0
+  },
+  "costControl": {
+    "promptExpansion": "profile_json_references_shared_spec_and_schema",
+    "deterministicPythonFirst": true,
+    "llmEscalation": "only_after_github_evidence_or_local_file_checks_are_insufficient"
+  }
+}

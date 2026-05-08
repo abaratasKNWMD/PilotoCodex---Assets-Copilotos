@@ -1,0 +1,644 @@
+[
+  {
+    "id": "factory_agent_01_director",
+    "name": "Factory Director",
+    "phase": "orchestration",
+    "mode": "python_first_llm_sparse",
+    "mission": "Owns the whole run, keeps gates honest and prevents scope drift."
+  },
+  {
+    "id": "factory_agent_02_catalog",
+    "name": "Catalog Normalizer",
+    "phase": "discovery",
+    "mode": "python_only",
+    "mission": "Normalizes copilot IDs, connector names, env names and outputs.",
+    "outputs": [
+      "normalized_copilot_catalog",
+      "normalized_route_payload",
+      "runtime_trace_index"
+    ],
+    "normalization_contract": {
+      "version": "catalog-normalization-1.0",
+      "source": "data/copilots.json",
+      "generated_index": "generated/copilot-index.json",
+      "router": "tools/semantic_router.py",
+      "canonical_fields": {
+        "copilot_id": "lower_snake_case",
+        "connector_names": "lower_snake_case",
+        "env_names": "upper_snake_case",
+        "outputs": "lower_snake_case"
+      },
+      "runtime_equivalence": {
+        "sourceOfTruth": "dist/copilots/<copilot_id>/shared/spec.json",
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "maxUnexplainedDrift": 0
+      }
+    }
+  },
+  {
+    "id": "factory_agent_03_semantics",
+    "name": "Semantic Router",
+    "phase": "discovery",
+    "mode": "python_only",
+    "mission": "Uses deterministic Python scoring before any LLM assist.",
+    "outputs": [
+      "deterministic_route_scores",
+      "route_confidence_payload",
+      "llm_escalation_guard"
+    ],
+    "deterministic_scoring_contract": {
+      "version": "semantic-routing-1.0",
+      "router": "tools/semantic_router.py",
+      "catalog": "data/copilots.json",
+      "index": "generated/copilot-index.json",
+      "score_inputs": [
+        "id",
+        "family",
+        "function",
+        "connectors",
+        "env_keys",
+        "stacks",
+        "sdlc_phases",
+        "outputs"
+      ],
+      "execution_order": [
+        "validate_request",
+        "load_catalog",
+        "load_index",
+        "score_catalog",
+        "rank_routes",
+        "attach_runtime_trace",
+        "return_route_payload"
+      ],
+      "cheap_path_threshold": 3.0,
+      "max_route_limit": 10,
+      "llm_assist": {
+        "before_scoring": false,
+        "default": "disabled",
+        "escalation": "allowed_after_no_cheap_path_only",
+        "trace_field": "routing_evidence.llm_assist_used"
+      },
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "same_scoring_policy": true,
+        "runtime_trace_required": true
+      },
+      "score_model": "weighted_exact_and_token_overlap"
+    }
+  },
+  {
+    "id": "factory_agent_04_discovery",
+    "name": "Discovery Auditor",
+    "phase": "discovery",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits AS-IS coverage and repo inventory contracts.",
+    "outputs": [
+      "as_is_coverage_audit",
+      "repo_inventory_contract",
+      "coverage_gap_register"
+    ],
+    "as_is_inventory_contract": {
+      "version": "as-is-inventory-audit-1.0",
+      "source_catalog": "data/copilots.json",
+      "generated_index": "generated/copilot-index.json",
+      "router": "tools/semantic_router.py",
+      "target_copilot": "as_is_discovery",
+      "required_outputs": [
+        "as_is_report",
+        "inventory_json"
+      ],
+      "coverage_items": [
+        "source_systems",
+        "repository_topology",
+        "interfaces",
+        "data_flows",
+        "business_rules",
+        "dependencies",
+        "owners",
+        "risks",
+        "validation_signals"
+      ],
+      "inventory_fields": [
+        "path",
+        "artifact_type",
+        "owner",
+        "sdlc_phase",
+        "runtime_scope",
+        "evidence_ref",
+        "validation_status"
+      ],
+      "execution_order": [
+        "load_catalog",
+        "load_index",
+        "collect_runtime_trace",
+        "audit_as_is_outputs",
+        "audit_inventory_contract",
+        "emit_gap_register",
+        "return_discovery_audit"
+      ],
+      "evidence_field": "discovery_audit",
+      "gap_register_required": true,
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py as_is inventory coverage",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth": "dist/copilots/as_is_discovery/shared/spec.json",
+        "max_unexplained_drift": 0
+      }
+    }
+  },
+  {
+    "id": "factory_agent_05_architecture",
+    "name": "Architecture Auditor",
+    "phase": "architecture",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits principles, ADRs and technical decision quality."
+  },
+  {
+    "id": "factory_agent_06_design",
+    "name": "Design Auditor",
+    "phase": "design",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits domain boundaries, contracts and handoff clarity.",
+    "outputs": [
+      "domain_boundary_audit",
+      "contract_surface_matrix",
+      "handoff_evidence_pack"
+    ],
+    "design_boundary_contract": {
+      "version": "domain-boundary-handoff-audit-1.0",
+      "source_catalog": "data/copilots.json",
+      "generated_index": "generated/copilot-index.json",
+      "router": "tools/semantic_router.py",
+      "target_copilots": [
+        "aida_architecture",
+        "java_generic",
+        "java_architect",
+        "angular_18",
+        "nodejs"
+      ],
+      "required_evidence": [
+        "domain_boundaries",
+        "contracts",
+        "handoff_clarity",
+        "validation"
+      ],
+      "quality_gates": [
+        "boundary_ownership",
+        "contract_completeness",
+        "handoff_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "handoff"
+      ],
+      "required_handoff_fields": [
+        "next_owner",
+        "next_runtime",
+        "next_action",
+        "excluded_scope",
+        "dependency_direction",
+        "evidence_pack",
+        "validation_command",
+        "stop_condition"
+      ],
+      "execution_order": [
+        "load_catalog",
+        "collect_runtime_trace",
+        "audit_domain_boundaries",
+        "audit_contract_surfaces",
+        "audit_handoff_clarity",
+        "emit_boundary_gap_register",
+        "return_design_audit"
+      ],
+      "evidence_field": "design_boundary_audit",
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/semantic_router.py design domain boundaries contracts handoff",
+        "python tools/semantic_router.py diseno dominio contratos limites handoff",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth_pattern": "dist/copilots/<copilot_id>/shared/design_boundary_audit.json",
+        "max_unexplained_drift": 0
+      }
+    }
+  },
+  {
+    "id": "factory_agent_07_build",
+    "name": "Build Auditor",
+    "phase": "build",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits implementation plans and stack-specific rules.",
+    "outputs": [
+      "implementation_plan_audit",
+      "stack_rule_matrix",
+      "build_readiness_evidence_pack"
+    ],
+    "implementation_plan_contract": {
+      "version": "implementation-plan-stack-rules-audit-1.0",
+      "source_catalog": "data/copilots.json",
+      "generated_index": "generated/copilot-index.json",
+      "router": "tools/semantic_router.py",
+      "target_copilots": [
+        "devex",
+        "firefly_v5",
+        "firefly_v6",
+        "moonshine",
+        "java_generic",
+        "angular_18",
+        "nodejs",
+        "python"
+      ],
+      "required_evidence": [
+        "implementation_plan",
+        "stack_rules",
+        "affected_files",
+        "validation"
+      ],
+      "quality_gates": [
+        "scoped_implementation_plan",
+        "stack_rule_alignment",
+        "test_and_rollback_readiness",
+        "traceability_and_cost"
+      ],
+      "required_output_fields": [
+        "copilot_id",
+        "decision",
+        "evidence",
+        "actions",
+        "validation",
+        "risks",
+        "implementation"
+      ],
+      "required_implementation_fields": [
+        "target_stack",
+        "affected_files",
+        "plan_steps",
+        "stack_rules_checked",
+        "validation_commands",
+        "rollback_plan",
+        "out_of_scope",
+        "evidence_pack"
+      ],
+      "execution_order": [
+        "load_catalog",
+        "collect_runtime_trace",
+        "audit_implementation_plan",
+        "audit_stack_specific_rules",
+        "audit_validation_and_rollback",
+        "emit_build_gap_register",
+        "return_build_audit"
+      ],
+      "evidence_field": "implementation_plan_audit",
+      "validation_commands": [
+        "python tools/validate_copilot_factory.py",
+        "python tools/validate_prompt_quality.py",
+        "python tools/semantic_router.py build implementation stack rules affected files rollback",
+        "python tools/semantic_router.py implementacion reglas stack archivos rollback",
+        "python tools/semantic_router.py python ci routing"
+      ],
+      "runtime_equivalence": {
+        "runtimes": [
+          "codex",
+          "claude",
+          "github-copilot",
+          "langchain"
+        ],
+        "source_of_truth_pattern": "dist/copilots/<copilot_id>/shared/implementation_plan_audit.json",
+        "max_unexplained_drift": 0
+      }
+    }
+  },
+  {
+    "id": "factory_agent_08_test",
+    "name": "Test Auditor",
+    "phase": "test",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits test strategy, pairwise cases and negative cases."
+  },
+  {
+    "id": "factory_agent_09_security",
+    "name": "Security Auditor",
+    "phase": "security",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits sensitive credentials policy, threat model and safe MCP usage."
+  },
+  {
+    "id": "factory_agent_10_devops",
+    "name": "DevOps Auditor",
+    "phase": "devops",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits CI/CD, logs, reproducibility and rollback paths."
+  },
+  {
+    "id": "factory_agent_11_cloud",
+    "name": "Cloud Auditor",
+    "phase": "cloud",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits migration, target platform and modernization increments."
+  },
+  {
+    "id": "factory_agent_12_release",
+    "name": "Release Auditor",
+    "phase": "release",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits package readiness, scorecards and exit criteria."
+  },
+  {
+    "id": "factory_agent_13_operate",
+    "name": "Operate Auditor",
+    "phase": "operate",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits observability, incident playbooks and runbooks."
+  },
+  {
+    "id": "factory_agent_14_codex",
+    "name": "Codex Adapter Builder",
+    "phase": "adapter",
+    "mode": "adapter_generation",
+    "mission": "Builds Codex-facing task prompts and local tool protocol."
+  },
+  {
+    "id": "factory_agent_15_claude",
+    "name": "Claude Adapter Builder",
+    "phase": "adapter",
+    "mode": "adapter_generation",
+    "mission": "Builds Claude-facing project instructions and agent cards."
+  },
+  {
+    "id": "factory_agent_16_github",
+    "name": "GitHub Copilot Adapter Builder",
+    "phase": "adapter",
+    "mode": "adapter_generation",
+    "mission": "Builds GitHub Copilot profile docs and MCP placeholders."
+  },
+  {
+    "id": "factory_agent_17_langchain",
+    "name": "LangChain Adapter Builder",
+    "phase": "adapter",
+    "mode": "adapter_generation",
+    "mission": "Builds Python/LangChain compatible agent specs."
+  },
+  {
+    "id": "factory_agent_18_mcp",
+    "name": "MCP Connector Auditor",
+    "phase": "security",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits connector declarations and env placeholders."
+  },
+  {
+    "id": "factory_agent_19_docs",
+    "name": "Documentation Auditor",
+    "phase": "quality",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits generated READMEs and operator docs."
+  },
+  {
+    "id": "factory_agent_20_cost",
+    "name": "Token Cost Governor",
+    "phase": "operate",
+    "mode": "python_only",
+    "mission": "Routes cheap deterministic work to Python and expensive judgement to LLMs."
+  },
+  {
+    "id": "factory_agent_21_kb",
+    "name": "Knowledge Boundary Auditor",
+    "phase": "architecture",
+    "mode": "python_first_llm_sparse",
+    "mission": "Audits KB separation, source-of-truth rules and context windows."
+  },
+  {
+    "id": "factory_agent_22_qa",
+    "name": "QA Committee Chair",
+    "phase": "quality",
+    "mode": "python_first_llm_sparse",
+    "mission": "Consolidates all phase verdicts into a pass/fail report."
+  },
+  {
+    "id": "factory_agent_23_packager",
+    "name": "Product Packager",
+    "phase": "release",
+    "mode": "python_only",
+    "mission": "Builds distribution manifests and file indexes."
+  },
+  {
+    "id": "factory_agent_24_matrix",
+    "name": "SDLC Matrix Builder",
+    "phase": "test",
+    "mode": "python_only",
+    "mission": "Maintains the SDLC x Copilot x Runtime matrix."
+  },
+  {
+    "id": "factory_agent_25_smoke",
+    "name": "Smoke Runner",
+    "phase": "test",
+    "mode": "python_only",
+    "mission": "Runs generated validators and reports blockers."
+  },
+  {
+    "id": "copilot_owner_26_devex",
+    "name": "Copiloto DevEx Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto DevEx"
+  },
+  {
+    "id": "copilot_owner_27_aida_architecture",
+    "name": "Copiloto de Principios de Arquitectura AIDA Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto de Principios de Arquitectura AIDA"
+  },
+  {
+    "id": "copilot_owner_28_as_is_discovery",
+    "name": "Copiloto de Discovery AS-IS Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto de Discovery AS-IS"
+  },
+  {
+    "id": "copilot_owner_29_single_registry",
+    "name": "Copiloto Registro Unico Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Registro Unico"
+  },
+  {
+    "id": "copilot_owner_30_firefly_v5",
+    "name": "Copiloto Firefly v5 Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Firefly v5"
+  },
+  {
+    "id": "copilot_owner_31_firefly_v6",
+    "name": "Copiloto Firefly v6 Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Firefly v6"
+  },
+  {
+    "id": "copilot_owner_32_moonshine",
+    "name": "Copiloto Moonshine Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Moonshine"
+  },
+  {
+    "id": "copilot_owner_33_java_generic",
+    "name": "Copiloto Java Generico Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Java Generico"
+  },
+  {
+    "id": "copilot_owner_34_java_architect",
+    "name": "Copiloto Java Architect Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Java Architect"
+  },
+  {
+    "id": "copilot_owner_35_angular_18",
+    "name": "Copiloto Angular 18 Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Angular 18"
+  },
+  {
+    "id": "copilot_owner_36_nodejs",
+    "name": "Copiloto Node.js Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Node.js"
+  },
+  {
+    "id": "copilot_owner_37_python",
+    "name": "Copiloto Python Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Python"
+  },
+  {
+    "id": "copilot_owner_38_qa_general",
+    "name": "Copiloto QA General Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto QA General"
+  },
+  {
+    "id": "copilot_owner_39_sonarqube_remediation",
+    "name": "Copiloto SonarQube Remediacion Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto SonarQube Remediacion"
+  },
+  {
+    "id": "copilot_owner_40_cicd",
+    "name": "Copiloto CI/CD Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto CI/CD"
+  },
+  {
+    "id": "copilot_owner_41_journey_to_cloud",
+    "name": "Copiloto Journey to Cloud Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Journey to Cloud"
+  },
+  {
+    "id": "copilot_owner_42_copilots_manager",
+    "name": "Copilots Manager Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copilots Manager"
+  },
+  {
+    "id": "copilot_owner_43_firefly_marketplace",
+    "name": "Copiloto Firefly Marketplace Product Owner",
+    "phase": "productization",
+    "mode": "python_first_codex_assisted",
+    "mission": "own product quality for Copiloto Firefly Marketplace"
+  },
+  {
+    "id": "sdlc_auditor_44_operate",
+    "name": "Operate Deep Auditor 44",
+    "phase": "operate",
+    "mode": "python_audit_first",
+    "mission": "deep-audit operate evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_45_discovery",
+    "name": "Discovery Deep Auditor 45",
+    "phase": "discovery",
+    "mode": "python_audit_first",
+    "mission": "deep-audit discovery evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_46_as_is",
+    "name": "As_Is Deep Auditor 46",
+    "phase": "as_is",
+    "mode": "python_audit_first",
+    "mission": "deep-audit as_is evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_47_architecture",
+    "name": "Architecture Deep Auditor 47",
+    "phase": "architecture",
+    "mode": "python_audit_first",
+    "mission": "deep-audit architecture evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_48_design",
+    "name": "Design Deep Auditor 48",
+    "phase": "design",
+    "mode": "python_audit_first",
+    "mission": "deep-audit design evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_49_build",
+    "name": "Build Deep Auditor 49",
+    "phase": "build",
+    "mode": "python_audit_first",
+    "mission": "deep-audit build evidence across every copilot runtime"
+  },
+  {
+    "id": "sdlc_auditor_50_test",
+    "name": "Test Deep Auditor 50",
+    "phase": "test",
+    "mode": "python_audit_first",
+    "mission": "deep-audit test evidence across every copilot runtime"
+  }
+]
